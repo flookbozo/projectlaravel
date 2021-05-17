@@ -24,6 +24,7 @@ class Hospital extends Authenticatable
        'addresscode' ,
       ' hospitallattitude' ,
        'hospitallongitude',
+       'phonnumber	'
     ];
 
     protected $hidden = [

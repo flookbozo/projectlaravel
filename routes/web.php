@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterUserController;
 use App\Http\Controllers\RegisterHosController;
-
+use App\Http\Controllers\GivebloodController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::prefix('auth')->group(function() {
     Route::get('init', [RegisterUserController::class, 'init']);
     Route::post('logout', [RegisterUserController::class, 'logout']);
@@ -32,4 +33,5 @@ Route::prefix('auth')->group(function() {
         Route::post('register', [RegisterHosController::class, 'registerHospital']);
         Route::post('logout', [RegisterHosController::class, 'logout']);
     });
+    
 });

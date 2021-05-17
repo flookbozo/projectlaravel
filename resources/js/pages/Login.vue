@@ -1,6 +1,10 @@
 <template>
   <div class="container">
-    <nav class="nav nav-pills  nav-justified navbar-dark bg-dark " id="pills-tab" role="tablist"  >
+    <nav
+      class="nav nav-pills nav-justified navbar-dark bg-dark"
+      id="pills-tab"
+      role="tablist"
+    >
       <a
         class="nav-item nav-link active"
         id="pills-hospital-tab"
@@ -29,16 +33,17 @@
         id="pills-hospital"
         role="tabpanel"
         aria-labelledby="pills-hospital-tab"
-        
       >
         <div class="card">
-          <div class="card-header">Login</div>
+          <div class="card-header">
+            <h3 class="mb-1">Login Hospital</h3>
+          </div>
           <div class="card-body">
             <div class="col-md-6 offset-md-3">
               <form v-on:submit.prevent="onSubmitHospital">
-                <div class="alert alert-danger" v-if="errors.length">
+                <div class="alert alert-danger" v-if="hospital.errors.length">
                   <ul class="mb-0">
-                    <li v-for="(error, index) in errors" :key="index">
+                    <li v-for="(error, index) in hospital.errors" :key="index">
                       {{ error }}
                     </li>
                   </ul>
@@ -50,7 +55,7 @@
                     type="text"
                     class="form-control"
                     placeholder="Username..."
-                    v-model="username"
+                    v-model="hospital.username"
                   />
                 </div>
 
@@ -60,11 +65,11 @@
                     type="password"
                     class="form-control"
                     placeholder="Password..."
-                    v-model="password"
+                    v-model="hospital.password"
                   />
                 </div>
 
-                <button class="btn btn-success ">Login</button>
+                <button class="btn btn-success">Login</button>
               </form>
             </div>
           </div>
@@ -77,13 +82,13 @@
         aria-labelledby="pills-user-tab"
       >
         <div class="card">
-          <div class="card-header">Login</div>
+          <div class="card-header">  <h3 class="mb-1">Login User</h3></div>
           <div class="card-body">
             <div class="col-md-6 offset-md-3">
               <form v-on:submit.prevent="onSubmitUser">
-                <div class="alert alert-danger" v-if="errors.length">
+                <div class="alert alert-danger" v-if="user.errors.length">
                   <ul class="mb-0">
-                    <li v-for="(error, index) in errors" :key="index">
+                    <li v-for="(error, index) in user.errors" :key="index">
                       {{ error }}
                     </li>
                   </ul>
@@ -95,7 +100,7 @@
                     type="text"
                     class="form-control"
                     placeholder="Username..."
-                    v-model="username"
+                    v-model="user.username"
                   />
                 </div>
 
@@ -105,7 +110,7 @@
                     type="password"
                     class="form-control"
                     placeholder="Password..."
-                    v-model="password"
+                    v-model="user.password"
                   />
                 </div>
 
@@ -125,65 +130,73 @@ export default {
   props: ["app"],
   data() {
     return {
-      username: "",
-      password: "",
-      errors: [],
+      user: {
+        username: "",
+        password: "",
+        errors: [],
+      },
+      hospital: {
+        username: "",
+        password: "",
+        errors: [],
+      },
     };
   },
   methods: {
     onSubmitUser() {
-      this.errors = [];
+      this.user.errors = [];
 
-      if (!this.username) {
-        this.errors.push("Username is required.");
+      if (!this.user.username) {
+        this.user.errors.push("โปรดใส่ Username");
       }
 
-      if (!this.password) {
-        this.errors.push("Password is required.");
+      if (!this.user.password) {
+        this.user.errors.push("โปรดใส่ Password");
       }
 
-      if (!this.errors.length) {
+      if (!this.user.errors.length) {
         const data = {
-          username: this.username,
-          password: this.password,
+          username: this.user.username,
+          password: this.user.password,
         };
-
         this.app.req
-          .post("auth/user/login", data)
+          .post("auth/user/login", this.user)
           .then((response) => {
-            this.app.user = response.data;
+            this.app.user = response.data.user;
+            localStorage.setItem("User", "User");
             this.$router.push("/");
           })
           .catch((error) => {
-            this.errors.push(error.response.data.error);
+            this.user.errors.push(error.response.data.error);
           });
       }
     },
     onSubmitHospital() {
-      this.errors = [];
+      this.hospital.errors = [];
 
-      if (!this.username) {
-        this.errors.push("Username is required.");
+      if (!this.hospital.username) {
+        this.hospital.errors.push("โปรดใส่ Username");
       }
 
-      if (!this.password) {
-        this.errors.push("Password is required.");
+      if (!this.hospital.password) {
+        this.hospital.errors.push("โปรดใส่ Password");
       }
 
-      if (!this.errors.length) {
+      if (!this.hospital.errors.length) {
         const data = {
-          username: this.username,
-          password: this.password,
+          username: this.hospital.username,
+          password: this.hospital.password,
         };
 
         this.app.req
-          .post("auth/hospital/login", data)
+          .post("auth/hospital/login", this.hospital)
           .then((response) => {
-            this.app.hospital = response.data;
+            this.app.hospital = response.data.hospital;
+            localStorage.setItem("User", "H");
             this.$router.push("/");
           })
           .catch((error) => {
-            this.errors.push(error.response.data.error);
+            this.hospital.errors.push(error.response.data.error);
           });
       }
     },
@@ -193,16 +206,18 @@ export default {
 
 
 <style>
-
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-    color: #fff;
-    background-color: #ff4343; 
-     font-size: 20px;
-}
-.nav-link.active , .nav-link{
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
   color: #fff;
-   font-size: 20px;
+  background-color: #ff4343;
+  font-size: 20px;
 }
-
-
+.nav-link.active,
+.nav-link {
+  color: #fff;
+  font-size: 20px;
+}
+.tab-content {
+  background-color: #eeee;
+}
 </style>

@@ -37,6 +37,7 @@ class RegisterHosController extends Controller
         $user->addresscode = $request->addresscode;
         $user->hospitallattitude = $request->hospitallattitude;
         $user->hospitallongitude = $request->hospitallongitude;
+        $user->phonnumber = $request->phonnumber;
         $user->save();
     }
 
@@ -47,12 +48,12 @@ class RegisterHosController extends Controller
             return response()->json(Auth::guard('hospitals')->user(),200);
         }
         else {
-            return response()->json(['error' => 'Could not login.'], 401);
+            return response()->json(['error' => 'Username หรือ Password ไม่ถูกต้อง'], 401);
         }
     }
 
     public function logout()
     {
-        Auth::logout();
+        Auth::guard('hospitals')->logout();
     }
 }

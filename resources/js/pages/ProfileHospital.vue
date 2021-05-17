@@ -2,7 +2,9 @@
   <div class="container">
     <div class="card">
       <div class="card-body">
-        <h2 class="card-header bg-danger">Profile {{ users.username }}</h2>
+        <h2 class="card-header bg-danger">
+          โรงพยาบาล {{ hospital.hospitalname }}
+        </h2>
         <div class="row">
           <div class="col-md-3 toppad pull-right col-md-offset-3"></div>
           <div
@@ -19,43 +21,43 @@
                       <tr>
                         <td>ชื่อ-นามสกุล:</td>
                         <td>
-                          {{ users.prefix }}
-                          {{ users.firstname }}
-                          {{ users.lastname }}
+                          {{ hospital.prefix }}
+                          {{ hospital.firstname }}
+                          {{ hospital.lastname }}
                         </td>
                       </tr>
                       <tr>
-                        <td>เพศ:</td>
-                        <td>{{ users.gender }}</td>
-                      </tr>
-                      <tr v-if="users.gender == 'หญิง'">
-                        <td>คุณอยู่ในระหว่างต้ังครรภ์:</td>
-                        <td>{{ users.duringpregnancy }}</td>
-                      </tr>
-                      <tr v-if="users.gender == 'หญิง'">
-                        <td>คุณอยู่ในระยะให้นมบุตร:</td>
-                        <td>{{ users.breastfeeding }}</td>
-                      </tr>
-                      <tr v-if="users.gender == 'หญิง'">
-                        <td>คุณคลอดหรือแท้งภายใน 6 เดือน ที่ผ่านมา:</td>
-                        <td>{{ users.givebirth_past_6 }}</td>
-                      </tr>
-
-                      <tr></tr>
-                      <tr>
-                        <td>กรุ๊ปเลือด:</td>
-                        <td>{{ users.typeblood }}</td>
+                        <td>ชื่อโรงพยาบาล:</td>
+                        <td>
+                          {{ hospital.hospitalname }}
+                        </td>
                       </tr>
                       <tr>
-                        <td>กรุ๊ปเลือด RH:</td>
-                        <td>{{ users.typerh }}</td>
+                        <td>ที่อยู่โรงพยาบาล:</td>
+                        <td>
+                          {{ hospital.hospitaladdress }}
+                          {{ hospital.provine }}
+                          {{ hospital.addresscode }}
+                        </td>
                       </tr>
                       <tr>
-                        <td>วัน/เดือน/ปีเกิด:</td>
-                        <td>{{ users.date }}</td>
+                        <td>เบอร์โทรศัพท์โรงพยาบาล:</td>
+                        <td>
+                          {{ hospital.phonnumber }}
+                        </td>
                       </tr>
-                      <td>เบอร์โทรศัพท์:</td>
-                      <td>{{ users.phonnumber }}</td>
+                      <tr>
+                        <td>ละติจูด:</td>
+                        <td>
+                          {{ hospital.hospitallattitude }}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>ลองจิจูด:</td>
+                        <td>
+                          {{ hospital.hospitallongitude }}
+                        </td>
+                      </tr>
                     </tbody>
                   </table>
                 </div>
@@ -75,17 +77,17 @@
 </template>
 <script>
 export default {
-  name: "profileH",
+  name: "profilehospital",
   props: ["app"],
   data() {
     return {
-      users: null,
+      hospital: null,
     };
   },
   mounted() {
     // this.getUserdata();
-    this.app.req.get("auth/init").then((response) => {
-      this.users = response.data.user;
+    this.app.req.get("auth/hospital/init").then((response) => {
+      this.hospital = response.data.hospital;
     });
   },
 };
@@ -128,5 +130,5 @@ export default {
   background-color: #eeee;
 }
 </style>
-</template>
+
 

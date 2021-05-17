@@ -49,7 +49,7 @@ class RegisterUserController extends Controller
             return response()->json(Auth::user(),200);
         }
         else {
-            return response()->json(['error' => 'Could not login.'], 401);
+            return response()->json(['error' => 'Username หรือ Password ไม่ถูกต้อง'], 401);
         }
     }
 

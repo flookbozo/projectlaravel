@@ -1,11 +1,13 @@
 require("./bootstrap");
 window.Vue = require("vue");
-
+window.axios=require("axios");
 import Vue from "vue";
+
 import VueRouter from "vue-router";
 Vue.use(VueRouter);
 import "popper.js";
 import "bootstrap";
+
 import routes from "./routes";
 const router = new VueRouter({
     routes

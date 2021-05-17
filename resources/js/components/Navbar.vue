@@ -1,7 +1,7 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
-    <div class="container ">
-      <a class="navbar-brand" href="/">Blood Donate</a>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand " href="/">Blood Donate</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -16,7 +16,7 @@
       <div class="collapse navbar-collapse" id="collapsibleNavId">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
           <li class="nav-item">
-            <router-link class="nav-link" to="/Home">Home</router-link>
+            <router-link class="nav-link" to="/">Home</router-link>
           </li>
           <li class="nav-item">
             <router-link class="nav-link" to="/About">About</router-link>
@@ -30,7 +30,7 @@
               data-toggle="dropdown"
               aria-haspopup="true"
               aria-expanded="false"
-              >Dropdown</a
+              >ข่าวสาร</a
             >
             <div class="dropdown-menu" aria-labelledby="dropdownId">
               <a class="dropdown-item" href="#">Action 1</a>
@@ -59,10 +59,17 @@
             >
               {{ app.user.username }}</a
             >
-            <div class="dropdown-menu">
-              <a class="dropdown-item">
-                <router-link to="/Profile">ข้อมูลส่วนตัว</router-link>
-              </a>
+           <div class="dropdown-menu" aria-labelledby="dropdownId">
+           <div v-if="checkUser()">
+              <router-link  class="dropdown-item"  to="/Profile">ข้อมูลส่วนตัว</router-link>
+           </div>
+           <div v-else>
+             <router-link  class="dropdown-item"  to="/ProfileHospital">ข้อมูลส่วนตัว</router-link>
+              <router-link  class="dropdown-item"  to="/Giveblood">ร้องขอเลือด</router-link>
+           </div>
+             
+                
+              
               <a @click="logout" href="javascript:;" class="dropdown-item"
                 >Logout
               </a>
@@ -94,19 +101,30 @@ export default {
         this.$router.push("/login");
       });
     },
+    checkUser() {
+      if(localStorage.getItem("User")==("User")) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    },
   },
 };
 </script>
 
 <style>
+.dropdown-item{
+ color: black;
+}
 .navbar-brand {
   font-size: 20px;
 }
 .nav-link {
-  font-size: 15px;
+  font-size: 16px;
 }
-.nav{
+.nav {
   position: fixed top;
-  
+
 }
 </style>
