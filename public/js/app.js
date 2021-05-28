@@ -4438,7 +4438,6 @@ __webpack_require__.r(__webpack_exports__);
   name: "resetpasswordUser",
   data: function data() {
     return {
-      post: null,
       users: {}
     };
   },

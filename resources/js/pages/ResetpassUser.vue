@@ -48,7 +48,7 @@ export default {
   name: "resetpasswordUser",
   data() {
     return {
-      post: null,
+
       users: {},
     };
   },
