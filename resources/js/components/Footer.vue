@@ -108,7 +108,7 @@
 }
 footer {
   width: 100%;
-  background-color: #263238;
+  background-color: #0F428A;
   min-height: 250px;
   padding: 10px 0px 25px 0px;
   position: relative;
@@ -166,7 +166,7 @@ footer p {
 }
 
 .bottom_border {
-  border-bottom: 1px solid #323f45;
+  border-bottom: 1px solid #30475e;
   padding-bottom: 20px;
 }
 .foote_bottom_ul_amrc {

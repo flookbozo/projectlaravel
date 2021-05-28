@@ -41,7 +41,7 @@
                         </td>
                       </tr>
                       <tr>
-                        <td>เบอร์โทรศัพท์โรงพยาบาล:</td>
+                        <td>เบอร์โทรศัพท์:</td>
                         <td>
                           {{ hospital.phonnumber }}
                         </td>
@@ -67,9 +67,9 @@
         </div>
         <div class="text-center">
           <router-link></router-link>
-
-          <router-link class="btn btn-primary" to="/Edituser">Edit</router-link>
-          <a href="#" class="btn btn-danger"> Delete</a>
+          <router-link :to="{ name: 'edithospital', params: { id: hospital.id }}" class="btn btn-danger">Edit</router-link>
+          <!-- <router-link class="btn btn-primary" to="/EditHospital">Edit</router-link> -->
+          
         </div>
       </div>
     </div>

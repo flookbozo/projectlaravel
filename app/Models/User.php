@@ -25,13 +25,15 @@ class User extends Authenticatable
         'firstname' ,
         'lastname' ,
  	    'gender',
-     	'duringpregnancy'	,
+     	'duringpregnancy',
         'breastfeeding',
         'givebirth_past_6',
         'typeblood'	,
         'typerh',
         'date',
-        'phonnumber	'
+        'phonnumber',
+        'question',
+        'answer'
         
     ];
 

@@ -5,14 +5,29 @@ import Login from './pages/Login';
 import Profile from './pages/Profile';
 import ProfileHospital from './pages/ProfileHospital';
 import Edituser from './pages/Edituser';
+import EditHospital from './pages/EditHospital';
 import Giveblood from './pages/Giveblood';
 import ProfileGiveblood from './pages/ProfileGiveblood';
+import ResetpassHospital from './pages/ResetpassHospital';
+import ResetpassUser from './pages/ResetpassUser';
+import ForgetpassUser from './pages/ForgetpassUser';
+import ForgetpassHospital from './pages/ForgetpassHospital';
 
 export default [
     {
         path: '/',
         component: Home,
         name : 'home'
+    },
+    {
+        path: '/forgetpasshospital',
+        component: ForgetpassHospital,
+        name : 'forgetpasshospital'
+    },
+    {
+        path: '/forgetpassuser',
+        component: ForgetpassUser,
+        name : 'forgetpassuser'
     },
     
     {
@@ -43,9 +58,14 @@ export default [
         name : 'about'
     },
     {
-        path: '/edituser',
+        path: '/edituser:id',
         component: Edituser,
         name : 'edituser'
+    },
+    {
+        path: '/edithospital:id',
+        component: EditHospital,
+        name : 'edithospital'
     },
     {
         path: '/giveblood',
@@ -56,6 +76,17 @@ export default [
         path: '/profilegiveblood',
         component: ProfileGiveblood,
         name : 'profilegiveblood'
+    },
+    {
+        path: '/resetpasshospital',
+        component: ResetpassHospital,
+        name : 'resetpasshospital'
+    }
+    ,
+    {
+        path: '/resetpassuser',
+        component:ResetpassUser,
+        name : 'resetpassuser'
     }
 
 ]

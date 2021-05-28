@@ -1,7 +1,8 @@
 <template>
   <div class="container">
     <nav
-      class="nav nav-pills nav-justified navbar-dark bg-dark"
+      class="nav nav-pills nav-justified navbar-dark"
+      style="background-color: #fff0e2"
       id="pills-tab"
       role="tablist"
     >
@@ -41,7 +42,10 @@
           <div class="card-body">
             <div class="col-md-6 offset-md-3">
               <form v-on:submit.prevent="onSubmitHospital">
-                <div class="alert alert-danger" v-if="hospital.errors.length">
+                <div
+                  class="alert alert-danger glyphicon glyphicon-info-sign"
+                  v-if="hospital.errors.length"
+                >
                   <ul class="mb-0">
                     <li v-for="(error, index) in hospital.errors" :key="index">
                       {{ error }}
@@ -50,12 +54,12 @@
                 </div>
 
                 <div class="form-group">
-                  <label>Username</label>
+                  <label>Email</label>
                   <input
                     type="text"
                     class="form-control"
                     placeholder="Username..."
-                    v-model="hospital.username"
+                    v-model="hospital.email"
                   />
                 </div>
 
@@ -69,7 +73,18 @@
                   />
                 </div>
 
-                <button class="btn btn-success">Login</button>
+                <div class="text-center">
+                  <router-link
+                    id="forget"
+                    class="nav-link"
+                    style="color: #ff4343"
+                    to="ResetpassUser"
+                    >ลืมรหัสผ่าน</router-link
+                  >
+                  <button class="btn btn-success btn-lg btn-block">
+                    Login
+                  </button>
+                </div>
               </form>
             </div>
           </div>
@@ -82,7 +97,7 @@
         aria-labelledby="pills-user-tab"
       >
         <div class="card">
-          <div class="card-header">  <h3 class="mb-1">Login User</h3></div>
+          <div class="card-header"><h3 class="mb-1">Login User</h3></div>
           <div class="card-body">
             <div class="col-md-6 offset-md-3">
               <form v-on:submit.prevent="onSubmitUser">
@@ -95,12 +110,12 @@
                 </div>
 
                 <div class="form-group">
-                  <label>Username</label>
+                  <label>Email</label>
                   <input
                     type="text"
                     class="form-control"
                     placeholder="Username..."
-                    v-model="user.username"
+                    v-model="user.email"
                   />
                 </div>
 
@@ -113,8 +128,18 @@
                     v-model="user.password"
                   />
                 </div>
-
-                <button class="btn btn-success">Login</button>
+                <div class="text-center">
+                  <router-link
+                    id="forget"
+                    class="nav-link"
+                    style="color: #ff4343"
+                    to="ForgetpassUser"
+                    >ลืมรหัสผ่าน</router-link
+                  >
+                  <button class="btn btn-success btn-lg btn-block">
+                    Login
+                  </button>
+                </div>
               </form>
             </div>
           </div>
@@ -131,12 +156,12 @@ export default {
   data() {
     return {
       user: {
-        username: "",
+        email: "",
         password: "",
         errors: [],
       },
       hospital: {
-        username: "",
+        email: "",
         password: "",
         errors: [],
       },
@@ -146,8 +171,8 @@ export default {
     onSubmitUser() {
       this.user.errors = [];
 
-      if (!this.user.username) {
-        this.user.errors.push("โปรดใส่ Username");
+      if (!this.user.email) {
+        this.user.errors.push("โปรดใส่ Email");
       }
 
       if (!this.user.password) {
@@ -156,7 +181,7 @@ export default {
 
       if (!this.user.errors.length) {
         const data = {
-          username: this.user.username,
+          email: this.user.email,
           password: this.user.password,
         };
         this.app.req
@@ -174,7 +199,7 @@ export default {
     onSubmitHospital() {
       this.hospital.errors = [];
 
-      if (!this.hospital.username) {
+      if (!this.hospital.email) {
         this.hospital.errors.push("โปรดใส่ Username");
       }
 
@@ -184,7 +209,7 @@ export default {
 
       if (!this.hospital.errors.length) {
         const data = {
-          username: this.hospital.username,
+          email: this.hospital.email,
           password: this.hospital.password,
         };
 
@@ -200,6 +225,9 @@ export default {
           });
       }
     },
+    created() {
+      console.log("===> " + this.$store.getters.getloginid);
+    },
   },
 };
 </script>
@@ -209,15 +237,18 @@ export default {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #ff4343;
+  background-color: #ff4b45;
   font-size: 20px;
 }
 .nav-link.active,
 .nav-link {
-  color: #fff;
-  font-size: 20px;
+  color: #ff4b45;
+  font-size: 30px;
 }
 .tab-content {
   background-color: #eeee;
+}
+#forget {
+  margin-top: -3%;
 }
 </style>

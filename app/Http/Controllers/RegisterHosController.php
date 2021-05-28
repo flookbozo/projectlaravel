@@ -38,17 +38,19 @@ class RegisterHosController extends Controller
         $user->hospitallattitude = $request->hospitallattitude;
         $user->hospitallongitude = $request->hospitallongitude;
         $user->phonnumber = $request->phonnumber;
+        $user->question = $request->question;
+        $user->answer = $request->answer;
         $user->save();
     }
 
     public function loginHospital(Request $request)
     {
-        if (Auth::guard('hospitals')->attempt(['username' => $request->username, 'password' => $request->password], true))
+        if (Auth::guard('hospitals')->attempt(['email' => $request->email, 'password' => $request->password], true))
         {
             return response()->json(Auth::guard('hospitals')->user(),200);
         }
         else {
-            return response()->json(['error' => 'Username หรือ Password ไม่ถูกต้อง'], 401);
+            return response()->json(['error' => 'Email หรือ Password ไม่ถูกต้อง'], 401);
         }
     }
 

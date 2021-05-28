@@ -18,13 +18,15 @@ class Hospital extends Authenticatable
         'prefix',
         'firstname' ,
        'lastname' ,
-       ' hospitalname ',
+       'hospitalname',
         'hospitaladdress' ,
        'provine'  ,
        'addresscode' ,
       ' hospitallattitude' ,
        'hospitallongitude',
-       'phonnumber	'
+       'phonnumber',
+       'question',
+       'answer',
     ];
 
     protected $hidden = [

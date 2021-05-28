@@ -154,7 +154,7 @@ export default {};
   border-top-right-radius: 0px;
 }
 .card-header .card {
-  background-color: #eeee;
+  background-color: #FFF0E2;
 }
 .H1 {
   padding-top: 15px;

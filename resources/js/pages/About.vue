@@ -150,7 +150,7 @@ h4 {
   font-weight: 400;
   margin-bottom: 30px;
 }
-h10{
+h10 {
      font-size: 19px;
   line-height: 1.375em;
   color: #fff;

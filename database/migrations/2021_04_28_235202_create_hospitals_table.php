@@ -29,7 +29,8 @@ class CreateHospitalsTable extends Migration
             $table->string('addresscode');
             $table->double('hospitallattitude');
             $table->double('hospitallongitude');
-            $table->string('phonnumber');
+            $table->string('question');
+            $table->string('answer');
         });
     }
 

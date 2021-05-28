@@ -2,7 +2,8 @@
   <div class="container">
     <div class="registerfrom">
       <nav
-        class="nav nav-pills nav-justified navbar-dark bg-dark"
+        class="nav nav-pills nav-justified navbar-dark"
+        style="background-color: #FFF0E2"
         id="pills-tab"
         role="tablist"
       >
@@ -12,9 +13,10 @@
           data-toggle="pill"
           href="#pills-hospital"
           role="tab"
+          
           aria-controls="pills-hospital"
           aria-selected="true"
-          >Hospital</a
+          >Register Hospital</a
         >
         <a
           class="nav-item nav-link"
@@ -24,7 +26,7 @@
           role="tab"
           aria-controls="pills-user"
           aria-selected="false"
-          >User</a
+          >Register User</a
         >
       </nav>
 
@@ -36,9 +38,6 @@
           aria-labelledby="pills-hospital-tab"
         >
           <div class="card">
-            <div class="card-header">
-              <h3 class="mb-0">Register Hospital</h3>
-            </div>
             <div class="card-body">
               <div class="col-md-6 offset-md-3">
                 <form v-on:submit.prevent="onSubmitHospital">
@@ -282,9 +281,6 @@
           aria-labelledby="pills-user-tab"
         >
           <div class="card">
-            <div class="card-header">
-              <h3 class="mb-0">Register User</h3>
-            </div>
             <div class="card-body">
               <div class="col-md-6 offset-md-3">
                 <form v-on:submit.prevent="onSubmitUser">
@@ -534,6 +530,45 @@
                     />
                   </div>
 
+                   <div class="form-group">
+                    <div class="card">
+                      <div
+                        class="card-header"
+                        style="background-color: #ff4343"
+                      >
+                        <h9 class="mb-3" style="color: #FFF0E2"
+                          >เลือกคำถามและคำตอบเพื่อความปลอดภัย</h9
+                        >
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label
+                        >*คำถามเหล่านี้จะถูกใช้เพื่อยืนยันตัวตนของคุณ
+                        และช่วยกู้คืนรหัสผ่านหากคุณลืม</label
+                      >
+                      <div
+                        class="rs-select4 js-select-simple select--no-search"
+                      >
+                        <select
+                          class="form-control typeblood"
+                          v-model="user.question"
+        
+                        >
+                          <option value="">โปรดเลือกคำถาม</option>
+                          <option>สัตว์เลี้ยงตัวแรก</option>
+                          <option>ชื่อสัตว์เลี้ยงตัวแรก</option>
+                        </select>
+                        <div class="select-dropdown"></div>
+                      </div>
+
+                      <input
+                        class="form-control"
+                        placeholder="คำตอบ"
+                        v-model="user.answer"
+                      />
+                    </div>
+                  </div>
+                
                   <div class="text-center">
                     <button class="btn btn-success btn-lg">สมัคร</button>
                   </div>
@@ -551,6 +586,7 @@
 export default {
   name: "register",
   props: ["app"],
+ 
   data() {
     return {
       user: {
@@ -570,6 +606,8 @@ export default {
         typerh: "",
         date: "",
         phonnumber: "",
+        question:"",
+        answer:"",
         errors: [],
       },
       hospital: {
@@ -648,10 +686,17 @@ export default {
       if (!this.user.phonnumber) {
         this.user.errors.push("โปรดใส่เบอร์โทรศัพท์");
       }
+      if (!this.user.question) {
+        this.user.errors.push("ใส่คำถามเพื่อความปลอดภัย");
+      }
+      if (!this.user.answer) {
+        this.user.errors.push("ใส่");
+      }
       if (!this.user.errors.length) {
         const data = {
           username: this.user.username,
           password: this.user.password,
+            email: this.user.email,
           firstname: this.user.firstname,
           lastname: this.user.lastname,
           gender: this.user.gender,
@@ -662,6 +707,8 @@ export default {
           typerh: this.user.typerh,
           date: this.user.date,
           phonnumber: this.user.phonnumber,
+          question: this.user.question,
+        answer: this.user.answer,
         };
         console.log(this.user);
         this.app.req
@@ -765,4 +812,5 @@ export default {
 .nav-link {
   font-size: 20px;
 }
+
 </style>

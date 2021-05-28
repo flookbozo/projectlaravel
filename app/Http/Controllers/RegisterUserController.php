@@ -39,17 +39,19 @@ class RegisterUserController extends Controller
         $user->typerh = $request->typerh;
         $user->date = $request->date;
         $user->phonnumber = $request->phonnumber;
+        $user->question = $request->question;
+        $user->answer = $request->answer;
         $user->save();
     }
 
     public function loginUser(Request $request)
     {
-        if (Auth::attempt(['username' => $request->username, 'password' => $request->password], true))
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password], true))
         {
             return response()->json(Auth::user(),200);
         }
         else {
-            return response()->json(['error' => 'Username หรือ Password ไม่ถูกต้อง'], 401);
+            return response()->json(['error' => 'Email หรือ Password ไม่ถูกต้อง'], 401);
         }
     }
 

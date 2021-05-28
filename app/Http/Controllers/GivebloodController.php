@@ -30,10 +30,10 @@ class GivebloodController extends Controller
         return response()->json('Product created!');
     }
 
-    public function delete($id)
+    public function deleteGiveblood($id)
     {
-        $book = Giveblood::find($id);
-        $book->delete();
+        $user = Giveblood::find($id);
+        $user->delete();
 
         return response()->json('Giveblood successfully deleted');
     }

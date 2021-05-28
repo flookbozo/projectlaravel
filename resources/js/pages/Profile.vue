@@ -25,6 +25,10 @@
                         </td>
                       </tr>
                       <tr>
+                        <td>Email:</td>
+                        <td>{{ users.email }}</td>
+                      </tr>
+                      <tr>
                         <td>เพศ:</td>
                         <td>{{ users.gender }}</td>
                       </tr>
@@ -64,10 +68,8 @@
           </div>
         </div>
         <div class="text-center">
-          <router-link></router-link>
-
-          <router-link class="btn btn-primary" to="/Edituser">Edit</router-link>
-          <a href="#" class="btn btn-danger"> Delete</a>
+          <router-link :to="{ name: 'edituser', params: { id: users.id }}" class="btn btn-danger">Edit</router-link>
+         
         </div>
       </div>
     </div>
@@ -125,7 +127,7 @@ export default {
   margin-top: 20px;
 }
 .card .card-body {
-  background-color: #eeee;
+  background-color: #eee;
 }
 </style>
 </template>
