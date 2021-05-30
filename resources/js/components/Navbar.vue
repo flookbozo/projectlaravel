@@ -65,9 +65,7 @@
                 <router-link class="dropdown-item" to="/ProfileHospital"
                   >ข้อมูลส่วนตัว</router-link
                 >
-                <router-link class="dropdown-item" to="/Giveblood"
-                  >ร้องขอเลือด</router-link
-                >
+            
                 <router-link class="dropdown-item" to="/Profilegiveblood"
                   >การขอเลือด</router-link
                 >

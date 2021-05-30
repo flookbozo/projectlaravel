@@ -3,7 +3,7 @@
     <div class="registerfrom">
       <nav
         class="nav nav-pills nav-justified navbar-dark"
-        style="background-color: #FFF0E2"
+        style="background-color: #fff0e2"
         id="pills-tab"
         role="tablist"
       >
@@ -13,7 +13,6 @@
           data-toggle="pill"
           href="#pills-hospital"
           role="tab"
-          
           aria-controls="pills-hospital"
           aria-selected="true"
           >Register Hospital</a
@@ -44,9 +43,7 @@
                   <div class="alert alert-danger" v-if="hospital.errors.length">
                     <ul class="mb-0">
                       <li
-                        v-for="(error, index) in hospital.errors"
-                        :key="index"
-                      >
+                        v-for="(error, index) in hospital.errors" :key="index">
                         {{ error }}
                       </li>
                     </ul>
@@ -266,8 +263,46 @@
                       v-model="hospital.hospitallongitude"
                     />
                   </div>
+
+                   <div class="form-group">
+                    <div class="card">
+                      <div
+                        class="card-header"
+                        style="background-color: #ff4343"
+                      >
+                        <h9 class="mb-3" style="color: #fff0e2"
+                          >เลือกคำถามและคำตอบเพื่อความปลอดภัย</h9
+                        >
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label
+                        >*คำถามเหล่านี้จะถูกใช้เพื่อยืนยันตัวตนของคุณ
+                        และช่วยกู้คืนรหัสผ่านหากคุณลืม</label
+                      >
+                      <div
+                        class="rs-select4 js-select-simple select--no-search"
+                      >
+                        <select
+                          class="form-control typeblood"
+                          v-model="hospital.question"
+                        >
+                          <option value="">โปรดเลือกคำถาม</option>
+                          <option>สัตว์เลี้ยงตัวแรก</option>
+                          <option>ชื่อสัตว์เลี้ยงตัวแรก</option>
+                        </select>
+                        <div class="select-dropdown"></div>
+                      </div>
+
+                      <input
+                        class="form-control"
+                        placeholder="คำตอบ"
+                        v-model="hospital.answer"
+                      />
+                    </div>
+                  </div>
                   <div class="text-center">
-                    <button class="btn btn-success btn-lg">Register</button>
+                    <button class="btn btn-success btn-lg">สมัคร</button>
                   </div>
                 </form>
               </div>
@@ -530,13 +565,13 @@
                     />
                   </div>
 
-                   <div class="form-group">
+                  <div class="form-group">
                     <div class="card">
                       <div
                         class="card-header"
                         style="background-color: #ff4343"
                       >
-                        <h9 class="mb-3" style="color: #FFF0E2"
+                        <h9 class="mb-3" style="color: #fff0e2"
                           >เลือกคำถามและคำตอบเพื่อความปลอดภัย</h9
                         >
                       </div>
@@ -552,7 +587,6 @@
                         <select
                           class="form-control typeblood"
                           v-model="user.question"
-        
                         >
                           <option value="">โปรดเลือกคำถาม</option>
                           <option>สัตว์เลี้ยงตัวแรก</option>
@@ -568,7 +602,7 @@
                       />
                     </div>
                   </div>
-                
+
                   <div class="text-center">
                     <button class="btn btn-success btn-lg">สมัคร</button>
                   </div>
@@ -586,7 +620,7 @@
 export default {
   name: "register",
   props: ["app"],
- 
+
   data() {
     return {
       user: {
@@ -606,8 +640,8 @@ export default {
         typerh: "",
         date: "",
         phonnumber: "",
-        question:"",
-        answer:"",
+        question: "",
+        answer: "",
         errors: [],
       },
       hospital: {
@@ -624,6 +658,8 @@ export default {
         hospitallattitude: "",
         hospitallongitude: "",
         phonnumber: "",
+        question: "",
+        answer: "",
         errors: [],
       },
     };
@@ -690,13 +726,13 @@ export default {
         this.user.errors.push("ใส่คำถามเพื่อความปลอดภัย");
       }
       if (!this.user.answer) {
-        this.user.errors.push("ใส่");
+        this.user.errors.push("ใส่คำตอบเพื่อความปลอดภัย");
       }
       if (!this.user.errors.length) {
         const data = {
           username: this.user.username,
           password: this.user.password,
-            email: this.user.email,
+          email: this.user.email,
           firstname: this.user.firstname,
           lastname: this.user.lastname,
           gender: this.user.gender,
@@ -708,7 +744,7 @@ export default {
           date: this.user.date,
           phonnumber: this.user.phonnumber,
           question: this.user.question,
-        answer: this.user.answer,
+          answer: this.user.answer,
         };
         console.log(this.user);
         this.app.req
@@ -773,6 +809,12 @@ export default {
       if (!this.hospital.hospitallattitude) {
         this.hospital.errors.push("โปรดใส่ละติจูด");
       }
+      if (!this.hospital.question) {
+        this.hospital.errors.push("ใส่คำถามเพื่อความปลอดภัย");
+      }
+      if (!this.hospital.answer) {
+        this.hospital.errors.push("ใส่คำตอบเพื่อความปลอดภัย");
+      }
 
       if (!this.hospital.errors.length) {
         const data = {
@@ -789,6 +831,8 @@ export default {
           hospitallattitude: this.hospital.hospitallattitude,
           hospitallongitude: this.hospital.hospitallongitude,
           phonnumber: this.hospital.phonnumber,
+          question: this.hospital.question,
+          answer: this.hospital.answer,
         };
         this.app.req
           .post("auth/hospital/register", this.hospital)
@@ -812,5 +856,4 @@ export default {
 .nav-link {
   font-size: 20px;
 }
-
 </style>

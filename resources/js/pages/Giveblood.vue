@@ -57,18 +57,6 @@
                 v-model="giveblood.deficiencyBlood"
               />
             </div>
-
-            <label>วัน/เดือน/ปีที่ขอเลือด</label>
-            <div class="form-group">
-              <div class="col-20">
-                <input
-                  class="form-control"
-                  type="date"
-                  id="example-date-input"
-                  v-model="giveblood.date"
-                />
-              </div>
-            </div>
             <div class="text-center">
               <button class="btn btn-success btn-lg">ส่งคำขอเลือด</button>
             </div>
@@ -89,7 +77,6 @@ export default {
         idHospital: "",
         typeblood: "",
         typerh: "",
-        date: "",
         deficiencyBlood: "",
         errors: [],
       },
@@ -108,14 +95,10 @@ export default {
       if (!this.giveblood.deficiencyBlood) {
         this.giveblood.errors.push("โปรดใส่ปริมาณเลือดที่ต้องการ");
       }
-      if (!this.giveblood.date) {
-        this.giveblood.errors.push("โปรดระบุวันที่");
-      }
       if (!this.giveblood.errors.length) {
         const data = {
           typeblood: this.giveblood.typeblood,
           typerh: this.giveblood.typerh,
-          date: this.giveblood.date,
           deficiencyBlood: this.giveblood.deficiencyBlood,
         };
         this.giveblood.idHospital = this.app.user.id;

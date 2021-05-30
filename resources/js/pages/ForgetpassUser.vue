@@ -52,9 +52,7 @@
             </div>
 
             <div class="text-center">
-              <button class="btn btn-success btn-lg btn-block">
-                Reset Password
-              </button>
+              <router-link :to="{ name: 'resetpassuser', params: { id: users.id }}" class="btn btn-danger">Edit</router-link>
             </div>
           </form>
         </div>

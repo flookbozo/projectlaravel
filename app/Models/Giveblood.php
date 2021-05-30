@@ -12,7 +12,6 @@ class Giveblood extends Model
     'idHospital',
     'typeblood',
     'typerh', 
-    'date',
     'deficiencyBlood',
     ];
 

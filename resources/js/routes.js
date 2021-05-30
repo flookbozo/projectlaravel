@@ -84,7 +84,7 @@ export default [
     }
     ,
     {
-        path: '/resetpassuser',
+        path: '/resetpassuser:id',
         component:ResetpassUser,
         name : 'resetpassuser'
     }

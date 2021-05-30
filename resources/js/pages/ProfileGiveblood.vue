@@ -1,41 +1,39 @@
 <template>
   <div class="container">
-    <h3 class="text-center">All Books</h3>
-    <br />
-
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>กรุ๊ปเลือด</th>
-          <th>กรุ๊ปเลือด RH</th>
-          <th>ปริมาณโลหิตที่ต้องการ</th>
-          <th>Created At</th>
-          <th>Updated At</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="(giveblood, index) in givebloods" :key="giveblood.id">
-          <div v-if="giveblood.idHospital == app.user.id">
-            <td>{{ giveblood.typeblood }}</td>
-            <td>{{ giveblood.typerh }}</td>
-            <td>{{ giveblood.date }}</td>
-            <td>{{ giveblood.deficiencyBlood }}</td>
-            <td>
-              <div class="btn-group" role="group">
-                <a
-                  href="javascript:;"
-                  class="btn btn-danger"
-                  v-on:click="deleteBlood(giveblood.id, index)"
-                >
-                  Delete
-                </a>
-              </div>
-            </td>
-          </div>
-        </tr>
-      </tbody>
-    </table>
+    <div class="card">
+      <div class="card-header" style="background-color: #f05454">
+        ขอบริจาคเลือด
+      </div>
+      <div class="card-body">
+        <div class="col-md-6 offset-md-3">
+          <table class="table table-bordered">
+            <tbody>
+              <tr v-for="(giveblood, index) in givebloods" :key="giveblood.id">
+                <div v-if="giveblood.idHospital == app.user.id">
+                  <td>{{ giveblood.typeblood }}</td>
+                  <td>{{ giveblood.typerh }}</td>
+                  <td>{{ giveblood.deficiencyBlood }}</td>
+                  <td>
+                    <div class="btn-group" role="group">
+                      <a
+                        href="javascript:;"
+                        class="btn btn-danger"
+                        v-on:click="deleteBlood(giveblood.id, index)"
+                      >
+                        Delete
+                      </a>
+                    </div>
+                  </td>
+                </div>
+              </tr>
+            </tbody>
+          </table>
+          <router-link class="btn btn-success btn-lg" to="/Giveblood"
+            >ร้องขอเลือด</router-link
+          >
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 

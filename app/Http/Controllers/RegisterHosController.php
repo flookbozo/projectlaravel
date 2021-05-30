@@ -50,7 +50,7 @@ class RegisterHosController extends Controller
             return response()->json(Auth::guard('hospitals')->user(),200);
         }
         else {
-            return response()->json(['error' => 'Email หรือ Password ไม่ถูกต้อง'], 401);
+            return response()->json(['error' => 'Username หรือ Password ไม่ถูกต้อง'], 401);
         }
     }
 

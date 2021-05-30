@@ -2007,8 +2007,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "navbar",
   props: ["app"],
@@ -2623,8 +2621,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "forgetpasswordUser",
@@ -2793,18 +2789,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "regisGiveblood",
@@ -2815,7 +2799,6 @@ __webpack_require__.r(__webpack_exports__);
         idHospital: "",
         typeblood: "",
         typerh: "",
-        date: "",
         deficiencyBlood: "",
         errors: []
       }
@@ -2839,15 +2822,10 @@ __webpack_require__.r(__webpack_exports__);
         this.giveblood.errors.push("โปรดใส่ปริมาณเลือดที่ต้องการ");
       }
 
-      if (!this.giveblood.date) {
-        this.giveblood.errors.push("โปรดระบุวันที่");
-      }
-
       if (!this.giveblood.errors.length) {
         var data = {
           typeblood: this.giveblood.typeblood,
           typerh: this.giveblood.typerh,
-          date: this.giveblood.date,
           deficiencyBlood: this.giveblood.deficiencyBlood
         };
         this.giveblood.idHospital = this.app.user.id;
@@ -3354,8 +3332,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-//
-//
 //
 //
 //
@@ -4140,6 +4116,40 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "register",
   props: ["app"],
@@ -4171,6 +4181,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         hospitallattitude: "",
         hospitallongitude: "",
         phonnumber: "",
+        question: "",
+        answer: "",
         errors: []
       }
     };
@@ -4252,7 +4264,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
 
       if (!this.user.answer) {
-        this.user.errors.push("ใส่");
+        this.user.errors.push("ใส่คำตอบเพื่อความปลอดภัย");
       }
 
       if (!this.user.errors.length) {
@@ -4348,6 +4360,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.hospital.errors.push("โปรดใส่ละติจูด");
       }
 
+      if (!this.hospital.question) {
+        this.hospital.errors.push("ใส่คำถามเพื่อความปลอดภัย");
+      }
+
+      if (!this.hospital.answer) {
+        this.hospital.errors.push("ใส่คำตอบเพื่อความปลอดภัย");
+      }
+
       if (!this.hospital.errors.length) {
         var data = {
           username: this.hospital.username,
@@ -4362,7 +4382,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           addresscode: this.hospital.addresscode,
           hospitallattitude: this.hospital.hospitallattitude,
           hospitallongitude: this.hospital.hospitallongitude,
-          phonnumber: this.hospital.phonnumber
+          phonnumber: this.hospital.phonnumber,
+          question: this.hospital.question,
+          answer: this.hospital.answer
         };
         this.app.req.post("auth/hospital/register", this.hospital).then(function (response) {
           _this2.app.hospital = response.data.hospital;
@@ -4438,16 +4460,35 @@ __webpack_require__.r(__webpack_exports__);
   name: "resetpasswordUser",
   data: function data() {
     return {
-      users: {}
+      users: [],
+      userss: {
+        email: "",
+        password: "",
+        passwordAgain: ""
+      }
     };
   },
   created: function created() {
     var _this = this;
 
-    axios.get("http://127.0.0.1:8000/api/edituser/".concat(this.$route.params.id)).then(function (response) {
-      _this.post = response.data;
-      console.log(_this.post);
+    axios.get("api/edituser").then(function (response) {
+      _this.users = response.data;
     });
+  },
+  methods: {
+    updatePost: function updatePost() {
+      var _this2 = this;
+
+      for (var i = 0; i < this.users.length; i++) {
+        if (this.userss.email == this.users[i].email) {
+          axios.post("http://127.0.0.1:8000/api/edituser/".concat(this.$route.params.id), this.userss).then(function (response) {
+            _this2.$router.push({
+              name: "profile"
+            });
+          });
+        }
+      }
+    }
   }
 });
 
@@ -4626,7 +4667,7 @@ __webpack_require__.r(__webpack_exports__);
   component: _pages_ResetpassHospital__WEBPACK_IMPORTED_MODULE_10__.default,
   name: 'resetpasshospital'
 }, {
-  path: '/resetpassuser',
+  path: '/resetpassuser:id',
   component: _pages_ResetpassUser__WEBPACK_IMPORTED_MODULE_11__.default,
   name: 'resetpassuser'
 }]);
@@ -9283,7 +9324,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.nav {\n  height: 60px;\n}\n.nav-link {\n  font-size: 20px;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.nav {\n  height: 60px;\n}\n.nav-link {\n  font-size: 20px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -42048,15 +42089,6 @@ var render = function() {
                                   "router-link",
                                   {
                                     staticClass: "dropdown-item",
-                                    attrs: { to: "/Giveblood" }
-                                  },
-                                  [_vm._v("ร้องขอเลือด")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "router-link",
-                                  {
-                                    staticClass: "dropdown-item",
                                     attrs: { to: "/Profilegiveblood" }
                                   },
                                   [_vm._v("การขอเลือด")]
@@ -43886,7 +43918,26 @@ var render = function() {
                 })
               ]),
               _vm._v(" "),
-              _vm._m(1)
+              _c(
+                "div",
+                { staticClass: "text-center" },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "btn btn-danger",
+                      attrs: {
+                        to: {
+                          name: "resetpassuser",
+                          params: { id: _vm.users.id }
+                        }
+                      }
+                    },
+                    [_vm._v("Edit")]
+                  )
+                ],
+                1
+              )
             ]
           )
         ])
@@ -43901,16 +43952,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
       _c("h3", { staticClass: "mb-1" }, [_vm._v("Reset Password")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text-center" }, [
-      _c("button", { staticClass: "btn btn-success btn-lg btn-block" }, [
-        _vm._v("\n              Reset Password\n            ")
-      ])
     ])
   }
 ]
@@ -44129,34 +44170,6 @@ var render = function() {
                     }
                   }
                 })
-              ]),
-              _vm._v(" "),
-              _c("label", [_vm._v("วัน/เดือน/ปีที่ขอเลือด")]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("div", { staticClass: "col-20" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.giveblood.date,
-                        expression: "giveblood.date"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "date", id: "example-date-input" },
-                    domProps: { value: _vm.giveblood.date },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.giveblood, "date", $event.target.value)
-                      }
-                    }
-                  })
-                ])
               ]),
               _vm._v(" "),
               _vm._m(0)
@@ -45000,79 +45013,89 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("h3", { staticClass: "text-center" }, [_vm._v("All Books")]),
-    _vm._v(" "),
-    _c("br"),
-    _vm._v(" "),
-    _c("table", { staticClass: "table table-bordered" }, [
-      _vm._m(0),
-      _vm._v(" "),
+    _c("div", { staticClass: "card" }, [
       _c(
-        "tbody",
-        _vm._l(_vm.givebloods, function(giveblood, index) {
-          return _c("tr", { key: giveblood.id }, [
-            giveblood.idHospital == _vm.app.user.id
-              ? _c("div", [
-                  _c("td", [_vm._v(_vm._s(giveblood.typeblood))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(giveblood.typerh))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(giveblood.date))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(giveblood.deficiencyBlood))]),
-                  _vm._v(" "),
-                  _c("td", [
-                    _c(
-                      "div",
-                      { staticClass: "btn-group", attrs: { role: "group" } },
-                      [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "btn btn-danger",
-                            attrs: { href: "javascript:;" },
-                            on: {
-                              click: function($event) {
-                                return _vm.deleteBlood(giveblood.id, index)
-                              }
-                            }
-                          },
-                          [_vm._v("\n                Delete\n              ")]
-                        )
-                      ]
-                    )
+        "div",
+        {
+          staticClass: "card-header",
+          staticStyle: { "background-color": "#f05454" }
+        },
+        [_vm._v("\n      ขอบริจาคเลือด\n    ")]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-body" }, [
+        _c(
+          "div",
+          { staticClass: "col-md-6 offset-md-3" },
+          [
+            _c("table", { staticClass: "table table-bordered" }, [
+              _c(
+                "tbody",
+                _vm._l(_vm.givebloods, function(giveblood, index) {
+                  return _c("tr", { key: giveblood.id }, [
+                    giveblood.idHospital == _vm.app.user.id
+                      ? _c("div", [
+                          _c("td", [_vm._v(_vm._s(giveblood.typeblood))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(giveblood.typerh))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(giveblood.deficiencyBlood))]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c(
+                              "div",
+                              {
+                                staticClass: "btn-group",
+                                attrs: { role: "group" }
+                              },
+                              [
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass: "btn btn-danger",
+                                    attrs: { href: "javascript:;" },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.deleteBlood(
+                                          giveblood.id,
+                                          index
+                                        )
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                      Delete\n                    "
+                                    )
+                                  ]
+                                )
+                              ]
+                            )
+                          ])
+                        ])
+                      : _vm._e()
                   ])
-                ])
-              : _vm._e()
-          ])
-        }),
-        0
-      )
+                }),
+                0
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "router-link",
+              {
+                staticClass: "btn btn-success btn-lg",
+                attrs: { to: "/Giveblood" }
+              },
+              [_vm._v("ร้องขอเลือด")]
+            )
+          ],
+          1
+        )
+      ])
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", [_vm._v("กรุ๊ปเลือด")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("กรุ๊ปเลือด RH")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("ปริมาณโลหิตที่ต้องการ")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Created At")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Updated At")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Actions")])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -45955,6 +45978,122 @@ var render = function() {
                               }
                             }
                           })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c("div", { staticClass: "card" }, [
+                            _c(
+                              "div",
+                              {
+                                staticClass: "card-header",
+                                staticStyle: { "background-color": "#ff4343" }
+                              },
+                              [
+                                _c(
+                                  "h9",
+                                  {
+                                    staticClass: "mb-3",
+                                    staticStyle: { color: "#fff0e2" }
+                                  },
+                                  [_vm._v("เลือกคำถามและคำตอบเพื่อความปลอดภัย")]
+                                )
+                              ],
+                              1
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group" }, [
+                            _c("label", [
+                              _vm._v(
+                                "*คำถามเหล่านี้จะถูกใช้เพื่อยืนยันตัวตนของคุณ\n                      และช่วยกู้คืนรหัสผ่านหากคุณลืม"
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "rs-select4 js-select-simple select--no-search"
+                              },
+                              [
+                                _c(
+                                  "select",
+                                  {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.hospital.question,
+                                        expression: "hospital.question"
+                                      }
+                                    ],
+                                    staticClass: "form-control typeblood",
+                                    on: {
+                                      change: function($event) {
+                                        var $$selectedVal = Array.prototype.filter
+                                          .call($event.target.options, function(
+                                            o
+                                          ) {
+                                            return o.selected
+                                          })
+                                          .map(function(o) {
+                                            var val =
+                                              "_value" in o ? o._value : o.value
+                                            return val
+                                          })
+                                        _vm.$set(
+                                          _vm.hospital,
+                                          "question",
+                                          $event.target.multiple
+                                            ? $$selectedVal
+                                            : $$selectedVal[0]
+                                        )
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _c("option", { attrs: { value: "" } }, [
+                                      _vm._v("โปรดเลือกคำถาม")
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("option", [_vm._v("สัตว์เลี้ยงตัวแรก")]),
+                                    _vm._v(" "),
+                                    _c("option", [
+                                      _vm._v("ชื่อสัตว์เลี้ยงตัวแรก")
+                                    ])
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "select-dropdown" })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.hospital.answer,
+                                  expression: "hospital.answer"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              attrs: { placeholder: "คำตอบ" },
+                              domProps: { value: _vm.hospital.answer },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.hospital,
+                                    "answer",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            })
+                          ])
                         ]),
                         _vm._v(" "),
                         _vm._m(1)
@@ -46866,7 +47005,7 @@ var render = function() {
                                   "h9",
                                   {
                                     staticClass: "mb-3",
-                                    staticStyle: { color: "#FFF0E2" }
+                                    staticStyle: { color: "#fff0e2" }
                                   },
                                   [_vm._v("เลือกคำถามและคำตอบเพื่อความปลอดภัย")]
                                 )
@@ -46991,7 +47130,7 @@ var staticRenderFns = [
       "nav",
       {
         staticClass: "nav nav-pills nav-justified navbar-dark",
-        staticStyle: { "background-color": "#FFF0E2" },
+        staticStyle: { "background-color": "#fff0e2" },
         attrs: { id: "pills-tab", role: "tablist" }
       },
       [
@@ -47034,9 +47173,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "text-center" }, [
-      _c("button", { staticClass: "btn btn-success btn-lg" }, [
-        _vm._v("Register")
-      ])
+      _c("button", { staticClass: "btn btn-success btn-lg" }, [_vm._v("สมัคร")])
     ])
   },
   function() {
@@ -47080,7 +47217,7 @@ var render = function() {
               on: {
                 submit: function($event) {
                   $event.preventDefault()
-                  return _vm.onSubmitUser($event)
+                  return _vm.updatePost($event)
                 }
               }
             },
@@ -47093,19 +47230,19 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.email,
-                      expression: "email"
+                      value: _vm.userss.email,
+                      expression: "userss.email"
                     }
                   ],
                   staticClass: "form-control",
                   attrs: { type: "text", placeholder: "Email" },
-                  domProps: { value: _vm.email },
+                  domProps: { value: _vm.userss.email },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.email = $event.target.value
+                      _vm.$set(_vm.userss, "email", $event.target.value)
                     }
                   }
                 })
@@ -47119,19 +47256,19 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.password,
-                      expression: "password"
+                      value: _vm.userss.password,
+                      expression: "userss.password"
                     }
                   ],
                   staticClass: "form-control",
                   attrs: { type: "password", placeholder: "Password" },
-                  domProps: { value: _vm.password },
+                  domProps: { value: _vm.userss.password },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.password = $event.target.value
+                      _vm.$set(_vm.userss, "password", $event.target.value)
                     }
                   }
                 })
@@ -47145,19 +47282,19 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.passwordAgain,
-                      expression: "passwordAgain"
+                      value: _vm.userss.passwordAgain,
+                      expression: "userss.passwordAgain"
                     }
                   ],
                   staticClass: "form-control",
                   attrs: { type: "password", placeholder: "Password Again" },
-                  domProps: { value: _vm.passwordAgain },
+                  domProps: { value: _vm.userss.passwordAgain },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.passwordAgain = $event.target.value
+                      _vm.$set(_vm.userss, "passwordAgain", $event.target.value)
                     }
                   }
                 })

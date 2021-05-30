@@ -33,7 +33,7 @@ class RegisterUserController extends Controller
         $user->lastname = $request->lastname;
         $user->gender = $request->gender;
         $user->duringpregnancy = $request->duringpregnancy;
-        $user-> breastfeeding = $request-> breastfeeding;
+        $user->breastfeeding = $request-> breastfeeding;
         $user->givebirth_past_6 = $request->givebirth_past_6;
         $user->typeblood = $request->typeblood;
         $user->typerh = $request->typerh;

@@ -18,7 +18,6 @@ class CreateGivebloodsTable extends Migration
             $table->string('idHospital');
             $table->string('typeblood');
             $table->string('typerh');
-            $table->string('date');
             $table->string('deficiencyBlood');
             $table->timestamps();
         });

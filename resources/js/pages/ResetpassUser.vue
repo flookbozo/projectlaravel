@@ -3,14 +3,14 @@
     <div class="card">
       <div class="card-body">
         <div class="col-md-6 offset-md-3">
-          <form v-on:submit.prevent="onSubmitUser">
+          <form v-on:submit.prevent="updatePost">
             <div class="form-group">
               <label>Email</label>
               <input
                 type="text"
                 class="form-control"
                 placeholder="Email"
-                v-model="email"
+                v-model="userss.email"
               />
             </div>
             <div class="form-group">
@@ -19,7 +19,7 @@
                 type="password"
                 class="form-control"
                 placeholder="Password"
-                v-model="password"
+                v-model="userss.password"
               />
             </div>
             <div class="form-group">
@@ -28,7 +28,7 @@
                 type="password"
                 class="form-control"
                 placeholder="Password Again"
-                v-model="passwordAgain"
+                v-model="userss.passwordAgain"
               />
             </div>
 
@@ -46,19 +46,38 @@
 <script>
 export default {
   name: "resetpasswordUser",
+
   data() {
     return {
-
-      users: {},
+      users: [],
+      userss: {
+        email: "",
+        password: "",
+        passwordAgain: "",
+  
+      },
     };
   },
   created() {
-    axios
-      .get(`http://127.0.0.1:8000/api/edituser/${this.$route.params.id}`)
-      .then((response) => {
-        this.post = response.data;
-        console.log(this.post);
-      });
+    axios.get("api/edituser").then((response) => {
+      this.users = response.data;
+    });
+  },
+  methods: {
+    updatePost() {
+      for (var i = 0; i < this.users.length; i++) {
+        if (this.userss.email == this.users[i].email) {
+          axios
+            .post(
+              `http://127.0.0.1:8000/api/edituser/${this.$route.params.id}`,
+              this.userss
+            )
+            .then((response) => {
+              this.$router.push({ name: "profile" });
+            });
+        }
+      }
+    },
   },
 };
 </script>
