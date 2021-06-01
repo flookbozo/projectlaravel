@@ -78,7 +78,7 @@ export default [
         name : 'profilegiveblood'
     },
     {
-        path: '/resetpasshospital',
+        path: '/resetpasshospital:id',
         component: ResetpassHospital,
         name : 'resetpasshospital'
     }

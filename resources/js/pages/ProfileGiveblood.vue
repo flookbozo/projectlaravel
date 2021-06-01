@@ -8,22 +8,33 @@
         <div class="col-md-6 offset-md-3">
           <table class="table table-bordered">
             <tbody>
+              <tr>
+                <td>กรุ๊ปเลือด</td>
+                <td>กรุ๊ปเลือด</td>
+                <td>กรุ๊ปเลือด</td>
+                <td>กรุ๊ปเลือด</td>
+              </tr>
+            </tbody>
+            <tbody>
               <tr v-for="(giveblood, index) in givebloods" :key="giveblood.id">
                 <div v-if="giveblood.idHospital == app.user.id">
-                  <td>{{ giveblood.typeblood }}</td>
-                  <td>{{ giveblood.typerh }}</td>
-                  <td>{{ giveblood.deficiencyBlood }}</td>
-                  <td>
-                    <div class="btn-group" role="group">
-                      <a
-                        href="javascript:;"
-                        class="btn btn-danger"
-                        v-on:click="deleteBlood(giveblood.id, index)"
-                      >
-                        Delete
-                      </a>
-                    </div>
-                  </td>
+                  <tr>
+                    
+                    <td>{{ giveblood.typeblood }}</td>
+                    <td>{{ giveblood.typerh }}</td>
+                    <td>{{ giveblood.deficiencyBlood }}</td>
+                    <td>
+                      <div class="btn-group" role="group">
+                        <a
+                          href="javascript:;"
+                          class="btn btn-danger"
+                          v-on:click="deleteBlood(giveblood.id, index)"
+                        >
+                          Delete
+                        </a>
+                      </div>
+                    </td>
+                  </tr>
                 </div>
               </tr>
             </tbody>

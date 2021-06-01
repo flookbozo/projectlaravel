@@ -8,17 +8,16 @@
       </ol>
       <div class="carousel-inner" role="listbox">
         <div class="carousel-item active">
-          <img src="images/slide5.jpg" alt="First slide" />
+          <img src="images/Untitled-1.jpg" alt="First slide" />
           <div class="carousel-caption d-none d-md-block">
-            <h5>บริจาคเลือด</h5>
-            <p>ggg</p>
+         
           </div>
         </div>
         <div class="carousel-item">
-          <img src="images/Untitled.jpg" alt="Second slide" />
+          <img src="images/Untitled-2.jpg" alt="Second slide" />
         </div>
         <div class="carousel-item">
-          <img src="images/slide8.jpg" alt="Third slide" />
+          <img src="images/Untitled-4.jpg" alt="Third slide" />
         </div>
       </div>
       <a

@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
+class ResetPassController extends Controller
 
-class UserController extends Controller
 {
     public function index()
     {
@@ -22,16 +23,14 @@ class UserController extends Controller
         return response()->json($user);
     }
 
-
-    
     public function update($id, Request $request)
     {
         $user = User::find($id);
         
-        $user->update($request->all());
+        $user->password = bcrypt($request->password);
+        $user->save();
+        
 
         return response()->json('The user successfully updated');
     }
-
-   
 }

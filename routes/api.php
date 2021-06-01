@@ -5,7 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GivebloodController;
 use App\Http\Controllers\HospitalController;
 use App\Http\Controllers\UserController;
-/*
+use App\Http\Controllers\ResetPassController;
+use App\Http\Controllers\ResetPassHospitalController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -24,9 +25,19 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('givebloods', [GivebloodController::class, 'store']);
 Route::get('givebloods', [GivebloodController::class, 'index']);      
 Route::delete('givebloods/{id}', [GivebloodController::class, 'deleteGiveblood']); 
+
 Route::get('edithospital/{id}', [HospitalController::class, 'edit']); 
 Route::post('edithospital/{id}', [HospitalController::class, 'update']);
 Route::get('edithospital', [HospitalController::class, 'index']);
+
 Route::get('edituser/{id}', [UserController::class, 'edit']); 
 Route::post('edituser/{id}', [UserController::class, 'update']);
 Route::get('edituser', [UserController::class, 'index']);
+
+Route::post('resetuser/{id}', [ResetPassController::class, 'update']);
+Route::get('resetuser', [ResetPassController::class, 'index']);
+Route::get('resetuser/{id}', [ResetPassController::class, 'edit']);
+
+Route::post('resethospital/{id}', [ResetPassHospitalController::class, 'update']);
+Route::get('resethospital', [ResetPassHospitalController::class, 'index']);
+Route::get('resethospital/{id}', [ResetPassHospitalController::class, 'edit']);

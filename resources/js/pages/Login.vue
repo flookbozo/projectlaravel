@@ -14,8 +14,9 @@
         role="tab"
         aria-controls="pills-hospital"
         aria-selected="true"
+        
         text
-        >Hospital</a
+        >Loing Hospital</a
       >
       <a
         class="nav-item nav-link"
@@ -25,7 +26,7 @@
         role="tab"
         aria-controls="pills-user"
         aria-selected="false"
-        >User</a
+        >Login User</a
       >
     </nav>
     <div class="tab-content" id="pills-tabContent">
@@ -36,9 +37,6 @@
         aria-labelledby="pills-hospital-tab"
       >
         <div class="card">
-          <div class="card-header">
-            <h3 class="mb-1">Login Hospital</h3>
-          </div>
           <div class="card-body">
             <div class="col-md-6 offset-md-3">
               <form v-on:submit.prevent="onSubmitHospital">
@@ -58,7 +56,7 @@
                   <input
                     type="text"
                     class="form-control"
-                    placeholder="Username..."
+                    placeholder="Email"
                     v-model="hospital.email"
                   />
                 </div>
@@ -68,22 +66,25 @@
                   <input
                     type="password"
                     class="form-control"
-                    placeholder="Password..."
+                    placeholder="Password"
                     v-model="hospital.password"
                   />
                 </div>
 
                 <div class="text-center">
+                  
+                  <div class="text-center">
                   <router-link
                     id="forget"
                     class="nav-link"
                     style="color: #ff4343"
-                    to="ResetpassUser"
+                    to="ForgetpassHospital"
                     >ลืมรหัสผ่าน</router-link
                   >
-                  <button class="btn btn-success btn-lg btn-block">
+                  <button class="btn btn-lg btn-block" id="buttonlogin" style="color:#fff0e2">
                     Login
                   </button>
+                </div>
                 </div>
               </form>
             </div>
@@ -96,10 +97,9 @@
         role="tabpanel"
         aria-labelledby="pills-user-tab"
       >
-        <div class="card">
-          <div class="card-header"><h3 class="mb-1">Login User</h3></div>
-          <div class="card-body">
-            <div class="col-md-6 offset-md-3">
+        <div class="card"  >
+          <div class="card-body" id="card-body" >
+            <div class="col-md-6 offset-md-3" > 
               <form v-on:submit.prevent="onSubmitUser">
                 <div class="alert alert-danger" v-if="user.errors.length">
                   <ul class="mb-0">
@@ -114,7 +114,7 @@
                   <input
                     type="text"
                     class="form-control"
-                    placeholder="Username..."
+                    placeholder="Email"
                     v-model="user.email"
                   />
                 </div>
@@ -124,7 +124,7 @@
                   <input
                     type="password"
                     class="form-control"
-                    placeholder="Password..."
+                    placeholder="Password"
                     v-model="user.password"
                   />
                 </div>
@@ -136,7 +136,7 @@
                     to="ForgetpassUser"
                     >ลืมรหัสผ่าน</router-link
                   >
-                  <button class="btn btn-success btn-lg btn-block">
+                   <button class="btn btn-lg btn-block" id="buttonlogin" style="color:#fff0e2">
                     Login
                   </button>
                 </div>
@@ -236,9 +236,12 @@ export default {
 <style>
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
-  color: #fff;
+  color: #fff0e2;
   background-color: #ff4b45;
   font-size: 20px;
+}
+#card-body{
+  background-color:#F6F6F6;
 }
 .nav-link.active,
 .nav-link {
@@ -250,5 +253,8 @@ export default {
 }
 #forget {
   margin-top: -3%;
+}
+#buttonlogin{
+  background-color: #00B4A9;
 }
 </style>

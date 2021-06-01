@@ -109,7 +109,7 @@
 footer {
   width: 100%;
   background-color: #0F428A;
-  min-height: 250px;
+  min-height: 150px;
   padding: 10px 0px 25px 0px;
   position: relative;
   position: absolute;

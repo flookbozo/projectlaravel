@@ -52,7 +52,9 @@
             </div>
 
             <div class="text-center">
-              <router-link :to="{ name: 'resetpassuser', params: { id: users.id }}" class="btn btn-danger">Edit</router-link>
+              <button class="btn btn-success btn-lg btn-block">
+                Reset Password
+              </button>
             </div>
           </form>
         </div>
@@ -70,6 +72,7 @@ export default {
   data() {
     return {
       users: [],
+      id_user: null,
       user: {
         email: "",
         answer: "",
@@ -89,9 +92,14 @@ export default {
       var checkQuestion = false;
       var checkAnswer = false;
       var checkEmail = false;
+      var checkQuestionAnswer = false;
       var check = false;
 
       for (var i = 0; i < this.users.length; i++) {
+        checkQuestion = false;
+        checkAnswer = false;
+        checkEmail = false;
+        checkQuestionAnswer = false;
         if (this.user.email == this.users[i].email) {
           if (
             this.user.question != this.users[i].question &&
@@ -104,10 +112,17 @@ export default {
           ) {
             checkAnswer = true;
           } else if (
+            this.user.question != this.users[i].question &&
+            this.user.answer != this.users[i].answer
+          ) {
+             checkQuestionAnswer = true;
+          } else if (
             this.user.question == this.users[i].question &&
             this.user.answer == this.users[i].answer
           ) {
+            this.id_user = this.users[i].id;
             check = true;
+            break;
           }
         } else if (this.user.email != this.users[i].email) {
           if (
@@ -115,13 +130,29 @@ export default {
             this.user.answer == this.users[i].answer
           ) {
             checkEmail = true;
+          } else if (
+            this.user.question != this.users[i].question &&
+            this.user.answer == this.users[i].answer
+          ) {
+            checkEmail = true;
+            checkQuestion = true;
+          } else if (
+            this.user.question == this.users[i].question &&
+            this.user.answer != this.users[i].answer
+          ) {
+            checkEmail = true;
+            checkAnswer = true;
           }
         }
       }
 
       if (checkQuestion == true) {
-        this.user.errors.push("คำถามหรือคำตอบไม่ถูกต้อง1");
+        this.user.errors.push("คำถามหรือคำตอบไม่ถูกต้อง");
       }
+      if (checkQuestionAnswer == true) {
+        this.user.errors.push("คำถามและคำตอบไม่ถูกต้อง");
+      }
+
       if (checkAnswer == true) {
         this.user.errors.push("คำถามหรือคำตอบไม่ถูกต้อง");
       }
@@ -130,7 +161,10 @@ export default {
         this.user.errors.push("Email ไม่ถูกต้อง");
       }
       if (check == true) {
-        this.$router.push("/ResetpassUser");
+        this.$router.push({
+          name: "resetpassuser",
+          params: { id: this.id_user },
+        });
       }
       if (!this.user.email) {
         this.user.errors.push("ใส่ Email");
