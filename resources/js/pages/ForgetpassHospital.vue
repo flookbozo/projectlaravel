@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <div class="card">
-      <div class="card-header">
-        <h3 class="mb-1">Reset Password</h3>
+      <div class="card-header" id="reset">
+        <h3 class="mb-1" style="color:#fff0e2">Reset Password</h3>
       </div>
       <div class="card-body">
         <div class="col-md-6 offset-md-3">
@@ -24,12 +24,15 @@
               />
             </div>
             <div class="form-group">
-              <label
+              <label style="color: #ff4343"
                 >*คำถามเหล่านี้จะถูกใช้เพื่อยืนยันตัวตนของคุณ
-                และช่วยกู้คืนรหัสผ่านหากคุณลืม</label
+                และช่วยกู้คืนรหัสผ่าน</label
               >
               <div class="rs-select4 js-select-simple select--no-search">
-                <select class="form-control typeblood" v-model="hospital.question">
+                <select
+                  class="form-control typeblood"
+                  v-model="hospital.question"
+                >
                   <option value="">โปรดเลือกคำถาม</option>
                   <option>สัตว์เลี้ยงตัวแรก</option>
                   <option>ชื่อสัตว์เลี้ยงตัวแรก</option>
@@ -52,7 +55,7 @@
             </div>
 
             <div class="text-center">
-              <button class="btn btn-success btn-lg btn-block">
+              <button class="btn btn-lg btn-block" id="buttonlogin" style="color:#fff0e2">
                 Reset Password
               </button>
             </div>
@@ -94,12 +97,14 @@ export default {
       var checkEmailHospital = false;
       var checkQuestionAnswerHospital = false;
       var checkHospital = false;
+      
 
       for (var i = 0; i < this.hospitals.length; i++) {
         checkQuestionHospital = false;
         checkAnswerHospital = false;
         checkEmailHospital = false;
         checkQuestionAnswerHospital = false;
+        checkFalse = false;
         if (this.hospital.email == this.hospitals[i].email) {
           if (
             this.hospital.question != this.hospitals[i].question &&
@@ -142,6 +147,12 @@ export default {
           ) {
             checkEmailHospital = true;
             checkAnswerHospital = true;
+          } else if (
+            this.hospital.question != this.hospitals[i].question &&
+            this.hospital.answer != this.hospitals[i].answer
+          ) {
+            checkQuestionAnswerHospital = true;
+            checkEmailHospital = true;
           }
         }
       }

@@ -136,41 +136,7 @@
 </template>
  <style>
 
-h2 {
-  font-size: 24px;
-  text-transform: uppercase;
-  color: #eeee;
-  font-weight: 600;
-  margin-bottom: 30px;
-}
-h4 {
-  font-size: 19px;
-  line-height: 1.375em;
-  color: #eeee;
-  font-weight: 400;
-  margin-bottom: 30px;
-}
-h10 {
-     font-size: 19px;
-  line-height: 1.375em;
-  color: #fff;
-  font-weight: 400;
-  margin-bottom: 30px;
-}
-h5{
-    font-size: 24px;
-  text-transform: uppercase;
-  color: #3a4750;
-  font-weight: 600;
-  margin-bottom: 30px;
-}
-h6{
- font-size: 150px;
-  text-transform: uppercase;
-  color: #eeee;
-  font-weight: 600;
-  margin-bottom: 20px;
-}
+
 .jumbotron {
   background-color: #f4511e;
   color: #fff;

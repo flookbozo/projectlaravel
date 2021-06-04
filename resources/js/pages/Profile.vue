@@ -1,13 +1,28 @@
 <template>
   <div class="container">
     <div class="card">
-      <div class="card-body">
-        <h2 class="card-header bg-danger">Profile {{ users.username }}</h2>
+      <div class="card-body"  id="card-body">
+        <div class="card-header" id="card-headerProfile" style="color: #fff0e2" >Profile {{ users.username }}</div>
         <div class="row">
           <div class="col-md-3 toppad pull-right col-md-offset-3"></div>
           <div
             class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad"
           >
+          <div v-if="users.gender=='หญิง' ">
+            <img
+              src="images/024.png"
+              class="rounded mx-auto d-block"
+              id="imageuser"
+            />
+          </div>
+          <div v-if="users.gender=='ชาย' ">
+            <img
+              src="images/022.png"
+              class="rounded mx-auto d-block"
+              id="imageuser"
+            />
+          </div>
+
             <div class="panel panel-info">
               <div class="panel-heading"></div>
               <div class="panel-body">
@@ -17,7 +32,7 @@
                   <table class="table table-user-information">
                     <tbody>
                       <tr>
-                        <td>ชื่อ-นามสกุล:</td>
+                        <td>ชื่อ-นามสกุล :</td>
                         <td>
                           {{ users.prefix }}
                           {{ users.firstname }}
@@ -25,11 +40,11 @@
                         </td>
                       </tr>
                       <tr>
-                        <td>Email:</td>
+                        <td>Email :</td>
                         <td>{{ users.email }}</td>
                       </tr>
                       <tr>
-                        <td>เพศ:</td>
+                        <td>เพศ :</td>
                         <td>{{ users.gender }}</td>
                       </tr>
                       <tr v-if="users.gender == 'หญิง'">
@@ -47,18 +62,18 @@
 
                       <tr></tr>
                       <tr>
-                        <td>กรุ๊ปเลือด:</td>
+                        <td>กรุ๊ปเลือด :</td>
                         <td>{{ users.typeblood }}</td>
                       </tr>
                       <tr>
-                        <td>กรุ๊ปเลือด RH:</td>
+                        <td>กรุ๊ปเลือด RH :</td>
                         <td>{{ users.typerh }}</td>
                       </tr>
                       <tr>
-                        <td>วัน/เดือน/ปีเกิด:</td>
+                        <td>วัน/เดือน/ปีเกิด :</td>
                         <td>{{ users.date }}</td>
                       </tr>
-                      <td>เบอร์โทรศัพท์:</td>
+                      <td>เบอร์โทรศัพท์ :</td>
                       <td>{{ users.phonnumber }}</td>
                     </tbody>
                   </table>
@@ -68,7 +83,7 @@
           </div>
         </div>
         <div class="text-center">
-          <router-link :to="{ name: 'edituser', params: { id: users.id }}" class="btn btn-danger">Edit</router-link>
+          <router-link :to="{ name: 'edituser', params: { id: users.id }}" class="btn btn-danger btn btn-lg " id="edit">Edit</router-link>
          
         </div>
       </div>
@@ -112,6 +127,12 @@ export default {
 .dropdown-user:hover {
   cursor: pointer;
 }
+#card-headerProfile{
+    background-color: #ff4b45;
+     font-size: 25px;
+}
+
+
 
 .table-user-information > tbody > tr {
   border-top: 1px solid rgb(221, 221, 221);
@@ -127,9 +148,14 @@ export default {
 .toppad {
   margin-top: 20px;
 }
-.card .card-body {
-  background-color: #eee;
+#body {
+  background-color:#F6F6F6;
 }
+#imageuser{
+  margin-bottom: 3%;
+  width: 150px;
+}
+
 </style>
 </template>
 

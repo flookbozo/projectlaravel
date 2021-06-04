@@ -37,13 +37,15 @@
           aria-labelledby="pills-hospital-tab"
         >
           <div class="card">
-            <div class="card-body">
+            <div class="card-body" id="card-body">
               <div class="col-md-6 offset-md-3">
                 <form v-on:submit.prevent="onSubmitHospital">
                   <div class="alert alert-danger" v-if="hospital.errors.length">
                     <ul class="mb-0">
                       <li
-                        v-for="(error, index) in hospital.errors" :key="index">
+                        v-for="(error, index) in hospital.errors"
+                        :key="index"
+                      >
                         {{ error }}
                       </li>
                     </ul>
@@ -264,17 +266,17 @@
                     />
                   </div>
 
-                   <div class="form-group">
-                    <div class="card">
-                      <div
-                        class="card-header"
-                        style="background-color: #ff4343"
+                  <div class="form-group">
+                    <div
+                      id="card-header"
+                      class="card-header"
+                      style="background-color: #ff4343"
+                    >
+                      <h9 class="mb-3" style="color: #fff0e2"
+                        >เลือกคำถามและคำตอบเพื่อความปลอดภัย</h9
                       >
-                        <h9 class="mb-3" style="color: #fff0e2"
-                          >เลือกคำถามและคำตอบเพื่อความปลอดภัย</h9
-                        >
-                      </div>
                     </div>
+
                     <div class="form-group">
                       <label
                         >*คำถามเหล่านี้จะถูกใช้เพื่อยืนยันตัวตนของคุณ
@@ -295,6 +297,7 @@
                       </div>
 
                       <input
+                        id="answerRegis"
                         class="form-control"
                         placeholder="คำตอบ"
                         v-model="hospital.answer"
@@ -302,7 +305,13 @@
                     </div>
                   </div>
                   <div class="text-center">
-                    <button class="btn btn-success btn-lg">สมัคร</button>
+                    <button
+                      class="btn btn-lg btn-block"
+                      id="regis"
+                      style="color: #fff0e2"
+                    >
+                      สมัคร
+                    </button>
                   </div>
                 </form>
               </div>
@@ -316,7 +325,7 @@
           aria-labelledby="pills-user-tab"
         >
           <div class="card">
-            <div class="card-body">
+            <div class="card-body" id="card-body">
               <div class="col-md-6 offset-md-3">
                 <form v-on:submit.prevent="onSubmitUser">
                   <div class="alert alert-danger" v-if="user.errors.length">
@@ -408,7 +417,7 @@
                         <option value="หญิง">หญิง</option>
                       </select>
                       <div v-if="user.gender == 'หญิง'">
-                        <label style="color: red"
+                        <label style="color: #ff4343"
                           >*โปรดกรอกข้อมูลเพิ่มเติม*</label
                         >
                         <div class="form-group">
@@ -566,16 +575,16 @@
                   </div>
 
                   <div class="form-group">
-                    <div class="card">
-                      <div
-                        class="card-header"
-                        style="background-color: #ff4343"
+                    <div
+                      id="card-header"
+                      class="card-header"
+                      style="background-color: #ff4343"
+                    >
+                      <h9 class="mb-3" style="color: #fff0e2"
+                        >เลือกคำถามและคำตอบเพื่อความปลอดภัย</h9
                       >
-                        <h9 class="mb-3" style="color: #fff0e2"
-                          >เลือกคำถามและคำตอบเพื่อความปลอดภัย</h9
-                        >
-                      </div>
                     </div>
+
                     <div class="form-group">
                       <label
                         >*คำถามเหล่านี้จะถูกใช้เพื่อยืนยันตัวตนของคุณ
@@ -597,6 +606,7 @@
 
                       <input
                         class="form-control"
+                        id="answerRegis"
                         placeholder="คำตอบ"
                         v-model="user.answer"
                       />
@@ -604,7 +614,14 @@
                   </div>
 
                   <div class="text-center">
-                    <button class="btn btn-success btn-lg">สมัคร</button>
+                    <button
+                      class="btn btn-lg btn-block"
+                      id="regis"
+                      href="#"
+                      style="color: #fff0e2"
+                    >
+                      สมัคร
+                    </button>
                   </div>
                 </form>
               </div>
@@ -623,6 +640,8 @@ export default {
 
   data() {
     return {
+      users: [],
+      hospitals: [],
       user: {
         username: "",
         password: "",
@@ -664,10 +683,38 @@ export default {
       },
     };
   },
+  created() {
+    axios.get("api/edituser").then((response) => {
+      this.users = response.data;
+    });
+    axios.get("api/edithospital").then((response) => {
+      this.hospitals = response.data;
+    });
+  },
+
   methods: {
     onSubmitUser() {
+     
       this.user.errors = [];
+      var checkUsername = false;
+      var checkUseremail = false;
 
+      for (var i = 0; i < this.users.length; i++) {
+        checkUsername = false;
+        checkUseremail = false;
+        if (this.user.email == this.users[i].email) {
+          checkUseremail = true;
+        }
+        if (this.user.username == this.users[i].username) {
+          checkUsername = true;
+        }
+      }
+      if (checkUsername == true) {
+        this.user.errors.push("มี Username นี้อยู่ในระบบแล้ว");
+      }
+      if (checkUseremail == true) {
+        this.user.errors.push("มี Email นี้อยู่ในระบบแล้ว");
+      }
       if (!this.user.username) {
         this.user.errors.push("โปรดใส่ Username");
       }
@@ -729,6 +776,7 @@ export default {
         this.user.errors.push("ใส่คำตอบเพื่อความปลอดภัย");
       }
       if (!this.user.errors.length) {
+          window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
         const data = {
           username: this.user.username,
           password: this.user.password,
@@ -759,7 +807,28 @@ export default {
       }
     },
     onSubmitHospital() {
+      window.scrollTo({top:0, left:0, behavior: 'smooth'})
       this.hospital.errors = [];
+      var checkUsernameH = false;
+      var checkHosemail = false;
+
+      for (var i = 0; i < this.hospitals.length; i++) {
+        checkUsernameH = false;
+        checkHosemail = false;
+        if (this.hospital.email == this.hospitals[i].email) {
+          checkHosemail = true;
+        }
+        if (this.hospital.username == this.hospitals[i].username) {
+          checkUsernameH = true;
+        }
+      }
+
+      if (checkUsernameH == true) {
+        this.hospital.errors.push("มี Username นี้อยู่ในระบบแล้ว");
+      }
+      if (checkHosemail == true) {
+        this.hospital.errors.push("มี Email นี้อยู่ในระบบแล้ว");
+      }
 
       if (!this.hospital.username) {
         this.hospital.errors.push("โปรดใส่ Username");
@@ -855,5 +924,14 @@ export default {
 }
 .nav-link {
   font-size: 20px;
+}
+#regis {
+  background-color: #00b4a9;
+}
+#answerRegis {
+  margin-top: 2%;
+}
+#card-header {
+  margin-top: 5%;
 }
 </style>

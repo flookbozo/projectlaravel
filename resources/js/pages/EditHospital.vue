@@ -1,23 +1,14 @@
 <template>
    <div class="container">
     <div class="card">
-      <div class="card-header">
-        <h3 class="mb-0">Edit Hospital</h3>
+      <div class="card-header" id="reset">
+        <h3 class="mb-0" style="color: #fff0e2">Edit Hospital</h3>
       </div>
-      <div class="card-body">
+      <div class="card-body" id="bodyy">
         <div class="col-md-6 offset-md-3">
           <form @submit.prevent="updatePost">
-            <div class="form-group">
-              <label>Email</label>
-              <input
-                type="email"
-                class="form-control"
-                placeholder="Email"
-                v-model="post.email"
-              />
-            </div>
 
-            <label>ชื่อผู้ดูแล</label>
+            <label>ชื่อ-นามสกุลผู้ดูแล</label>
             <div class="form-group">
               <div class="row">
                 <div class="col">
@@ -185,16 +176,10 @@
                 v-model="post.hospitallongitude"
               />
             </div>
-            <div class="form-group">
-              <label>Name</label>
-              <input
-                type="text"
-                class="form-control"
-                v-model="post.hospitalname"
-              />
+            
+           <div class="text-center">
+              <button type="submit" class="btn btn-lg btn-block" id="buttonupdate" style="color:#fff0e2">Update User</button>
             </div>
-            <div class="form-group"></div>
-            <button type="submit" class="btn btn-primary">Update Hospital</button>
           </form>
         </div>
       </div>

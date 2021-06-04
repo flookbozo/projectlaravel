@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="card">
-      <div class="card-header" style="background-color: #f05454">
+      <div class="card-header" id="giveblood" style="color: #fff0e2">
         ขอบริจาคเลือด
       </div>
       <div class="card-body">
@@ -13,6 +13,27 @@
                   {{ error }}
                 </li>
               </ul>
+            </div>
+            <div class="text-center">
+             <img
+              src="images/026-blood-type.png"
+              class="rounded"
+              id="imagegblood"
+            />
+             <img
+              src="images/027-blood-type-1.png"
+              class="rounded "
+              id="imagegblood"
+            /> <img
+              src="images/028.png"
+              class="rounded "
+              id="imagegblood"
+            />
+             <img
+              src="images/029.png"
+              class="rounded"
+              id="imagegblood"
+            />
             </div>
 
             <div class="form-group">
@@ -58,7 +79,7 @@
               />
             </div>
             <div class="text-center">
-              <button class="btn btn-success btn-lg">ส่งคำขอเลือด</button>
+             <button class="btn btn-lg btn-block" id="buttonlogin" style="color:#fff0e2" >ส่งคำขอเลือด</button>
             </div>
           </form>
         </div>
@@ -115,3 +136,13 @@ export default {
   },
 };
 </script>
+<style >
+  #giveblood{
+    background-color:#ff4343 ;
+    font-size: 25px;
+  }
+  #imagegblood{
+    width : 100px;
+    margin-bottom: 4%;
+  }
+</style>

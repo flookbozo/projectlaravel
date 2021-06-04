@@ -52,6 +52,7 @@
               data-toggle="dropdown"
               aria-haspopup="true"
               aria-expanded="false"
+              style="color: #fff0e2"
             >
               {{ app.user.username }}</a
             >

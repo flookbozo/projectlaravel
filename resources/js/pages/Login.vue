@@ -37,7 +37,7 @@
         aria-labelledby="pills-hospital-tab"
       >
         <div class="card">
-          <div class="card-body">
+          <div class="card-body" id="card-body">
             <div class="col-md-6 offset-md-3">
               <form v-on:submit.prevent="onSubmitHospital">
                 <div
@@ -241,16 +241,14 @@ export default {
   font-size: 20px;
 }
 #card-body{
-  background-color:#F6F6F6;
+  background-color:#fff;
 }
 .nav-link.active,
 .nav-link {
   color: #ff4b45;
   font-size: 30px;
 }
-.tab-content {
-  background-color: #eeee;
-}
+
 #forget {
   margin-top: -3%;
 }

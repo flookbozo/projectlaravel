@@ -1,23 +1,15 @@
 <template>
   <div class="container">
     <div class="card">
-      <div class="card-header">
-        <h3 class="mb-0">Edit User</h3>
+      <div class="card-header" id="reset">
+        <h3 class="mb-0"  style="color: #fff0e2">Edit User</h3>
       </div>
       <div class="card-body">
         <div class="col-md-6 offset-md-3">
           <form @submit.prevent="updatePost">
-            <div class="form-group">
-              <label>Email</label>
-              <input
-                type="email"
-                class="form-control"
-                placeholder="Email"
-                v-model="post.email"
-              />
-            </div>
+           
 
-            <label>ชื่อ</label>
+            <label>ชื่อ-นามสกุล</label>
             <div class="form-group">
               <div class="row">
                 <div class="col">
@@ -204,10 +196,9 @@
                 v-model="post.phonnumber"
               />
             </div>
-            <div class="form-group"></div>
-            <button type="submit" class="btn btn-primary">
-              Update User
-            </button>
+            <div class="text-center">
+              <button type="submit" class="btn btn-lg btn-block" id="buttonupdate" style="color:#fff0e2">Update User</button>
+            </div>
           </form>
         </div>
       </div>
@@ -216,7 +207,7 @@
 </template>
 <script>
 export default {
-   name: "edituser",
+  name: "edituser",
   data() {
     return {
       post: null,
@@ -245,5 +236,10 @@ export default {
   },
 };
 </script>
-
+<style >
+  #buttonupdate{
+     background-color: #1A73F1;
+}
+  
+</style>
  
