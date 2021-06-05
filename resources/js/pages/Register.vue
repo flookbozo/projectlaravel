@@ -694,15 +694,11 @@ export default {
 
   methods: {
     onSubmitUser() {
-     
       this.user.errors = [];
       var checkUsername = false;
       var checkUseremail = false;
-
       for (var i = 0; i < this.users.length; i++) {
-        checkUsername = false;
-        checkUseremail = false;
-        if (this.user.email == this.users[i].email) {
+        if (this.user.email == this.users[i].email ) {
           checkUseremail = true;
         }
         if (this.user.username == this.users[i].username) {
@@ -813,8 +809,6 @@ export default {
       var checkHosemail = false;
 
       for (var i = 0; i < this.hospitals.length; i++) {
-        checkUsernameH = false;
-        checkHosemail = false;
         if (this.hospital.email == this.hospitals[i].email) {
           checkHosemail = true;
         }

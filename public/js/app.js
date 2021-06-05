@@ -4491,9 +4491,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var checkUseremail = false;
 
       for (var i = 0; i < this.users.length; i++) {
-        checkUsername = false;
-        checkUseremail = false;
-
         if (this.user.email == this.users[i].email) {
           checkUseremail = true;
         }
@@ -4631,9 +4628,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var checkHosemail = false;
 
       for (var i = 0; i < this.hospitals.length; i++) {
-        checkUsernameH = false;
-        checkHosemail = false;
-
         if (this.hospital.email == this.hospitals[i].email) {
           checkHosemail = true;
         }
