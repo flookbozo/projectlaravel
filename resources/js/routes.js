@@ -12,6 +12,7 @@ import ResetpassHospital from './pages/ResetpassHospital';
 import ResetpassUser from './pages/ResetpassUser';
 import ForgetpassUser from './pages/ForgetpassUser';
 import ForgetpassHospital from './pages/ForgetpassHospital';
+import prepareblood from './pages/prepareblood';
 
 export default [
     {
@@ -87,6 +88,11 @@ export default [
         path: '/resetpassuser:id',
         component:ResetpassUser,
         name : 'resetpassuser'
+    },
+    {
+        path: '/prepareblood',
+        component:prepareblood,
+        name : 'prepareblood'
     }
 
 ]

@@ -16,7 +16,7 @@
         aria-selected="true"
         
         text
-        >Loing Hospital</a
+        >Login Hospital</a
       >
       <a
         class="nav-item nav-link"
@@ -246,7 +246,7 @@ export default {
 .nav-link.active,
 .nav-link {
   color: #ff4b45;
-  font-size: 30px;
+  font-size: 20px;
 }
 
 #forget {
@@ -254,5 +254,6 @@ export default {
 }
 #buttonlogin{
   background-color: #00B4A9;
+  border-radius: 40px;
 }
 </style>

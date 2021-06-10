@@ -921,6 +921,7 @@ export default {
 }
 #regis {
   background-color: #00b4a9;
+  border-radius: 40px;
 }
 #answerRegis {
   margin-top: 2%;

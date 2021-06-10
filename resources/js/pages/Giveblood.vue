@@ -70,7 +70,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label>ปริมาณโลหิตที่ต้องการ</label>
+              <label>ปริมาณโลหิตที่ต้องการ (cc)</label>
               <input
                 type="text"
                 class="form-control"
@@ -124,7 +124,7 @@ export default {
         };
         this.giveblood.idHospital = this.app.user.id;
         Axios
-          .post("http://127.0.0.1:8000/api/givebloods", this.giveblood)
+          .post("api/givebloods", this.giveblood)
           .then((response) =>{
             this.$router.push("/profilegiveblood");
             console.log(response.data)
@@ -140,6 +140,7 @@ export default {
   #giveblood{
     background-color:#ff4343 ;
     font-size: 25px;
+    
   }
   #imagegblood{
     width : 100px;

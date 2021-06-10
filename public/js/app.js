@@ -1912,6 +1912,92 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Footer.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Footer.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Navbar.vue?vue&type=script&lang=js&":
 /*!*************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Navbar.vue?vue&type=script&lang=js& ***!
@@ -3053,7 +3139,7 @@ __webpack_require__.r(__webpack_exports__);
           deficiencyBlood: this.giveblood.deficiencyBlood
         };
         this.giveblood.idHospital = this.app.user.id;
-        axios__WEBPACK_IMPORTED_MODULE_0___default().post("http://127.0.0.1:8000/api/givebloods", this.giveblood).then(function (response) {
+        axios__WEBPACK_IMPORTED_MODULE_0___default().post("api/givebloods", this.giveblood).then(function (response) {
           _this.$router.push("/profilegiveblood");
 
           console.log(response.data);
@@ -3078,6 +3164,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3626,31 +3719,51 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ProfileGiveblood",
   props: ["app"],
   mounted: function mounted() {
+    var _this = this;
+
     this.getGivebloods();
+    this.app.req.get("auth/hospital/init").then(function (response) {
+      _this.hospital = response.data.hospital;
+    });
   },
   methods: {
     deleteBlood: function deleteBlood(id, index) {
-      var _this = this;
+      var _this2 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default().delete("api/givebloods/" + id).then(function (response) {
-        _this.givebloods.splice(index, 1);
+        _this2.givebloods.splice(index, 1);
       });
     },
     getGivebloods: function getGivebloods() {
-      var _this2 = this;
+      var _this3 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default().get("api/givebloods").then(function (response) {
-        _this2.givebloods = response.data;
+        _this3.givebloods = response.data;
       });
     }
   },
   data: function data() {
     return {
+      hospital: null,
       givebloods: [],
       giveblood: {
         id: "",
@@ -4921,6 +5034,366 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/prepareblood.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/prepareblood.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************************************/
+/***/ (() => {
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -5027,6 +5500,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_ResetpassUser__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./pages/ResetpassUser */ "./resources/js/pages/ResetpassUser.vue");
 /* harmony import */ var _pages_ForgetpassUser__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./pages/ForgetpassUser */ "./resources/js/pages/ForgetpassUser.vue");
 /* harmony import */ var _pages_ForgetpassHospital__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./pages/ForgetpassHospital */ "./resources/js/pages/ForgetpassHospital.vue");
+/* harmony import */ var _pages_prepareblood__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./pages/prepareblood */ "./resources/js/pages/prepareblood.vue");
+
 
 
 
@@ -5097,6 +5572,10 @@ __webpack_require__.r(__webpack_exports__);
   path: '/resetpassuser:id',
   component: _pages_ResetpassUser__WEBPACK_IMPORTED_MODULE_11__.default,
   name: 'resetpassuser'
+}, {
+  path: '/prepareblood',
+  component: _pages_prepareblood__WEBPACK_IMPORTED_MODULE_14__.default,
+  name: 'prepareblood'
 }]);
 
 /***/ }),
@@ -9559,7 +10038,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nfooter {\n  background-color: #0f428a;\n}\n#linefooter{\n   color: #fff0e2;\n}\n.rgba-white-light{\n  color: #fff0e2;\n}\nhr.style1{\n\tborder-top: 1px solid #fff0e2;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nfooter {\n  background-color: #0f428a;\n}\n#linefooter {\n  color: #fff0e2;\n}\n.rgba-white-light {\n  color: #fff0e2;\n}\nhr.style1 {\n  border-top: 1px solid #fff0e2;\n}\n#uppercase {\n  font-size: 20px;\n}\n#imfooter {\n  width: 80px;\n  margin-bottom: 3%;\n}\n#regisnow {\n  font-size: 16px;\n  border: none;\n  background-color: #36cc8e;\n  color: #fff0e2;\n  border-radius: 40px;\n}\n#footerBlood {\n  font-size: 25px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -9607,7 +10086,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.jumbotron {\n  background-color: #f4511e;\n  color: #fff;\n  padding: 100px 25px;\n}\n.container-fluid {\n  padding: 60px 50px;\n}\n.bg-grey {\n  background-color: #f6f6f6;\n}\n.carousel-control.right,\n.carousel-control.left {\n  background-image: none;\n  color: #eee;\n}\n.carousel-indicators li {\n  border-color: #f4511e;\n}\n.carousel-indicators li.active {\n  background-color: #f4511e;\n}\n.item h4 {\n  font-size: 19px;\n  line-height: 1.375em;\n  font-weight: 400;\n\n  margin: 70px 0;\n}\n.slideanim {visibility:hidden;}\n.slide {\n    animation-name: slide;\n    -webkit-animation-name: slide;\n    animation-duration: 1s;\n    -webkit-animation-duration: 1s;\n    visibility: visible;\n}\n@keyframes slide {\n0% {\n      opacity: 0;\n      transform: translateY(70%);\n}\n100% {\n      opacity: 1;\n      transform: translateY(0%);\n}\n}\n@-webkit-keyframes slide {\n0% {\n      opacity: 0;\n      -webkit-transform: translateY(70%);\n}\n100% {\n      opacity: 1;\n      -webkit-transform: translateY(0%);\n}\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.container-fluid {\n  padding: 40px 40px;\n}\n#head {\n  font-size: 50px;\n}\n.slideanim {\n  visibility: hidden;\n}\n.slide {\n  animation-name: slide;\n  -webkit-animation-name: slide;\n  animation-duration: 1s;\n  -webkit-animation-duration: 1s;\n  visibility: visible;\n}\n@keyframes slide {\n0% {\n    opacity: 0;\n    transform: translateY(70%);\n}\n100% {\n    opacity: 1;\n    transform: translateY(0%);\n}\n}\n@-webkit-keyframes slide {\n0% {\n    opacity: 0;\n    -webkit-transform: translateY(70%);\n}\n100% {\n    opacity: 1;\n    -webkit-transform: translateY(0%);\n}\n}\n#imabout {\n  width: 500px;\n}\n#imslide {\n  width: 450px;\n}\n#imright {\n  width: 30%;\n  margin-top: 3%;\n  margin-bottom: 3%;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -9631,7 +10110,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n#buttonupdate{\n     background-color: #1A73F1;\n}\n  \n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n#buttonupdate{\n     background-color: #1A73F1;\n     border-radius: 40px;\n}\n  \n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -9727,7 +10206,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.carousel-inner img {\n      width: 100%; /* Set width to 100% */\n      margin: auto;\n      min-height:200px;\n}\n.thumbnail {\n  position: relative;\n  padding: 0px;\n  margin-bottom: 20px;\n  margin-top: 30px;\n}\n.thumbnail > h4 {\n  padding: 7px 5px 0px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.thumbnail h4 .info {\n  position: absolute;\n  top: 0px;\n  right: 0px;\n  font-size: 10px;\n  padding-left: 15px;\n  border-top-right-radius: 3px;\n  border-bottom-left-radius: 4px;\n  border-radius: 0px;\n  border-bottom-left-radius: 5px;\n  cursor: pointer;\n}\n.thumbnail h4 .info > span {\n  margin-right: 10px;\n}\n.thumbnail img {\n  width: 100%;\n}\n.thumbnail a.btn {\n  border-top-left-radius: 0px;\n  border-top-right-radius: 0px;\n}\n.card-header .card {\n  background-color: #FFF0E2;\n}\n.H1 {\n  padding-top: 15px;\n  text-align: center;\n  font-size: 20px;\n}\n.image-hearder {\n  padding: 20px;\n  width: 100;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.carousel-inner img {\n  width: 100%; /* Set width to 100% */\n  margin: auto;\n  min-height: 200px;\n}\n.thumbnail {\n  position: relative;\n  padding: 0px;\n  margin-bottom: 20px;\n  margin-top: 30px;\n}\n.thumbnail img {\n  width: 100%;\n}\n.thumbnail a.btn {\n  border-top-left-radius: 0px;\n  border-top-right-radius: 0px;\n}\n.card-header .card {\n  background-color: #fff0e2;\n}\n#H1 {\n  margin-top: 3%;\n  text-align: center;\n  font-size: 20px;\n  border-radius: 40px;\n}\n.image-hearder {\n  padding: 20px;\n  width: 500px;\n}\n#imhome {\n  width: 500px;\n}\n#donate {\n  background-color: #ff4343;\n  border-radius: 40px;\n  font-size: 20px;\n  box-shadow: 0 0 0 1px #fff inset, 0 8px 0 0 #e2d4c8, 0 8px 8px 1px;\n  background-color: #ff4343;\n}\n#bloodd{\n  margin-top: 3%;\n}\n#h4{\n  margin-bottom: 2%;\n  font-size: 40px;\n}\n#h5{\n margin-top: 2%;\n  font-size: 50px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -9751,7 +10230,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.nav-pills .nav-link.active,\n.nav-pills .show > .nav-link {\n  color: #fff0e2;\n  background-color: #ff4b45;\n  font-size: 20px;\n}\n#card-body{\n  background-color:#fff;\n}\n.nav-link.active,\n.nav-link {\n  color: #ff4b45;\n  font-size: 30px;\n}\n#forget {\n  margin-top: -3%;\n}\n#buttonlogin{\n  background-color: #00B4A9;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.nav-pills .nav-link.active,\n.nav-pills .show > .nav-link {\n  color: #fff0e2;\n  background-color: #ff4b45;\n  font-size: 20px;\n}\n#card-body{\n  background-color:#fff;\n}\n.nav-link.active,\n.nav-link {\n  color: #ff4b45;\n  font-size: 20px;\n}\n#forget {\n  margin-top: -3%;\n}\n#buttonlogin{\n  background-color: #00B4A9;\n  border-radius: 40px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -9799,7 +10278,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n#tablegive{\nbackground-color: #fff0e2;\n}\n#tablegiveblood{\n   background-color: #fff;\n}\n#imagegive{\n   width: 80px;\n   margin-bottom: 3%;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n#tablegive {\n  background-color: #fff0e2;\n}\n#tablegiveblood {\n  background-color: #fff;\n}\n#imagegive {\n  width: 80px;\n  margin-bottom: 3%;\n}\n#giveblood1 {\n  background-color: #fff;\n  font-size: 30px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -9823,7 +10302,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.user-row {\n  margin-bottom: 14px;\n}\n.user-row:last-child {\n  margin-bottom: 0;\n}\n.dropdown-user {\n  margin: 13px 0;\n  padding: 5px;\n  height: 100%;\n}\n.dropdown-user:hover {\n  cursor: pointer;\n}\n.table-user-information > tbody > tr {\n  border-top: 1px solid rgb(221, 221, 221);\n}\n.table-user-information > tbody > tr:first-child {\n  border-top: 0;\n}\n.table-user-information > tbody > tr > td {\n  border-top: 0;\n}\n.toppad {\n  margin-top: 20px;\n}\n#imagehos {\n  width: 150px;\n}\n#body{\n  background-color: #fff0e2;\n}\n#edit{\n  background-color:  #ff4b45;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.user-row {\n  margin-bottom: 14px;\n}\n.user-row:last-child {\n  margin-bottom: 0;\n}\n.dropdown-user {\n  margin: 13px 0;\n  padding: 5px;\n  height: 100%;\n}\n.dropdown-user:hover {\n  cursor: pointer;\n}\n.table-user-information > tbody > tr {\n  border-top: 1px solid rgb(221, 221, 221);\n}\n.table-user-information > tbody > tr:first-child {\n  border-top: 0;\n}\n.table-user-information > tbody > tr > td {\n  border-top: 0;\n}\n.toppad {\n  margin-top: 20px;\n}\n#imagehos {\n  width: 150px;\n}\n#body{\n  background-color: #fff0e2;\n}\n#edit{\n  background-color:  #ff4b45;\n  border-radius: 40px;\n  color: #fff0e2;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -9847,7 +10326,31 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.nav {\n  height: 60px;\n}\n.nav-link {\n  font-size: 20px;\n}\n#regis {\n  background-color: #00b4a9;\n}\n#answerRegis {\n  margin-top: 2%;\n}\n#card-header {\n  margin-top: 5%;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.nav {\n  height: 60px;\n}\n.nav-link {\n  font-size: 20px;\n}\n#regis {\n  background-color: #00b4a9;\n  border-radius: 40px;\n}\n#answerRegis {\n  margin-top: 2%;\n}\n#card-header {\n  margin-top: 5%;\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/prepareblood.vue?vue&type=style&index=0&lang=css&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/prepareblood.vue?vue&type=style&index=0&lang=css& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\nsection {\n  padding: 60px 0;\n}\n#tabs {\n  background: #fff0e2;\n  color: #ff4b45;\n  border-radius: 40px;\n}\n#tabs .nav-tabs .nav-item.show .nav-link,\n.nav-tabs .nav-link.active {\n  color: #ff4b45;\n  background-color: transparent;\n  border-color: transparent transparent #ff4b45;\n  border-bottom: 4px solid !important;\n  font-size: 20px;\n  font-weight: bold;\n}\n#tabs .nav-tabs .nav-link {\n  border: 1px solid transparent;\n  border-top-left-radius: 0.25rem;\n  border-top-right-radius: 0.25rem;\n  color: #ff4b45;\n  font-size: 22px;\n}\n#nav-tabContent {\n  margin-left: 6%;\n  margin-right: 6%;\n}\n#preparehead {\n  font-size: 18px;\n  color: black;\n}\n#p1 {\n  margin-left: 3%;\n  color: #1763d0;\n  font-size: 15px;\n}\n#p2 {\n  font-size: 20px;\n  color: #1763d0;\n}\n#p3 {\n  font-size: 25px;\n}\n#impre {\n  width: 15px;\n  margin-right: 1%;\n}\n#p4 {\n  margin-top: 5%;\n  font-size: 25px;\n}\n#p5{\n    border-radius: 40px;\n    font-size: 18px;\n     background: #ff4b45\n}\n#p6{\n    margin-left: 3%;\n    margin-right: 3%;\n    font-size: 90px;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -40923,17 +41426,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Footer_vue_vue_type_template_id_61a7c374___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Footer.vue?vue&type=template&id=61a7c374& */ "./resources/js/components/Footer.vue?vue&type=template&id=61a7c374&");
-/* harmony import */ var _Footer_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Footer.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/Footer.vue?vue&type=style&index=0&lang=css&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _Footer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Footer.vue?vue&type=script&lang=js& */ "./resources/js/components/Footer.vue?vue&type=script&lang=js&");
+/* harmony import */ var _Footer_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Footer.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/Footer.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 ;
 
 
 /* normalize component */
 
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
-  script,
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__.default)(
+  _Footer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
   _Footer_vue_vue_type_template_id_61a7c374___WEBPACK_IMPORTED_MODULE_0__.render,
   _Footer_vue_vue_type_template_id_61a7c374___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
@@ -41557,6 +42062,50 @@ component.options.__file = "resources/js/pages/ResetpassUser.vue"
 
 /***/ }),
 
+/***/ "./resources/js/pages/prepareblood.vue":
+/*!*********************************************!*\
+  !*** ./resources/js/pages/prepareblood.vue ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _prepareblood_vue_vue_type_template_id_15a349bc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./prepareblood.vue?vue&type=template&id=15a349bc& */ "./resources/js/pages/prepareblood.vue?vue&type=template&id=15a349bc&");
+/* harmony import */ var _prepareblood_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./prepareblood.vue?vue&type=script&lang=js& */ "./resources/js/pages/prepareblood.vue?vue&type=script&lang=js&");
+/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
+/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _prepareblood_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== "default") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _prepareblood_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[__WEBPACK_IMPORT_KEY__]
+/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
+/* harmony import */ var _prepareblood_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./prepareblood.vue?vue&type=style&index=0&lang=css& */ "./resources/js/pages/prepareblood.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+;
+
+
+/* normalize component */
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__.default)(
+  _prepareblood_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _prepareblood_vue_vue_type_template_id_15a349bc___WEBPACK_IMPORTED_MODULE_0__.render,
+  _prepareblood_vue_vue_type_template_id_15a349bc___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/prepareblood.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/App.vue?vue&type=script&lang=js&":
 /*!*******************************************************!*\
   !*** ./resources/js/App.vue?vue&type=script&lang=js& ***!
@@ -41570,6 +42119,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../node_modules/vue-loader/lib/index.js??vue-loader-options!./App.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/App.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Footer.vue?vue&type=script&lang=js&":
+/*!*********************************************************************!*\
+  !*** ./resources/js/components/Footer.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Footer.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Footer.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
 
 /***/ }),
 
@@ -41794,6 +42359,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ResetpassUser_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ResetpassUser.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/ResetpassUser.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ResetpassUser_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/prepareblood.vue?vue&type=script&lang=js&":
+/*!**********************************************************************!*\
+  !*** ./resources/js/pages/prepareblood.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_prepareblood_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./prepareblood.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/prepareblood.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_prepareblood_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_prepareblood_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
+/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_prepareblood_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== "default") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_prepareblood_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[__WEBPACK_IMPORT_KEY__]
+/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_prepareblood_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default())); 
 
 /***/ }),
 
@@ -42086,6 +42671,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/pages/prepareblood.vue?vue&type=template&id=15a349bc&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/pages/prepareblood.vue?vue&type=template&id=15a349bc& ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_prepareblood_vue_vue_type_template_id_15a349bc___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_prepareblood_vue_vue_type_template_id_15a349bc___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_prepareblood_vue_vue_type_template_id_15a349bc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./prepareblood.vue?vue&type=template&id=15a349bc& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/prepareblood.vue?vue&type=template&id=15a349bc&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/Footer.vue?vue&type=style&index=0&lang=css&":
 /*!*****************************************************************************!*\
   !*** ./resources/js/components/Footer.vue?vue&type=style&index=0&lang=css& ***!
@@ -42307,6 +42909,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/pages/prepareblood.vue?vue&type=style&index=0&lang=css&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/pages/prepareblood.vue?vue&type=style&index=0&lang=css& ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_prepareblood_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-style-loader/index.js!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./prepareblood.vue?vue&type=style&index=0&lang=css& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/prepareblood.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_prepareblood_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_prepareblood_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
+/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_prepareblood_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== "default") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_prepareblood_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[__WEBPACK_IMPORT_KEY__]
+/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/App.vue?vue&type=template&id=f348271a&":
 /*!****************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/App.vue?vue&type=template&id=f348271a& ***!
@@ -42358,106 +42977,161 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("footer", { staticClass: "page-footer font-small indigo" }, [
+    _c("div", { staticClass: "container" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("hr", { staticClass: "style1", staticStyle: { margin: "0 15%" } }),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "text-center" },
+        [
+          _c(
+            "router-link",
+            {
+              staticClass: "btn",
+              staticStyle: { color: "#fff0e2" },
+              attrs: { id: "regisnow", to: "/register" }
+            },
+            [_vm._v("Register Now")]
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm._m(2)
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("footer", { staticClass: "page-footer font-small indigo" }, [
-      _c("div", { staticClass: "container" }, [
+    return _c(
+      "div",
+      {
+        staticClass: "row text-center d-flex justify-content-center pt-5 mb-3"
+      },
+      [
         _c(
           "div",
-          {
-            staticClass:
-              "row text-center d-flex justify-content-center pt-5 mb-3"
-          },
+          { staticClass: "col-md-2 mb-3", attrs: { id: "footercolor" } },
           [
             _c(
               "div",
-              { staticClass: "col-md-2 mb-3", attrs: { id: "footercolor" } },
+              { staticClass: "text-uppercase", attrs: { id: "uppercase" } },
               [
-                _c("div", { staticClass: "text-uppercase" }, [
-                  _c(
-                    "a",
-                    { staticStyle: { color: "#fff0e2" }, attrs: { href: "/" } },
-                    [_vm._v("Home")]
-                  )
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-2 mb-3" }, [
-              _c("div", { staticClass: "text-uppercase" }, [
                 _c(
                   "a",
-                  {
-                    staticStyle: { color: "#fff0e2" },
-                    attrs: { href: "/About" }
-                  },
-                  [_vm._v("About us")]
+                  { staticStyle: { color: "#fff0e2" }, attrs: { href: "/" } },
+                  [_vm._v("Home")]
                 )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-2 mb-3" }, [
-              _c("div", { staticClass: "text-uppercase" }, [
-                _c(
-                  "a",
-                  {
-                    staticStyle: { color: "#fff0e2" },
-                    attrs: { href: "/about" }
-                  },
-                  [_vm._v("Contact")]
-                )
-              ])
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c("hr", { staticClass: "style1", staticStyle: { margin: "0 15%," } }),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "row d-flex text-center justify-content-center mb-md-0 mb-5"
-          },
-          [
-            _c(
-              "div",
-              {
-                staticClass: "col-md-8 col-12 mt-5",
-                staticStyle: { color: "#fff0e2" }
-              },
-              [
-                _c("p", { staticStyle: { "line-height": "1.7rem" } }, [
-                  _vm._v(
-                    "\n          \n          Sed ut perspiciatis unde omnis iste natus error sit voluptatem\n          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa\n          quae ab illo inventore veritatis et quasi architecto beatae vitae\n          dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit\n          aspernatur aut odit aut fugit, sed quia consequuntur.\n        "
-                  )
-                ])
               ]
             )
           ]
         ),
         _vm._v(" "),
-        _c("hr", {
-          staticClass: "clearfix d-md-none ",
-          staticStyle: { margin: "10% 15% 5%" },
-          attrs: { id: "linefooter" }
-        }),
+        _c("div", { staticClass: "col-md-2 mb-3" }, [
+          _c(
+            "div",
+            { staticClass: "text-uppercase", attrs: { id: "uppercase" } },
+            [
+              _c(
+                "a",
+                {
+                  staticStyle: { color: "#fff0e2" },
+                  attrs: { href: "#/About" }
+                },
+                [_vm._v("About us")]
+              )
+            ]
+          )
+        ]),
         _vm._v(" "),
-        _c("div", { staticClass: "row pb-4" })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "footer-copyright text-center py-3" }, [
-        _vm._v("\n    © 2020 Copyright:\n    "),
-        _c("a", { attrs: { href: "https://mdbootstrap.com/" } }, [
-          _vm._v(" MDBootstrap.com")
+        _c("div", { staticClass: "col-md-2 mb-3" }, [
+          _c(
+            "div",
+            { staticClass: "text-uppercase", attrs: { id: "uppercase" } },
+            [
+              _c(
+                "a",
+                {
+                  staticStyle: { color: "#fff0e2" },
+                  attrs: { href: "/about" }
+                },
+                [_vm._v("Contact")]
+              )
+            ]
+          )
         ])
-      ])
-    ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "row d-flex text-center justify-content-center mb-md-0 mb-5"
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "col-md-8 col-12 mt-5",
+            staticStyle: { color: "#fff0e2" }
+          },
+          [
+            _c("div", { staticClass: "text-center" }, [
+              _c("img", {
+                staticClass: "rounded float-left",
+                attrs: { src: "images/048.png", id: "imfooter", alt: "..." }
+              }),
+              _vm._v(" "),
+              _c("img", {
+                staticClass: "rounded float-right",
+                attrs: { src: "images/012.png", id: "imfooter", alt: "..." }
+              }),
+              _vm._v(" "),
+              _c("img", {
+                staticClass: "rounded mx-auto d-block",
+                attrs: { src: "images/046.png", id: "imfooter", alt: "..." }
+              })
+            ]),
+            _vm._v(" "),
+            _c("p", { staticStyle: { "line-height": "1.7rem" } }, [
+              _vm._v(
+                "\n          สะดวกและรวดเร็วมากขึ้นเมื่อคุณสามารถบริจาคเลือดกับโรงพยาบาลที่ต้องการเลือดได้\n          โดยใช้แอปพลิเคชั่นและเว็บไซต์ Blood doanate\n          การช่วยเหลือของคุณเป็นสิ่งสำคัญสำหรับอีกชีวิตนึง\n        "
+              )
+            ])
+          ]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "footer-copyright text-center py-3",
+        attrs: { id: "footerBlood" }
+      },
+      [
+        _c("a", { staticStyle: { color: "#ff4343" } }, [
+          _vm._v(" Blood Donate")
+        ])
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -42712,254 +43386,117 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm._m(0),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass: "container-fluid",
-        staticStyle: { "background-color": "#d72323" }
-      },
-      [
-        _c("div", { staticClass: "row" }, [
-          _vm._m(1),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "col-sm-8" },
-            [
-              _c("h10", [_vm._v("Our Values")]),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v(" "),
-              _c("h10", [
-                _c("strong", [_vm._v("MISSION:")]),
-                _vm._v(
-                  " Our mission lorem ipsum dolor sit amet,\n          consectetur adipiscing elit, sed do eiusmod tempor incididunt ut\n          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud\n          exercitation ullamco laboris nisi ut aliquip ex ea commodo\n          consequat.\n        "
-                )
-              ]),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v(" "),
-              _c("h10", [
-                _c("strong", [_vm._v("VISION:")]),
-                _vm._v(
-                  " Our vision Lorem ipsum dolor sit amet,\n          consectetur adipiscing elit, sed do eiusmod tempor incididunt ut\n          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud\n          exercitation ullamco laboris nisi ut aliquip ex ea commodo\n          consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit,\n          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris\n          nisi ut aliquip ex ea commodo consequat.\n        "
-                )
-              ])
-            ],
-            1
-          )
-        ])
-      ]
-    ),
-    _vm._v(" "),
-    _vm._m(2),
-    _vm._v(" "),
-    _vm._m(3)
-  ])
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "container-fluid",
-        staticStyle: { "background-color": "#3a4750" },
-        attrs: { id: "about" }
-      },
-      [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-sm-8" }, [
-            _c("h6", [_vm._v("About")]),
-            _vm._v(" "),
-            _c("br"),
-            _vm._v(" "),
-            _c("h4", [
-              _vm._v(
-                "\n          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do\n          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim\n          ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut\n          aliquip ex ea commodo consequat.\n        "
-              )
+    return _c("div", [
+      _c(
+        "div",
+        {
+          staticClass: "container-fluid",
+          staticStyle: { "background-color": "#fff0e2" },
+          attrs: { id: "about" }
+        },
+        [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-sm-8" }, [
+              _c(
+                "h6",
+                { staticStyle: { color: "#ff4343" }, attrs: { id: "head" } },
+                [_vm._v("About")]
+              ),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v(" "),
+              _c("h4", { attrs: { id: "head1" } }, [
+                _vm._v(
+                  "\n          เว็บไซต์ของและแอปพลิเคชั่นของเรา สามารถเพิ่มความสะดวกสบายให้กับโรงพยาบาล\n          โดยโรงพยาบาลสามารถหาเลือดที่ต้องการจากผู้ที่ประสงค์จะบริจาคโลหิตที่อยู่บริเวณใกล้เคียงโรงพยาบาลได้\n          โดยไม่ผ่านสื่อกลาง\n          เราจะทำการส่งข้อความไปยังผู้ที่ประสงค์จะบริจาคโลหิตลดปัญหาการที่เลือดไม่\n          เพียงพอ หรือ ใช้เวลาในการนำเลือดกระจายไปโรงพยาบาลต่างๆ\n        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("br")
             ]),
             _vm._v(" "),
-            _c("br")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-sm-4" }, [
-            _c("span", { staticClass: "glyphicon glyphicon-signal logo" })
-          ])
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-sm-4" }, [
-      _c("span", { staticClass: "glyphicon glyphicon-globe logo slideanim" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "container-fluid text-center",
-        staticStyle: { "background-color": "#eeeeee" },
-        attrs: { id: "services" }
-      },
-      [
-        _c("h5", [_vm._v("Blood Donate")]),
-        _vm._v(" "),
-        _c("img", { attrs: { src: "images/Untitled-3.jpg", alt: "" } })
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "container-fluid text-center",
-        staticStyle: { "background-color": "#303841" },
-        attrs: { id: "portfolio" }
-      },
-      [
-        _c("h2", [_vm._v("Portfolio")]),
-        _vm._v(" "),
-        _c("br"),
-        _vm._v(" "),
-        _c("h4", [_vm._v("What we have created")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row text-center slideanim" }, [
-          _c("div", { staticClass: "col-sm-4" }, [
-            _c("div", { staticClass: "thumbnail" }, [
-              _c("img", {
-                attrs: {
-                  src:
-                    "https://images.unsplash.com/photo-1615461065624-21b562ee5566?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2696&q=80",
-                  alt: "Paris",
-                  width: "400",
-                  height: "300"
-                }
-              }),
-              _vm._v(" "),
-              _c("p", [_c("strong", [_vm._v("Paris")])]),
-              _vm._v(" "),
-              _c("p", [_vm._v("Yes, we built Paris")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-sm-4" }, [
-            _c("div", { staticClass: "thumbnail" }, [
-              _c("img", {
-                attrs: {
-                  src:
-                    "https://images.unsplash.com/photo-1615461066159-fea0960485d5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2076&q=80",
-                  alt: "New York",
-                  width: "400",
-                  height: "300"
-                }
-              }),
-              _vm._v(" "),
-              _c("p", [_c("strong", [_vm._v("New York")])]),
-              _vm._v(" "),
-              _c("p", [_vm._v("We built New York")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-sm-4" }, [
-            _c("div", { staticClass: "thumbnail" }, [
-              _c("img", {
-                attrs: {
-                  src:
-                    "https://images.unsplash.com/photo-1615461066841-6116e61058f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2048&q=80",
-                  alt: "San Francisco",
-                  width: "400",
-                  height: "300"
-                }
-              }),
-              _vm._v(" "),
-              _c("p", [_c("strong", [_vm._v("San Francisco")])]),
-              _vm._v(" "),
-              _c("p", [_vm._v("Yes, San Fran is ours")])
+            _c("div", { staticClass: "col-sm-4" }, [
+              _c("span", { staticClass: "glyphicon glyphicon-signal logo" })
             ])
           ])
-        ]),
-        _vm._v(" "),
-        _c("br"),
-        _vm._v(" "),
-        _c("h2", [_vm._v("What our customers say")]),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "carousel slide text-center",
-            attrs: { id: "myCarousel", "data-ride": "carousel" }
-          },
-          [
-            _c("ol", { staticClass: "carousel-indicators" }, [
-              _c("li", {
-                staticClass: "active",
-                attrs: { "data-target": "#myCarousel", "data-slide-to": "0" }
-              }),
-              _vm._v(" "),
-              _c("li", {
-                attrs: { "data-target": "#myCarousel", "data-slide-to": "1" }
-              }),
-              _vm._v(" "),
-              _c("li", {
-                attrs: { "data-target": "#myCarousel", "data-slide-to": "2" }
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "container-fluid",
+          staticStyle: { "background-color": "#ff4343" }
+        },
+        [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-sm-4" }, [
+              _c("span", {
+                staticClass: "glyphicon glyphicon-globe logo slideanim"
               })
             ]),
             _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "carousel-inner", attrs: { role: "listbox" } },
-              [
-                _c("div", { staticClass: "item active" }, [
-                  _c("h4", [
-                    _vm._v(
-                      '\n            "This company is the best. I am so happy with the result!"'
-                    ),
-                    _c("br"),
-                    _c("span", [
-                      _vm._v("Michael Roe, Vice President, Comment Box")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "item" }, [
-                  _c("h4", [
-                    _vm._v('\n            "One word... WOW!!"'),
-                    _c("br"),
-                    _c("span", [_vm._v("John Doe, Salesman, Rep Inc")])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "item" }, [
-                  _c("h4", [
-                    _vm._v(
-                      '\n            "Could I... BE any more happy with this company?"'
-                    ),
-                    _c("br"),
-                    _c("span", [_vm._v("Chandler Bing, Actor, FriendsAlot")])
-                  ])
-                ])
-              ]
-            )
-          ]
-        )
-      ]
-    )
+            _c("div", { staticClass: "col-sm-8" }, [
+              _c(
+                "h6",
+                {
+                  staticClass: "text-center",
+                  staticStyle: { color: "#fff0e2" },
+                  attrs: { id: "head" }
+                },
+                [
+                  _vm._v(
+                    "\n          การให้ที่สะดวกสบายและง่ายทั้ง 2 ฝ่าย\n        "
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c("img", {
+                staticClass: "rounded mx-auto d-block",
+                attrs: { id: "imabout", src: "images/5483126.png", alt: "..." }
+              })
+            ])
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "text-center", attrs: { id: "im" } }, [
+        _c("img", {
+          staticClass: "rounded",
+          attrs: { src: "images/blood.jpg", id: "imright" }
+        }),
+        _vm._v(" "),
+        _c("img", {
+          staticClass: "rounded",
+          attrs: { src: "images/blood.jpg", id: "imright", alt: "..." }
+        }),
+        _vm._v(" "),
+        _c("img", {
+          staticClass: "rounded",
+          attrs: { src: "images/blood.jpg", id: "imright", alt: "..." }
+        })
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "container-fluid text-center",
+          staticStyle: { "background-color": "#00b4a9" },
+          attrs: { id: "portfolio" }
+        },
+        [
+          _c("h2", { staticStyle: { color: "#fff0e2" } }, [
+            _vm._v("#ให้เลือดให้ชีวิต")
+          ])
+        ]
+      )
+    ])
   }
 ]
 render._withStripped = true
@@ -44862,7 +45399,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "form-group" }, [
-                _c("label", [_vm._v("ปริมาณโลหิตที่ต้องการ")]),
+                _c("label", [_vm._v("ปริมาณโลหิตที่ต้องการ (cc)")]),
                 _vm._v(" "),
                 _c("input", {
                   directives: [
@@ -44965,205 +45502,232 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "Banner-images" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "container" }, [
+      _c(
+        "div",
+        { staticClass: "text-center", attrs: { id: "bloodd" } },
+        [
+          _c("h4", { staticStyle: { color: "#ff4343" }, attrs: { id: "h5" } }, [
+            _vm._v('"รู้ไว้ไม่เสียหาย" ')
+          ]),
+          _vm._v(" "),
+          _c("h4", { attrs: { id: "h4" } }, [
+            _vm._v("ข้อมูลที่คุณควรรู้ก่อน-หลังบริจาคโลหิต")
+          ]),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            {
+              staticClass: "btn  btn-lg btn3d",
+              staticStyle: { color: "#fff0e2" },
+              attrs: { id: "donate", to: "/prepareblood" }
+            },
+            [
+              _c("span", { staticClass: "glyphicon glyphicon-ok" }),
+              _vm._v("\n        คลิ๊กเลย")
+            ]
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "p-3 mb-2 bg-danger text-white", attrs: { id: "H1" } },
+        [_vm._v('\n      "บทความที่น่าสนใจ"\n    ')]
+      ),
+      _vm._v(" "),
+      _vm._m(2)
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "Banner-images" }, [
-      _c(
-        "div",
-        {
-          staticClass: "carousel slide",
-          attrs: { id: "carouselId", "data-ride": "carousel" }
-        },
-        [
-          _c("ol", { staticClass: "carousel-indicators" }, [
-            _c("li", {
-              staticClass: "active",
-              attrs: { "data-target": "#carouselId", "data-slide-to": "0" }
-            }),
-            _vm._v(" "),
-            _c("li", {
-              attrs: { "data-target": "#carouselId", "data-slide-to": "1" }
-            }),
-            _vm._v(" "),
-            _c("li", {
-              attrs: { "data-target": "#carouselId", "data-slide-to": "2" }
-            })
-          ]),
+    return _c(
+      "div",
+      {
+        staticClass: "carousel slide",
+        attrs: { id: "carouselId", "data-ride": "carousel" }
+      },
+      [
+        _c("ol", { staticClass: "carousel-indicators" }, [
+          _c("li", {
+            staticClass: "active",
+            attrs: { "data-target": "#carouselId", "data-slide-to": "0" }
+          }),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "carousel-inner", attrs: { role: "listbox" } },
-            [
-              _c("div", { staticClass: "carousel-item active" }, [
-                _c("img", {
-                  attrs: { src: "images/Untitled-1.jpg", alt: "First slide" }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "carousel-caption d-none d-md-block" })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "carousel-item" }, [
-                _c("img", {
-                  attrs: { src: "images/Untitled-2.jpg", alt: "Second slide" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "carousel-item" }, [
-                _c("img", {
-                  attrs: { src: "images/Untitled-4.jpg", alt: "Third slide" }
-                })
-              ])
-            ]
-          ),
+          _c("li", {
+            attrs: { "data-target": "#carouselId", "data-slide-to": "1" }
+          }),
           _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass: "carousel-control-prev",
-              attrs: {
-                href: "#carouselId",
-                role: "button",
-                "data-slide": "prev"
-              }
-            },
-            [
-              _c("span", {
-                staticClass: "carousel-control-prev-icon",
-                attrs: { "aria-hidden": "true" }
+          _c("li", {
+            attrs: { "data-target": "#carouselId", "data-slide-to": "2" }
+          })
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "carousel-inner", attrs: { role: "listbox" } },
+          [
+            _c("div", { staticClass: "carousel-item active" }, [
+              _c("img", {
+                attrs: { src: "images/Untitled-1.jpg", alt: "First slide" }
               }),
               _vm._v(" "),
-              _c("span", { staticClass: "sr-only" }, [_vm._v("Previous")])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass: "carousel-control-next",
-              attrs: {
-                href: "#carouselId",
-                role: "button",
-                "data-slide": "next"
-              }
-            },
-            [
-              _c("span", {
-                staticClass: "carousel-control-next-icon",
-                attrs: { "aria-hidden": "true" }
-              }),
-              _vm._v(" "),
-              _c("span", { staticClass: "sr-only" }, [_vm._v("Next")])
-            ]
-          )
-        ]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-header" }, [
-            _c("div", { staticClass: "H1" }, [
-              _c("div", { staticClass: "p-3 mb-2 bg-danger text-white" }, [
-                _vm._v('"บทความที่น่าสนใจ"')
-              ])
+              _c("div", { staticClass: "carousel-caption d-none d-md-block" })
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-sm-6 col-md-4" }, [
-                _c("div", { staticClass: "thumbnail" }, [
-                  _c("h4", [_vm._v("ความสุขของ “การบริจาคโลหิต”")]),
-                  _vm._v(" "),
-                  _c("img", {
-                    attrs: {
-                      src:
-                        "https://static.thairath.co.th/media/dFQROr7oWzulq5Fa4V4qANWrW0pdH9vmXPj9uOxgirUX3BKKLDZcvKHoED3JxAPLjA5.webp",
-                      alt: ""
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn btn-danger col-xs-12",
-                      attrs: {
-                        href:
-                          "https://www.brandbuffet.in.th/2019/04/lpn-blood-donation-csr/",
-                        role: "button"
-                      }
-                    },
-                    [_vm._v("View Snippet")]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "clearfix" })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-6 col-md-4" }, [
-                _c("div", { staticClass: "thumbnail" }, [
-                  _c("h4", [_vm._v("ทำไมต้องบริจาคโลหิต?")]),
-                  _vm._v(" "),
-                  _c("img", {
-                    attrs: {
-                      src:
-                        "https://static.thairath.co.th/media/dFQROr7oWzulq5Fa4Vt8Uke92MlL0Ygtxa8UglL81auEhUaq8jUD3B0bEv5YzHM6XVy.webp",
-                      alt: ""
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn btn-danger col-xs-12",
-                      attrs: {
-                        role: "button",
-                        href:
-                          "https://www.redcross.or.th/news/information/13117/"
-                      }
-                    },
-                    [_vm._v("View Snippet")]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "clearfix" })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-6 col-md-4" }, [
-                _c("div", { staticClass: "thumbnail" }, [
-                  _c("h4", [_vm._v("บริจาคเลือด ส่งผลดีมากกว่าที่คิด")]),
-                  _vm._v(" "),
-                  _c("img", {
-                    attrs: {
-                      src:
-                        "https://static.thairath.co.th/media/dFQROr7oWzulq5Fa4VnQRboWrCOVznBpo2KGwjocrEkxD55KtnAziS153RRU76jbIoc.webp",
-                      alt: ""
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn btn-danger col-xs-12",
-                      attrs: {
-                        href: "https://hilight.kapook.com/view/27717",
-                        role: "button"
-                      }
-                    },
-                    [_vm._v("View Snippet")]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "clearfix" })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "image-hearder" }, [
-                _c("img", { attrs: { src: "images/Untitled.jpg", alt: "" } })
-              ])
+            _c("div", { staticClass: "carousel-item" }, [
+              _c("img", {
+                attrs: { src: "images/Untitled-2.jpg", alt: "Second slide" }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "carousel-item" }, [
+              _c("img", {
+                attrs: { src: "images/Untitled-4.jpg", alt: "Third slide" }
+              })
             ])
-          ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            staticClass: "carousel-control-prev",
+            attrs: { href: "#carouselId", role: "button", "data-slide": "prev" }
+          },
+          [
+            _c("span", {
+              staticClass: "carousel-control-prev-icon",
+              attrs: { "aria-hidden": "true" }
+            }),
+            _vm._v(" "),
+            _c("span", { staticClass: "sr-only" }, [_vm._v("Previous")])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            staticClass: "carousel-control-next",
+            attrs: { href: "#carouselId", role: "button", "data-slide": "next" }
+          },
+          [
+            _c("span", {
+              staticClass: "carousel-control-next-icon",
+              attrs: { "aria-hidden": "true" }
+            }),
+            _vm._v(" "),
+            _c("span", { staticClass: "sr-only" }, [_vm._v("Next")])
+          ]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-center" }, [
+      _c("img", { attrs: { id: "imhome", src: "images/6288030.png", alt: "" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-sm-6 col-md-4" }, [
+        _c("div", { staticClass: "thumbnail" }, [
+          _c("h4", [_vm._v("ความสุขของ “การบริจาคโลหิต”")]),
+          _vm._v(" "),
+          _c("img", {
+            attrs: {
+              src:
+                "https://static.thairath.co.th/media/dFQROr7oWzulq5Fa4V4qANWrW0pdH9vmXPj9uOxgirUX3BKKLDZcvKHoED3JxAPLjA5.webp",
+              alt: ""
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "btn btn-danger col-xs-12",
+              attrs: {
+                href:
+                  "https://www.brandbuffet.in.th/2019/04/lpn-blood-donation-csr/",
+                role: "button"
+              }
+            },
+            [_vm._v("View Snippet")]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "clearfix" })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-6 col-md-4" }, [
+        _c("div", { staticClass: "thumbnail" }, [
+          _c("h4", [_vm._v("ทำไมต้องบริจาคโลหิต?")]),
+          _vm._v(" "),
+          _c("img", {
+            attrs: {
+              src:
+                "https://static.thairath.co.th/media/dFQROr7oWzulq5Fa4Vt8Uke92MlL0Ygtxa8UglL81auEhUaq8jUD3B0bEv5YzHM6XVy.webp",
+              alt: ""
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "btn btn-danger col-xs-12",
+              attrs: {
+                role: "button",
+                href: "https://www.redcross.or.th/news/information/13117/"
+              }
+            },
+            [_vm._v("View Snippet")]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "clearfix" })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-6 col-md-4" }, [
+        _c("div", { staticClass: "thumbnail" }, [
+          _c("h4", [_vm._v("บริจาคเลือด ส่งผลดีมากกว่าที่คิด")]),
+          _vm._v(" "),
+          _c("img", {
+            attrs: {
+              src:
+                "https://static.thairath.co.th/media/dFQROr7oWzulq5Fa4VnQRboWrCOVznBpo2KGwjocrEkxD55KtnAziS153RRU76jbIoc.webp",
+              alt: ""
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "btn btn-danger col-xs-12",
+              attrs: {
+                href: "https://hilight.kapook.com/view/27717",
+                role: "button"
+              }
+            },
+            [_vm._v("View Snippet")]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "clearfix" })
         ])
       ])
     ])
@@ -45537,7 +46101,7 @@ var staticRenderFns = [
               text: ""
             }
           },
-          [_vm._v("Loing Hospital")]
+          [_vm._v("Login Hospital")]
         ),
         _vm._v(" "),
         _c(
@@ -45787,6 +46351,16 @@ var render = function() {
         "div",
         {
           staticClass: "card-header",
+          staticStyle: { color: "#ff4b45" },
+          attrs: { id: "giveblood1" }
+        },
+        [_vm._v("\n      " + _vm._s(_vm.hospital.hospitalname) + "\n    ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "card-header",
           staticStyle: { color: "#fff0e2" },
           attrs: { id: "giveblood" }
         },
@@ -45806,7 +46380,7 @@ var render = function() {
             _c(
               "table",
               {
-                staticClass: "table table-striped  ",
+                staticClass: "table table-striped",
                 attrs: { align: "center" }
               },
               _vm._l(_vm.givebloods, function(giveblood, index) {
@@ -45830,7 +46404,11 @@ var render = function() {
                                 ]),
                                 _vm._v(" "),
                                 _c("td", { staticClass: "text-center" }, [
-                                  _vm._v(_vm._s(giveblood.deficiencyBlood))
+                                  _vm._v(
+                                    "\n                      " +
+                                      _vm._s(giveblood.deficiencyBlood) +
+                                      "\n                    "
+                                  )
                                 ]),
                                 _vm._v(" "),
                                 _c("td", { staticClass: "text-center" }, [
@@ -45844,8 +46422,11 @@ var render = function() {
                                       _c(
                                         "a",
                                         {
-                                          staticClass: "btn btn-danger",
-                                          attrs: { href: "javascript:;" },
+                                          staticClass: "btn",
+                                          attrs: {
+                                            href: "javascript:;",
+                                            id: "edit"
+                                          },
                                           on: {
                                             click: function($event) {
                                               return _vm.deleteBlood(
@@ -45915,13 +46496,17 @@ var staticRenderFns = [
         _c(
           "th",
           { staticClass: "text-center col-sm-2", attrs: { scope: "col " } },
-          [_vm._v("กรุ๊ปเลือด RH")]
+          [_vm._v("\n                    กรุ๊ปเลือด RH\n                  ")]
         ),
         _vm._v(" "),
         _c(
           "th",
           { staticClass: "text-center col-sm-3", attrs: { scope: "col" } },
-          [_vm._v("ปริมาณโลหิตที่ต้องการ")]
+          [
+            _vm._v(
+              "\n                    ปริมาณโลหิตที่ต้องการ (cc)\n                  "
+            )
+          ]
         ),
         _vm._v(" "),
         _c(
@@ -46108,7 +46693,7 @@ var render = function() {
             _c(
               "router-link",
               {
-                staticClass: "btn btn-danger btn-lg",
+                staticClass: "btn btn-lg",
                 attrs: {
                   to: { name: "edithospital", params: { id: _vm.hospital.id } },
                   id: "edit"
@@ -48412,6 +48997,525 @@ var staticRenderFns = [
     return _c("div", { staticClass: "text-center" }, [
       _c("button", { staticClass: "btn btn-success btn-lg btn-block" }, [
         _vm._v("\n              Reset Password\n            ")
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/prepareblood.vue?vue&type=template&id=15a349bc&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/prepareblood.vue?vue&type=template&id=15a349bc& ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container" }, [
+      _c("div", {}, [
+        _c(
+          "h6",
+          {
+            staticClass: "text-center",
+            staticStyle: { color: "#ff4343" },
+            attrs: { id: "p6" }
+          },
+          [
+            _c("img", {
+              staticClass: "rounded",
+              attrs: { src: "images/0011.png", width: "80px", alt: "" }
+            }),
+            _vm._v("โลหิต"),
+            _c("img", {
+              staticClass: "rounded ",
+              attrs: { src: "images/00111.png", width: "80px", alt: "" }
+            })
+          ]
+        ),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "p-3 mb-2  text-white", attrs: { id: "p5" } },
+          [
+            _vm._v(
+              "\n      คำว่า “โลหิต” อาจฟังดูน่าหวาดเสียวและน่ากลัวสำหรับคนบางคน\n      แต่สำหรับโรงพยาบาลแล้ว โลหิตเป็นสิ่งจำเป็นและสำคัญในการรักษาผู้ป่วย\n      ไม่ว่าจะเป็นผู้ป่วยผ่าตัด ผู้ป่วยโรคเลือด ผู้ป่วยมะเร็ง\n      รวมทั้งการรักษาหลายๆ อย่างในปัจจุบันนี้ จะไม่สามารถทำได้หากไม่มีโลหิต\n    "
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c("br")
+      ]),
+      _vm._v(" "),
+      _c("section", { attrs: { id: "tabs" } }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-xs-12" }, [
+              _c("nav", [
+                _c(
+                  "div",
+                  {
+                    staticClass: "nav nav-tabs nav-fill",
+                    attrs: { id: "nav-tab", role: "tablist" }
+                  },
+                  [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "nav-item nav-link active",
+                        attrs: {
+                          id: "nav-home-tab",
+                          "data-toggle": "tab",
+                          href: "#nav-home",
+                          role: "tab",
+                          "aria-controls": "nav-home",
+                          "aria-selected": "true"
+                        }
+                      },
+                      [_vm._v("คุณสมบัติของผู้บริจาคโลหิต")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "nav-item nav-link",
+                        attrs: {
+                          id: "nav-about-tab",
+                          "data-toggle": "tab",
+                          href: "#nav-about",
+                          role: "tab",
+                          "aria-controls": "nav-about",
+                          "aria-selected": "false"
+                        }
+                      },
+                      [_vm._v("การเตรียมตัวก่อนบริจาคโลหิต")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "nav-item nav-link",
+                        attrs: {
+                          id: "nav-about-tab",
+                          "data-toggle": "tab",
+                          href: "#nav-about2",
+                          role: "tab",
+                          "aria-controls": "nav-about",
+                          "aria-selected": "false"
+                        }
+                      },
+                      [_vm._v("การปฏิบัติตัวหลังบริจาคโลหิต")]
+                    )
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "tab-content py-3 px-3 px-sm-0",
+                  attrs: { id: "nav-tabContent" }
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "tab-pane fade show active",
+                      attrs: {
+                        id: "nav-home",
+                        role: "tabpanel",
+                        "aria-labelledby": "nav-home-tab"
+                      }
+                    },
+                    [
+                      _c(
+                        "p",
+                        { staticClass: "text-center", attrs: { id: "p3" } },
+                        [
+                          _vm._v(
+                            "\n                คุณสมบัติของผู้บริจาครวม (Whole Blood)\n              "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("p", { attrs: { id: "preparehead" } }, [
+                        _c("img", {
+                          attrs: { id: "impre", src: "images/blood-drop.png" }
+                        }),
+                        _vm._v(
+                          " อายุ 17\n                ปีบริบูรณ์ -70 ปี\n              "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { attrs: { id: "p1" } }, [
+                        _vm._v(
+                          "\n                - ผู้บริจาคโลหิตต้องมีอายุ 17- 70 ปี (อายุ 17 ปีบริบูรณ์\n                ต้องมีเอกสารยินยอมจากผู้ปกครอง\n              "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { attrs: { id: "p1" } }, [
+                        _vm._v("- บริจาคโลหิตครั้งแรก อายุไม่เกิน 60 ปี")
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { attrs: { id: "p1" } }, [
+                        _vm._v(
+                          "\n                - ผู้บริจาคที่มีอายุ 60-65 ปี บริจาคได้ทุก 3 เดือน\n                ที่ศูนย์บริการโลหิตแห่งชาติ หน่วยเคลื่อนที่\n                และภาคบริการโลหิตแห่งชาติ\n              "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { attrs: { id: "p1" } }, [
+                        _vm._v(
+                          "\n                - ผู้บริจาคที่มีอายุ 65 -70 ปี บริจาคได้ทุก 6 เดือน\n                และต้องมีการตรวจนับจำนวนของเม็ดเลือดทุกชนิดทุกครั้ง\n                ไม่รับบริจาคในหน่วยเคลื่อนที่\n              "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { attrs: { id: "preparehead" } }, [
+                        _c("img", {
+                          attrs: { id: "impre", src: "images/blood-drop.png" }
+                        }),
+                        _vm._v(
+                          "\n                นอนหลับพักผ่อนเพียงพอ อย่างน้อย 5 ชั่วโมง\n              "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { attrs: { id: "preparehead" } }, [
+                        _c("img", {
+                          attrs: { id: "impre", src: "images/blood-drop.png" }
+                        }),
+                        _vm._v(
+                          "\n                เป็นผู้ที่มีสุขภาพแข็งแรง ไม่มีโรคประจำตัว\n              "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { attrs: { id: "preparehead" } }, [
+                        _c("img", {
+                          attrs: { id: "impre", src: "images/blood-drop.png" }
+                        }),
+                        _vm._v(
+                          "\n                มีน้ำหนักไม่ต่ำกว่า 48 กิโลกรัมขึ้นไป\n              "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { attrs: { id: "preparehead" } }, [
+                        _c("img", {
+                          attrs: { id: "impre", src: "images/blood-drop.png" }
+                        }),
+                        _vm._v(
+                          "\n                ไม่อยู่ในระหว่างรับประทานยาปฏิชีวนะ, ยาป้องกันเลือดแข็งตัว,\n                ยาเพิ่มการเจริญเติบโต (Growth Hormone), ยารักษาสิว\n                Isotretinoin, ยารักษาต่อมลูกหมาก, ยาปลูกผม (Finasteride)\n              "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { attrs: { id: "preparehead" } }, [
+                        _c("img", {
+                          attrs: { id: "impre", src: "images/blood-drop.png" }
+                        }),
+                        _vm._v(
+                          "\n                ไม่ได้รับการถอนฟันหรือขูดหินปูน ภายใน 72\n                ชั่วโมงก่อนบริจาคเลือด ไม่มีบาดแผลสดหรือแผลติดเชื้อใดๆ\n                ตามร่างกาย\n              "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { attrs: { id: "preparehead" } }, [
+                        _c("img", {
+                          attrs: { id: "impre", src: "images/blood-drop.png" }
+                        }),
+                        _vm._v(
+                          "\n                ไม่มีประวัติโรคมาลาเรียในระยะเวลา 3 ปี\n              "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { attrs: { id: "preparehead" } }, [
+                        _c("img", {
+                          attrs: { id: "impre", src: "images/blood-drop.png" }
+                        }),
+                        _vm._v(
+                          "ผู้หญิงที่ไม่อยู่ในระยะตั้งครรภ์หรือให้นมบุตร\n              "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { attrs: { id: "preparehead" } }, [
+                        _c("img", {
+                          attrs: { id: "impre", src: "images/blood-drop.png" }
+                        }),
+                        _vm._v(
+                          "\n                ผู้หญิงที่อยู่ระหว่างมีประจำเดือน\n                เมื่อประจำเดือนหยุดให้บริจาคโลหิตได้\n              "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "p",
+                        { staticClass: "text-center", attrs: { id: "p4" } },
+                        [
+                          _vm._v(
+                            "\n                ใครบ้างที่ไม่สามารถบริจาคโลหิตได้\n              "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("p", { attrs: { id: "preparehead" } }, [
+                        _c("img", {
+                          attrs: { id: "impre", src: "images/blood-drop.png" }
+                        }),
+                        _vm._v(
+                          "\n                ผู้ที่เป็นโรคหัวใจ โรคปอด มะเร็ง ลมชัก อัมพฤษ์ อัมพาต\n                โรคเลือดออกง่ายแต่หยุดยาก\n                โรคเบาหวานที่ต้องใช้ยาอินซูลินหรือคุมระดับน้ำตาลไม่ได้\n              "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { attrs: { id: "preparehead" } }, [
+                        _c("img", {
+                          attrs: { id: "impre", src: "images/blood-drop.png" }
+                        }),
+                        _vm._v(
+                          "\n                ผู้ที่เป็นหรือเคยเป็นไวรัสตับอักเสบบีหรือคู่ครอง\n                (สามีหรือภรรยา) เป็นไวรัสตับอักเสบบี ไวรัสตับอักเสบซี\n                รวมทั้งผู้ติดเชื้อเอสไอวีหรือซิฟิลิส\n              "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { attrs: { id: "preparehead" } }, [
+                        _c("img", {
+                          attrs: { id: "impre", src: "images/blood-drop.png" }
+                        }),
+                        _vm._v(
+                          "\n                ผู้เสพยาเสพติดชนิดใช้เข็มฉีดยา\n              "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { attrs: { id: "preparehead" } }, [
+                        _c("img", {
+                          attrs: { id: "impre", src: "images/blood-drop.png" }
+                        }),
+                        _vm._v(
+                          "\n                ผู้ที่มีพฤติกรรมเสี่ยงทางเพศ\n                มีคู่นอนหลายคนหรือเปลี่ยนคู่นอนบ่อยๆ\n                ผู้ชายที่มีเพศสัมพันธ์กับชาย\n              "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { attrs: { id: "preparehead" } }, [
+                        _c("img", {
+                          attrs: { id: "impre", src: "images/blood-drop.png" }
+                        }),
+                        _vm._v(
+                          "\n                น้ำหนักตัวลดลงโดยไม่ทราบสาเหตุมากกว่า 5 กิโลกรัม ในเวลา 2\n                เดือน มีต่อมน้ำเหลืองตามร่างกายโต หรือมีไข้โดยไม่ทราบสาเหตุ\n              "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("img", {
+                        staticClass: "rounded mx-auto d-block",
+                        attrs: {
+                          src: "images/005.png",
+                          width: "300px",
+                          alt: ""
+                        }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "tab-pane fade",
+                      attrs: {
+                        id: "nav-about",
+                        role: "tabpanel",
+                        "aria-labelledby": "nav-about-tab"
+                      }
+                    },
+                    [
+                      _c(
+                        "p",
+                        { staticClass: "text-center", attrs: { id: "p3" } },
+                        [_vm._v("ก่อนบริจาคโลหิต")]
+                      ),
+                      _vm._v(" "),
+                      _c("p", { attrs: { id: "p2" } }, [
+                        _vm._v(
+                          "\n                การเตรียมตัวก่อนบริจาคโลหิต\n                เพื่อไม่ให้ผู้บริจาคโลหิตอ่อนเพลียมากหลังบริจาคโลหิต\n                ผู้บริจาคเลือดจึงควรเตรียมตัวดังนี้\n              "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { attrs: { id: "preparehead" } }, [
+                        _c("img", {
+                          attrs: { id: "impre", src: "images/blood-drop.png" }
+                        }),
+                        _vm._v(
+                          " ก่อนบริจาคโลหิต\n                1-2 วัน ควรดื่มน้ำมากๆ เพื่อให้ร่างกายสดชื่น\n                เลือดไหลเวียนได้ดี\n              "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { attrs: { id: "preparehead" } }, [
+                        _c("img", {
+                          attrs: { id: "impre", src: "images/blood-drop.png" }
+                        }),
+                        _vm._v(
+                          "\n                งดเครื่องดื่มที่มีแอลกอฮอล์ ก่อนมาบริจาคโลหิตอย่างน้อย 24\n                ชั่วโมง\n              "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { attrs: { id: "preparehead" } }, [
+                        _c("img", {
+                          attrs: { id: "impre", src: "images/blood-drop.png" }
+                        }),
+                        _vm._v(
+                          "\n                ไม่ควรเล่นกีฬาหรือออกกำลังกายที่ต้องเสียเหงื่อมากก่อนบริจาคโลหิต\n                1 วัน\n              "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { attrs: { id: "preparehead" } }, [
+                        _c("img", {
+                          attrs: { id: "impre", src: "images/blood-drop.png" }
+                        }),
+                        _vm._v(
+                          "\n                รับประทานอาหารประจำมื้อก่อนมาบริจาคโลหิต\n                หลีกเลี่ยงการรับประทานอาหารที่มีไขมันสูง เช่น ข้าวขาหมู\n                ข้าวมันไก่ แกงกะทิขนมหวาน ก่อนมาบริจาคโลหิต 6 ชั่วโมง\n                เพราะจะทำให้พลาสมามีสีขาวขุ่น ไม่สามารถนำไปใช้รักษาผู้ป่วยได้\n              "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { attrs: { id: "preparehead" } }, [
+                        _c("img", {
+                          attrs: { id: "impre", src: "images/blood-drop.png" }
+                        }),
+                        _vm._v(
+                          "\n                นอนหลับพักผ่อนอย่างน้อย 6 ชั่วโมงขึ้นไป\n              "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { attrs: { id: "p2" } }, [
+                        _vm._v(
+                          "\n                ซึ่งแต่ละครั้งโรงพยาบาลต้องการโลหิตประมาณ 420 – 450 ซีซี / คน\n                ซึ่งปริมาณจะมากหรือน้อยขึ้นอยู่กับน้ำหนักตัวของผู้บริจาค\n                และเพื่อให้ผู้ป่วยได้รับโลหิตที่ปลอดภัย\n                โลหิตที่ได้จะต้องผ่านกระบวนการทดสอบก่อนนำไปให้ผู้ป่วย คือ\n                ตรวจหาไวรัสตับอักเสบบี ไวรัสตับอักเสบซี ซิฟิลิส\n                และตรวตหาไวรัสเอดส์\n              "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("img", {
+                        staticClass: "rounded mx-auto d-block",
+                        attrs: {
+                          src: "images/038.png",
+                          width: "200px",
+                          alt: ""
+                        }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "tab-pane fade",
+                      attrs: {
+                        id: "nav-about2",
+                        role: "tabpanel",
+                        "aria-labelledby": "nav-about-tab"
+                      }
+                    },
+                    [
+                      _c(
+                        "p",
+                        { staticClass: "text-center", attrs: { id: "p3" } },
+                        [_vm._v("หลังบริจาคโลหิต")]
+                      ),
+                      _vm._v(" "),
+                      _c("p", { attrs: { id: "preparehead" } }, [
+                        _c("img", {
+                          attrs: { id: "impre", src: "images/blood-drop.png" }
+                        }),
+                        _vm._v(
+                          " นอนพักที่เตียง\n                5 นาที หากไม่มีอาการผิดปกติ จึงลุกจากเตียง และไปนั่งพัก 10 -15\n                นาที พร้อมดื่มเครื่องดื่ม และรับประทานอาหารว่าง\n              "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { attrs: { id: "preparehead" } }, [
+                        _c("img", {
+                          attrs: { id: "impre", src: "images/blood-drop.png" }
+                        }),
+                        _vm._v(
+                          "\n                ดื่มน้ำให้มากกว่าปกติ เป็นเวลา 24 ชั่วโมง\n              "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { attrs: { id: "preparehead" } }, [
+                        _c("img", {
+                          attrs: { id: "impre", src: "images/blood-drop.png" }
+                        }),
+                        _vm._v(
+                          "\n                รับประทานยาเสริมธาตุเหล็ก วันละ 1 เม็ด หลังอาหารจนหมด\n                เพื่อชดเชยธาตุเหล็กที่เสียไปจากการบริจาคโลหิต\n                เพื่อให้สามารถบริจาคโลหิตได้อย่างสม่ำเสมอ\n              "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { attrs: { id: "preparehead" } }, [
+                        _c("img", {
+                          attrs: { id: "impre", src: "images/blood-drop.png" }
+                        }),
+                        _vm._v(
+                          "\n                หลีกเลี่ยงการขึ้น-ลงที่สูง อาจทำให้รู้สึกวิงเวียนและเป็นลมได้\n              "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { attrs: { id: "preparehead" } }, [
+                        _c("img", {
+                          attrs: { id: "impre", src: "images/blood-drop.png" }
+                        }),
+                        _vm._v(
+                          "\n                หลีกเลี่ยงการใช้แขนข้างที่บริจาคโลหิต เป็นเวลา 24 ชั่วโมง\n              "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { attrs: { id: "preparehead" } }, [
+                        _c("img", {
+                          attrs: { id: "impre", src: "images/blood-drop.png" }
+                        }),
+                        _vm._v(
+                          "\n                หลีกเลี่ยงการเดินไปในบริเวณที่แออัด และมีอากาศร้อนอบอ้าว\n              "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { attrs: { id: "preparehead" } }, [
+                        _c("img", {
+                          attrs: { id: "impre", src: "images/blood-drop.png" }
+                        }),
+                        _vm._v(
+                          "\n                งดกิจกรรมหรือทำงานที่มีความเสี่ยงที่เกี่ยวข้องกับ ความเร็ว\n                ความสูง ความลึก เครื่องจักรกล\n              "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { attrs: { id: "preparehead" } }, [
+                        _c("img", {
+                          attrs: { id: "impre", src: "images/blood-drop.png" }
+                        }),
+                        _vm._v(
+                          "\n                งดออกกำลังกายที่ทำให้เสียเหงื่อ เป็นเวลา 24 ชั่วโมง\n              "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("img", {
+                        staticClass: "rounded mx-auto d-block",
+                        attrs: {
+                          src: "images/037.png",
+                          width: "200px",
+                          alt: ""
+                        }
+                      })
+                    ]
+                  )
+                ]
+              )
+            ])
+          ])
+        ])
       ])
     ])
   }
@@ -51956,6 +53060,27 @@ if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(/*! !../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
 var update = add("1013973d", content, false, {});
+// Hot Module Replacement
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/prepareblood.vue?vue&type=style&index=0&lang=css&":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/prepareblood.vue?vue&type=style&index=0&lang=css& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./prepareblood.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/prepareblood.vue?vue&type=style&index=0&lang=css&");
+if(content.__esModule) content = content.default;
+if(typeof content === 'string') content = [[module.id, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(/*! !../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
+var update = add("7e043c3d", content, false, {});
 // Hot Module Replacement
 if(false) {}
 

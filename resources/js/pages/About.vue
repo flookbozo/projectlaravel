@@ -1,15 +1,17 @@
 <template>
   <div>
-    <div id="about" class="container-fluid" style="background-color: #3a4750">
+    <div id="about" class="container-fluid" style="background-color: #fff0e2">
       <div class="row">
         <div class="col-sm-8">
-          <h6>About</h6>
+          <h6 id="head" style="color: #ff4343">About</h6>
           <br />
-          <h4>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+          
+          <h4 id="head1">
+            เว็บไซต์ของและแอปพลิเคชั่นของเรา สามารถเพิ่มความสะดวกสบายให้กับโรงพยาบาล
+            โดยโรงพยาบาลสามารถหาเลือดที่ต้องการจากผู้ที่ประสงค์จะบริจาคโลหิตที่อยู่บริเวณใกล้เคียงโรงพยาบาลได้
+            โดยไม่ผ่านสื่อกลาง
+            เราจะทำการส่งข้อความไปยังผู้ที่ประสงค์จะบริจาคโลหิตลดปัญหาการที่เลือดไม่
+            เพียงพอ หรือ ใช้เวลาในการนำเลือดกระจายไปโรงพยาบาลต่างๆ
           </h4>
           <br />
         </div>
@@ -19,181 +21,97 @@
       </div>
     </div>
 
-    <div class="container-fluid" style="background-color: #d72323">
+    <div class="container-fluid" style="background-color: #ff4343">
       <div class="row">
         <div class="col-sm-4">
           <span class="glyphicon glyphicon-globe logo slideanim"></span>
         </div>
         <div class="col-sm-8">
-          <h10>Our Values</h10>
-          <br />
-          <h10>
-            <strong>MISSION:</strong> Our mission lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.
-          </h10>
-          <br />
-          <h10>
-            <strong>VISION:</strong> Our vision Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat.
-          </h10>
+          <h6 class="text-center" id="head" style="color: #fff0e2">
+            การให้ที่สะดวกสบายและง่ายทั้ง 2 ฝ่าย
+          </h6>
+          <img
+            id="imabout"
+            src="images/5483126.png"
+            class="rounded mx-auto d-block"
+            alt="..."
+          />
         </div>
       </div>
     </div>
-
-    <!-- Container (Services Section) -->
+    <div class="text-center" id="im">
+      <img src="images/blood.jpg" id="imright" class="rounded" />
+      <img
+        src="images/blood.jpg"
+        id="imright"
+        class="rounded"
+        alt="..."
+      />
+      <img
+        src="images/blood.jpg"
+        id="imright"
+        class="rounded"
+        alt="..."
+      />
+    </div>
     <div
-      id="services"
+      id="portfolio"
       class="container-fluid text-center"
-      style="background-color: #eeeeee"
+      style="background-color: #00b4a9"
     >
-      <h5>Blood Donate</h5>
-     <img src="images/Untitled-3.jpg" alt="" />
-    </div>
-
-    <!-- Container (Portfolio Section) -->
-    <div id="portfolio" class="container-fluid text-center" style="background-color: #303841">
-      <h2>Portfolio</h2>
-      <br />
-      <h4>What we have created</h4>
-      <div class="row text-center slideanim">
-        <div class="col-sm-4">
-          <div class="thumbnail">
-            <img src="https://images.unsplash.com/photo-1615461065624-21b562ee5566?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2696&q=80" alt="Paris" width="400" height="300" />
-            <p><strong>Paris</strong></p>
-            <p>Yes, we built Paris</p>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="thumbnail">
-            <img src="https://images.unsplash.com/photo-1615461066159-fea0960485d5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2076&q=80" alt="New York" width="400" height="300" />
-            <p><strong>New York</strong></p>
-            <p>We built New York</p>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="thumbnail">
-            <img
-              src="https://images.unsplash.com/photo-1615461066841-6116e61058f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2048&q=80"
-              alt="San Francisco"
-              width="400"
-              height="300"
-            />
-            <p><strong>San Francisco</strong></p>
-            <p>Yes, San Fran is ours</p>
-          </div>
-        </div>
-      </div>
-      <br />
-
-      <h2>What our customers say</h2>
-      <div
-        id="myCarousel"
-        class="carousel slide text-center"
-        data-ride="carousel"
-      >
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
-          <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-          <div class="item active">
-            <h4>
-              "This company is the best. I am so happy with the result!"<br /><span
-                >Michael Roe, Vice President, Comment Box</span
-              >
-            </h4>
-          </div>
-          <div class="item">
-            <h4>
-              "One word... WOW!!"<br /><span>John Doe, Salesman, Rep Inc</span>
-            </h4>
-          </div>
-          <div class="item">
-            <h4>
-              "Could I... BE any more happy with this company?"<br /><span
-                >Chandler Bing, Actor, FriendsAlot</span
-              >
-            </h4>
-          </div>
-        </div>
-
-      </div>
+      <h2 style="color: #fff0e2">#ให้เลือดให้ชีวิต</h2>
     </div>
   </div>
 </template>
  <style>
-
-
-.jumbotron {
-  background-color: #f4511e;
-  color: #fff;
-  padding: 100px 25px;
-}
 .container-fluid {
-  padding: 60px 50px;
+  padding: 40px 40px;
 }
-.bg-grey {
-  background-color: #f6f6f6;
-}
-
-.carousel-control.right,
-.carousel-control.left {
-  background-image: none;
-  color: #eee;
-}
-.carousel-indicators li {
-  border-color: #f4511e;
-}
-.carousel-indicators li.active {
-  background-color: #f4511e;
-}
-.item h4 {
-  font-size: 19px;
-  line-height: 1.375em;
-  font-weight: 400;
-
-  margin: 70px 0;
+#head {
+  font-size: 50px;
 }
 
-.slideanim {visibility:hidden;}
-  .slide {
-    animation-name: slide;
-    -webkit-animation-name: slide;
-    animation-duration: 1s;
-    -webkit-animation-duration: 1s;
-    visibility: visible;
+.slideanim {
+  visibility: hidden;
+}
+.slide {
+  animation-name: slide;
+  -webkit-animation-name: slide;
+  animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+  visibility: visible;
+}
+@keyframes slide {
+  0% {
+    opacity: 0;
+    transform: translateY(70%);
   }
-  @keyframes slide {
-    0% {
-      opacity: 0;
-      transform: translateY(70%);
-    } 
-    100% {
-      opacity: 1;
-      transform: translateY(0%);
-    }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
   }
-  @-webkit-keyframes slide {
-    0% {
-      opacity: 0;
-      -webkit-transform: translateY(70%);
-    } 
-    100% {
-      opacity: 1;
-      -webkit-transform: translateY(0%);
-    }
+}
+@-webkit-keyframes slide {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(70%);
   }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+  }
+}
+#imabout {
+  width: 500px;
+}
+#imslide {
+  width: 450px;
+}
+
+#imright {
+  width: 30%;
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
 </style>

@@ -239,6 +239,7 @@ export default {
 <style >
   #buttonupdate{
      background-color: #1A73F1;
+     border-radius: 40px;
 }
   
 </style>

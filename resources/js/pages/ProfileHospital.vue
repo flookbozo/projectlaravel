@@ -78,7 +78,7 @@
         <div class="text-center">
           <router-link
             :to="{ name: 'edithospital', params: { id: hospital.id } }"
-            class="btn btn-danger btn-lg" id="edit"
+            class="btn btn-lg" id="edit"
             >Edit</router-link
           >
         </div>
@@ -145,6 +145,9 @@ export default {
 }
 #edit{
   background-color:  #ff4b45;
+  border-radius: 40px;
+  color: #fff0e2;
+  
 }
 </style>
 
