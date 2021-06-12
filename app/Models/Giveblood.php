@@ -11,7 +11,9 @@ class Giveblood extends Model
     protected $fillable = [ 
     'idHospital',
     'typeblood',
-    'typerh', 
+    'typerh',
+    'bloodsupply',
+    'bloodreceived', 
     'deficiencyBlood',
     ];
 

@@ -92,7 +92,18 @@ export default {
   props: ["app"],
   data() {
     return {
-      hospital: null,
+      hospital: {
+        prefix: "",
+        firstname: "",
+        lastname: "",
+        hospitalname: "",
+        hospitaladdress: "",
+        provine: "",
+        addresscode: "",
+        hospitallattitude: "",
+        hospitallongitude: "",
+        phonnumber: "",
+      },
     };
   },
   mounted() {

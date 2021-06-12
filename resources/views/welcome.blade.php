@@ -6,7 +6,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>Blood Donate</title>
 
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ secure_asset('css/app.css') }}">
     </head>
     <body>
         <div id="app"></div>
@@ -15,6 +15,6 @@
             var BASE_URL = '{{ URL::to('/') }}';
         </script>
 
-        <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ secure_asset('js/app.js') }}"></script>
     </body>
 </html>

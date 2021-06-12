@@ -10038,7 +10038,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nfooter {\n  background-color: #0f428a;\n}\n#linefooter {\n  color: #fff0e2;\n}\n.rgba-white-light {\n  color: #fff0e2;\n}\nhr.style1 {\n  border-top: 1px solid #fff0e2;\n}\n#uppercase {\n  font-size: 20px;\n}\n#imfooter {\n  width: 80px;\n  margin-bottom: 3%;\n}\n#regisnow {\n  font-size: 16px;\n  border: none;\n  background-color: #36cc8e;\n  color: #fff0e2;\n  border-radius: 40px;\n}\n#footerBlood {\n  font-size: 25px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nfooter {\r\n  background-color: #0f428a;\n}\n#linefooter {\r\n  color: #fff0e2;\n}\n.rgba-white-light {\r\n  color: #fff0e2;\n}\nhr.style1 {\r\n  border-top: 1px solid #fff0e2;\n}\n#uppercase {\r\n  font-size: 20px;\n}\n#imfooter {\r\n  width: 80px;\r\n  margin-bottom: 3%;\n}\n#regisnow {\r\n  font-size: 16px;\r\n  border: none;\r\n  background-color: #36cc8e;\r\n  color: #fff0e2;\r\n  border-radius: 40px;\n}\n#footerBlood {\r\n  font-size: 25px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -10062,7 +10062,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.dropdown-item {\n  color: black;\n}\n.navbar-brand {\n  font-size: 20px;\n}\n.nav-link {\n  font-size: 16px;\n}\n.nav {\n  position: fixed top;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.dropdown-item {\r\n  color: black;\n}\n.navbar-brand {\r\n  font-size: 20px;\n}\n.nav-link {\r\n  font-size: 16px;\n}\n.nav {\r\n  position: fixed top;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -10086,7 +10086,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.container-fluid {\n  padding: 40px 40px;\n}\n#head {\n  font-size: 50px;\n}\n.slideanim {\n  visibility: hidden;\n}\n.slide {\n  animation-name: slide;\n  -webkit-animation-name: slide;\n  animation-duration: 1s;\n  -webkit-animation-duration: 1s;\n  visibility: visible;\n}\n@keyframes slide {\n0% {\n    opacity: 0;\n    transform: translateY(70%);\n}\n100% {\n    opacity: 1;\n    transform: translateY(0%);\n}\n}\n@-webkit-keyframes slide {\n0% {\n    opacity: 0;\n    -webkit-transform: translateY(70%);\n}\n100% {\n    opacity: 1;\n    -webkit-transform: translateY(0%);\n}\n}\n#imabout {\n  width: 500px;\n}\n#imslide {\n  width: 450px;\n}\n#imright {\n  width: 30%;\n  margin-top: 3%;\n  margin-bottom: 3%;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.container-fluid {\r\n  padding: 40px 40px;\n}\n#head {\r\n  font-size: 50px;\n}\n.slideanim {\r\n  visibility: hidden;\n}\n.slide {\r\n  animation-name: slide;\r\n  -webkit-animation-name: slide;\r\n  animation-duration: 1s;\r\n  -webkit-animation-duration: 1s;\r\n  visibility: visible;\n}\n@keyframes slide {\n0% {\r\n    opacity: 0;\r\n    transform: translateY(70%);\n}\n100% {\r\n    opacity: 1;\r\n    transform: translateY(0%);\n}\n}\n@-webkit-keyframes slide {\n0% {\r\n    opacity: 0;\r\n    -webkit-transform: translateY(70%);\n}\n100% {\r\n    opacity: 1;\r\n    -webkit-transform: translateY(0%);\n}\n}\n#imabout {\r\n  width: 500px;\n}\n#imslide {\r\n  width: 450px;\n}\n#imright {\r\n  width: 30%;\r\n  margin-top: 3%;\r\n  margin-bottom: 3%;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -10134,7 +10134,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n#anwser {\n  margin-top: 3%;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n#anwser {\r\n  margin-top: 3%;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -10158,7 +10158,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n#anwser {\n  margin-top: 3%;\n}\n#reset{\n  background-color: #ff4343;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n#anwser {\r\n  margin-top: 3%;\n}\n#reset{\r\n  background-color: #ff4343;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -10206,7 +10206,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.carousel-inner img {\n  width: 100%; /* Set width to 100% */\n  margin: auto;\n  min-height: 200px;\n}\n.thumbnail {\n  position: relative;\n  padding: 0px;\n  margin-bottom: 20px;\n  margin-top: 30px;\n}\n.thumbnail img {\n  width: 100%;\n}\n.thumbnail a.btn {\n  border-top-left-radius: 0px;\n  border-top-right-radius: 0px;\n}\n.card-header .card {\n  background-color: #fff0e2;\n}\n#H1 {\n  margin-top: 3%;\n  text-align: center;\n  font-size: 20px;\n  border-radius: 40px;\n}\n.image-hearder {\n  padding: 20px;\n  width: 500px;\n}\n#imhome {\n  width: 500px;\n}\n#donate {\n  background-color: #ff4343;\n  border-radius: 40px;\n  font-size: 20px;\n  box-shadow: 0 0 0 1px #fff inset, 0 8px 0 0 #e2d4c8, 0 8px 8px 1px;\n  background-color: #ff4343;\n}\n#bloodd{\n  margin-top: 3%;\n}\n#h4{\n  margin-bottom: 2%;\n  font-size: 40px;\n}\n#h5{\n margin-top: 2%;\n  font-size: 50px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.carousel-inner img {\r\n  width: 100%; /* Set width to 100% */\r\n  margin: auto;\r\n  min-height: 200px;\n}\n.thumbnail {\r\n  position: relative;\r\n  padding: 0px;\r\n  margin-bottom: 20px;\r\n  margin-top: 30px;\n}\n.thumbnail img {\r\n  width: 100%;\n}\n.thumbnail a.btn {\r\n  border-top-left-radius: 0px;\r\n  border-top-right-radius: 0px;\n}\n.card-header .card {\r\n  background-color: #fff0e2;\n}\n#H1 {\r\n  margin-top: 3%;\r\n  text-align: center;\r\n  font-size: 20px;\r\n  border-radius: 40px;\n}\n.image-hearder {\r\n  padding: 20px;\r\n  width: 500px;\n}\n#imhome {\r\n  width: 500px;\n}\n#donate {\r\n  background-color: #ff4343;\r\n  border-radius: 40px;\r\n  font-size: 20px;\r\n  box-shadow: 0 0 0 1px #fff inset, 0 8px 0 0 #e2d4c8, 0 8px 8px 1px;\r\n  background-color: #ff4343;\n}\n#bloodd{\r\n  margin-top: 3%;\n}\n#h4{\r\n  margin-bottom: 2%;\r\n  font-size: 40px;\n}\n#h5{\r\n margin-top: 2%;\r\n  font-size: 50px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -10230,7 +10230,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.nav-pills .nav-link.active,\n.nav-pills .show > .nav-link {\n  color: #fff0e2;\n  background-color: #ff4b45;\n  font-size: 20px;\n}\n#card-body{\n  background-color:#fff;\n}\n.nav-link.active,\n.nav-link {\n  color: #ff4b45;\n  font-size: 20px;\n}\n#forget {\n  margin-top: -3%;\n}\n#buttonlogin{\n  background-color: #00B4A9;\n  border-radius: 40px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.nav-pills .nav-link.active,\r\n.nav-pills .show > .nav-link {\r\n  color: #fff0e2;\r\n  background-color: #ff4b45;\r\n  font-size: 20px;\n}\n#card-body{\r\n  background-color:#fff;\n}\n.nav-link.active,\r\n.nav-link {\r\n  color: #ff4b45;\r\n  font-size: 20px;\n}\n#forget {\r\n  margin-top: -3%;\n}\n#buttonlogin{\r\n  background-color: #00B4A9;\r\n  border-radius: 40px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -10254,7 +10254,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.user-row {\n  margin-bottom: 14px;\n}\n.user-row:last-child {\n  margin-bottom: 0;\n}\n.dropdown-user {\n  margin: 13px 0;\n  padding: 5px;\n  height: 100%;\n}\n.dropdown-user:hover {\n  cursor: pointer;\n}\n#card-headerProfile{\n    background-color: #ff4b45;\n     font-size: 25px;\n}\n.table-user-information > tbody > tr {\n  border-top: 1px solid rgb(221, 221, 221);\n}\n.table-user-information > tbody > tr:first-child {\n  border-top: 0;\n}\n.table-user-information > tbody > tr > td {\n  border-top: 0;\n}\n.toppad {\n  margin-top: 20px;\n}\n#body {\n  background-color:#F6F6F6;\n}\n#imageuser{\n  margin-bottom: 3%;\n  width: 150px;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.user-row {\r\n  margin-bottom: 14px;\n}\n.user-row:last-child {\r\n  margin-bottom: 0;\n}\n.dropdown-user {\r\n  margin: 13px 0;\r\n  padding: 5px;\r\n  height: 100%;\n}\n.dropdown-user:hover {\r\n  cursor: pointer;\n}\n#card-headerProfile{\r\n    background-color: #ff4b45;\r\n     font-size: 25px;\n}\n.table-user-information > tbody > tr {\r\n  border-top: 1px solid rgb(221, 221, 221);\n}\n.table-user-information > tbody > tr:first-child {\r\n  border-top: 0;\n}\n.table-user-information > tbody > tr > td {\r\n  border-top: 0;\n}\n.toppad {\r\n  margin-top: 20px;\n}\n#body {\r\n  background-color:#F6F6F6;\n}\n#imageuser{\r\n  margin-bottom: 3%;\r\n  width: 150px;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -10278,7 +10278,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n#tablegive {\n  background-color: #fff0e2;\n}\n#tablegiveblood {\n  background-color: #fff;\n}\n#imagegive {\n  width: 80px;\n  margin-bottom: 3%;\n}\n#giveblood1 {\n  background-color: #fff;\n  font-size: 30px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n#tablegive {\r\n  background-color: #fff0e2;\n}\n#tablegiveblood {\r\n  background-color: #fff;\n}\n#imagegive {\r\n  width: 80px;\r\n  margin-bottom: 3%;\n}\n#giveblood1 {\r\n  background-color: #fff;\r\n  font-size: 30px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -10302,7 +10302,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.user-row {\n  margin-bottom: 14px;\n}\n.user-row:last-child {\n  margin-bottom: 0;\n}\n.dropdown-user {\n  margin: 13px 0;\n  padding: 5px;\n  height: 100%;\n}\n.dropdown-user:hover {\n  cursor: pointer;\n}\n.table-user-information > tbody > tr {\n  border-top: 1px solid rgb(221, 221, 221);\n}\n.table-user-information > tbody > tr:first-child {\n  border-top: 0;\n}\n.table-user-information > tbody > tr > td {\n  border-top: 0;\n}\n.toppad {\n  margin-top: 20px;\n}\n#imagehos {\n  width: 150px;\n}\n#body{\n  background-color: #fff0e2;\n}\n#edit{\n  background-color:  #ff4b45;\n  border-radius: 40px;\n  color: #fff0e2;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.user-row {\r\n  margin-bottom: 14px;\n}\n.user-row:last-child {\r\n  margin-bottom: 0;\n}\n.dropdown-user {\r\n  margin: 13px 0;\r\n  padding: 5px;\r\n  height: 100%;\n}\n.dropdown-user:hover {\r\n  cursor: pointer;\n}\n.table-user-information > tbody > tr {\r\n  border-top: 1px solid rgb(221, 221, 221);\n}\n.table-user-information > tbody > tr:first-child {\r\n  border-top: 0;\n}\n.table-user-information > tbody > tr > td {\r\n  border-top: 0;\n}\n.toppad {\r\n  margin-top: 20px;\n}\n#imagehos {\r\n  width: 150px;\n}\n#body{\r\n  background-color: #fff0e2;\n}\n#edit{\r\n  background-color:  #ff4b45;\r\n  border-radius: 40px;\r\n  color: #fff0e2;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -10326,7 +10326,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.nav {\n  height: 60px;\n}\n.nav-link {\n  font-size: 20px;\n}\n#regis {\n  background-color: #00b4a9;\n  border-radius: 40px;\n}\n#answerRegis {\n  margin-top: 2%;\n}\n#card-header {\n  margin-top: 5%;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.nav {\r\n  height: 60px;\n}\n.nav-link {\r\n  font-size: 20px;\n}\n#regis {\r\n  background-color: #00b4a9;\r\n  border-radius: 40px;\n}\n#answerRegis {\r\n  margin-top: 2%;\n}\n#card-header {\r\n  margin-top: 5%;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -10350,7 +10350,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nsection {\n  padding: 60px 0;\n}\n#tabs {\n  background: #fff0e2;\n  color: #ff4b45;\n  border-radius: 40px;\n}\n#tabs .nav-tabs .nav-item.show .nav-link,\n.nav-tabs .nav-link.active {\n  color: #ff4b45;\n  background-color: transparent;\n  border-color: transparent transparent #ff4b45;\n  border-bottom: 4px solid !important;\n  font-size: 20px;\n  font-weight: bold;\n}\n#tabs .nav-tabs .nav-link {\n  border: 1px solid transparent;\n  border-top-left-radius: 0.25rem;\n  border-top-right-radius: 0.25rem;\n  color: #ff4b45;\n  font-size: 22px;\n}\n#nav-tabContent {\n  margin-left: 6%;\n  margin-right: 6%;\n}\n#preparehead {\n  font-size: 18px;\n  color: black;\n}\n#p1 {\n  margin-left: 3%;\n  color: #1763d0;\n  font-size: 15px;\n}\n#p2 {\n  font-size: 20px;\n  color: #1763d0;\n}\n#p3 {\n  font-size: 25px;\n}\n#impre {\n  width: 15px;\n  margin-right: 1%;\n}\n#p4 {\n  margin-top: 5%;\n  font-size: 25px;\n}\n#p5{\n    border-radius: 40px;\n    font-size: 18px;\n     background: #ff4b45\n}\n#p6{\n    margin-left: 3%;\n    margin-right: 3%;\n    font-size: 90px;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nsection {\r\n  padding: 60px 0;\n}\n#tabs {\r\n  background: #fff0e2;\r\n  color: #ff4b45;\r\n  border-radius: 40px;\n}\n#tabs .nav-tabs .nav-item.show .nav-link,\r\n.nav-tabs .nav-link.active {\r\n  color: #ff4b45;\r\n  background-color: transparent;\r\n  border-color: transparent transparent #ff4b45;\r\n  border-bottom: 4px solid !important;\r\n  font-size: 20px;\r\n  font-weight: bold;\n}\n#tabs .nav-tabs .nav-link {\r\n  border: 1px solid transparent;\r\n  border-top-left-radius: 0.25rem;\r\n  border-top-right-radius: 0.25rem;\r\n  color: #ff4b45;\r\n  font-size: 22px;\n}\n#nav-tabContent {\r\n  margin-left: 6%;\r\n  margin-right: 6%;\n}\n#preparehead {\r\n  font-size: 18px;\r\n  color: black;\n}\n#p1 {\r\n  margin-left: 3%;\r\n  color: #1763d0;\r\n  font-size: 15px;\n}\n#p2 {\r\n  font-size: 20px;\r\n  color: #1763d0;\n}\n#p3 {\r\n  font-size: 25px;\n}\n#impre {\r\n  width: 15px;\r\n  margin-right: 1%;\n}\n#p4 {\r\n  margin-top: 5%;\r\n  font-size: 25px;\n}\n#p5{\r\n    border-radius: 40px;\r\n    font-size: 18px;\r\n     background: #ff4b45\n}\n#p6{\r\n    margin-left: 3%;\r\n    margin-right: 3%;\r\n    font-size: 90px;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

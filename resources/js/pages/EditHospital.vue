@@ -188,7 +188,10 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
+  name: "edithospital",
+  props: ["app"],
   data() {
     return {
       post: null,
@@ -197,23 +200,18 @@ export default {
     };
   },
   created() {
-    axios
-      .get(`http://127.0.0.1:8000/api/edithospital/${this.$route.params.id}`)
-      .then((response) => {
-        this.post = response.data;
-        console.log(this.post);
-      });
+    axios.get(`api/edithospital/${this.$route.params.id}`)
+    .then((response) => {
+      this.post = response.data;
+      console.log(this.post);
+    });
   },
   methods: {
     updatePost() {
-      axios
-        .post(
-          `http://127.0.0.1:8000/api/edithospital/${this.$route.params.id}`,
-          this.post
-        )
-        .then((response) => {
-          this.$router.push({ name: "profilehospital" });
-        });
+      axios.post(`api/edithospital/${this.$route.params.id}`, this.post)
+      .then((response) => {
+        this.$router.push({ name: "profilehospital" });
+      });
     },
   },
 };

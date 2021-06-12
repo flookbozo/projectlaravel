@@ -7,6 +7,10 @@ use App\Http\Controllers\HospitalController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ResetPassController;
 use App\Http\Controllers\ResetPassHospitalController;
+use App\Http\Controllers\LocationController;
+use App\Http\Controllers\CalDistanceController;
+use App\Http\Controllers\RegisterUserController;
+use App\Http\Controllers\CalBloodSupplyController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -41,3 +45,15 @@ Route::get('resetuser/{id}', [ResetPassController::class, 'edit']);
 Route::post('resethospital/{id}', [ResetPassHospitalController::class, 'update']);
 Route::get('resethospital', [ResetPassHospitalController::class, 'index']);
 Route::get('resethospital/{id}', [ResetPassHospitalController::class, 'edit']);
+
+Route::prefix('auth')->group(function() {
+    Route::get('init', [RegisterUserController::class, 'init']);
+    Route::post('logout', [RegisterUserController::class, 'logout']);
+    Route::prefix('user')->group(function() {
+        Route::post('login', [RegisterUserController::class, 'loginUser']);
+        Route::post('register', [RegisterUserController::class, 'registerUser']);
+        Route::post('location', [LocationController::class, 'store']);
+    });
+});
+Route::post('calculate', [CalDistanceController::class, 'cal']);
+Route::post('userreply', [CalBloodSupplyController::class, 'calBlood']);

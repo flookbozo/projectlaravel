@@ -72,31 +72,10 @@
 import axios from "axios";
 
 export default {
-  name: "ProfileGiveblood",
+  name: "profilegiveblood",
   props: ["app"],
-  mounted() {
-    this.getGivebloods();
-    this.app.req.get("auth/hospital/init").then((response) => {
-      this.hospital = response.data.hospital;
-    });
-  },
-
-  methods: {
-    deleteBlood(id, index) {
-      axios.delete("api/givebloods/" + id).then((response) => {
-        this.givebloods.splice(index, 1);
-      });
-    },
-
-    getGivebloods() {
-      axios.get("api/givebloods").then((response) => {
-        this.givebloods = response.data;
-      });
-    },
-  },
   data() {
     return {
-       hospital: null,
       givebloods: [],
       giveblood: {
         id: "",
@@ -106,7 +85,65 @@ export default {
         date: "",
         deficiencyBlood: "",
       },
+      location: {
+        id: "",
+        latitude: "",
+        longitude: "",
+      },
+      loading: false,
+      interval: null,
+      size: null,
     };
+  },
+  async mounted() {
+    await this.getGivebloods();
+    await this.setLocation();
+    await this.calInterval();
+  },
+
+  methods: {
+    deleteBlood(id, index) {
+      axios.delete("api/givebloods/" + id).then((response) => {
+        this.givebloods.splice(index, 1);
+        this.size = this.size-1;
+      });
+    },
+
+    getGivebloods() {
+      axios.get("api/givebloods").then((response) => {
+        this.givebloods = response.data;
+      });
+    },
+    calDistance()
+    {
+      this.loading = true;
+      axios.post("api/calculate", this.location)
+      .then((response) => {
+        console.log(this.location);
+      })
+      .finally(() => (this.loading = false));
+    },
+    setLocation()
+    {
+      this.location.id = this.app.user.id;
+      this.location.latitude = this.app.user.hospitallattitude;
+      this.location.longitude = this.app.user.hospitallongitude;
+    },
+    async calInterval()
+    {
+      await axios.get("api/givebloods").then((response) => {
+        this.size = response.data.length;
+      });
+      if(this.size==0)
+      {
+        clearInterval(this.interval);
+      }
+      else
+      {
+        this.interval = setInterval(this.calDistance, 5000); 
+      }
+      console.log(this.size);
+    },
   },
 };
 </script>

@@ -88,9 +88,9 @@
   </div>
 </template>
 <script>
-import Axios from "axios";
+import axios from "axios";
 export default {
-  name: "regisGiveblood",
+  name: "giveblood",
   props: ["app"],
   data() {
     return {
@@ -123,14 +123,13 @@ export default {
           deficiencyBlood: this.giveblood.deficiencyBlood,
         };
         this.giveblood.idHospital = this.app.user.id;
-        Axios
-          .post("api/givebloods", this.giveblood)
-          .then((response) =>{
-            this.$router.push("/profilegiveblood");
-            console.log(response.data)
+        axios.post("api/givebloods", this.giveblood)
+        .then((response) =>{
+          this.$router.push("/profilegiveblood");
+          console.log(response.data);
             
-          })
-          .finally(() => (this.loading = false));
+        })
+        .finally(() => (this.loading = false));
       }
     },
   },

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGivebloodsTable extends Migration
+class CreateDonatehistoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateGivebloodsTable extends Migration
      */
     public function up()
     {
-        Schema::create('givebloods', function (Blueprint $table) {
+        Schema::create('donatehistories', function (Blueprint $table) {
             $table->id();
-            $table->string('idHospital');
-            $table->string('typeblood');
-            $table->string('typerh');
-            $table->string('deficiencyBlood');
-            $table->integer('bloodreceived')->default(0);
-            $table->integer('bloodsupply');
+            $table->integer('idUser');
+            $table->integer('idHospital');
+            $table->integer('blooddonate');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ class CreateGivebloodsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('givebloods');
+        Schema::dropIfExists('donatehistories');
     }
 }
