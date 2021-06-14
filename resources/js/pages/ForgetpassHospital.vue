@@ -97,6 +97,7 @@ export default {
       var checkEmailHospital = false;
       var checkQuestionAnswerHospital = false;
       var checkHospital = false;
+      var checkFalse = false;
       
 
       for (var i = 0; i < this.hospitals.length; i++) {
@@ -111,16 +112,19 @@ export default {
             this.hospital.answer == this.hospitals[i].answer
           ) {
             checkQuestionHospital = true;
+            break;
           } else if (
             this.hospital.question == this.hospitals[i].question &&
             this.hospital.answer != this.hospitals[i].answer
           ) {
             checkAnswerHospital = true;
+            break;
           } else if (
             this.hospital.question != this.hospitals[i].question &&
             this.hospital.answer != this.hospitals[i].answer
           ) {
             checkQuestionAnswerHospital = true;
+            break;
           } else if (
             this.hospital.question == this.hospitals[i].question &&
             this.hospital.answer == this.hospitals[i].answer
@@ -129,31 +133,8 @@ export default {
             checkHospital = true;
             break;
           }
-        } else if (this.hospital.email != this.hospitals[i].email) {
-          if (
-            this.hospital.question == this.hospitals[i].question &&
-            this.hospital.answer == this.hospitals[i].answer
-          ) {
-            checkEmailHospital = true;
-          } else if (
-            this.hospital.question != this.hospitals[i].question &&
-            this.hospital.answer == this.hospitals[i].answer
-          ) {
-            checkEmailHospital = true;
-            checkQuestionHospital = true;
-          } else if (
-            this.hospital.question == this.hospitals[i].question &&
-            this.hospital.answer != this.hospitals[i].answer
-          ) {
-            checkEmailHospital = true;
-            checkAnswerHospital = true;
-          } else if (
-            this.hospital.question != this.hospitals[i].question &&
-            this.hospital.answer != this.hospitals[i].answer
-          ) {
-            checkQuestionAnswerHospital = true;
-            checkEmailHospital = true;
-          }
+        } else {
+          checkEmailHospital = true;
         }
       }
 

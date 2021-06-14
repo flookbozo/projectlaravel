@@ -43,6 +43,7 @@ class GivebloodController extends Controller
             if($user->typeblood == $usertypeblood->typeblood && $user->typerh == $usertypeblood->typerh)
             {
                 $i->status = 0;
+                $i->reply = 0;
                 $i->save();
             }
         }

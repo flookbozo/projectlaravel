@@ -106,16 +106,19 @@ export default {
             this.user.answer == this.users[i].answer
           ) {
             checkQuestion = true;
+            break;
           } else if (
             this.user.question == this.users[i].question &&
             this.user.answer != this.users[i].answer
           ) {
             checkAnswer = true;
+            break;
           } else if (
             this.user.question != this.users[i].question &&
             this.user.answer != this.users[i].answer
           ) {
              checkQuestionAnswer = true;
+             break;
           } else if (
             this.user.question == this.users[i].question &&
             this.user.answer == this.users[i].answer
@@ -124,28 +127,11 @@ export default {
             check = true;
             break;
           }
-        } else if (this.user.email != this.users[i].email) {
-          if (
-            this.user.question == this.users[i].question &&
-            this.user.answer == this.users[i].answer
-          ) {
-            checkEmail = true;
-          } else if (
-            this.user.question != this.users[i].question &&
-            this.user.answer == this.users[i].answer
-          ) {
-            checkEmail = true;
-            checkQuestion = true;
-          } else if (
-            this.user.question == this.users[i].question &&
-            this.user.answer != this.users[i].answer
-          ) {
-            checkEmail = true;
-            checkAnswer = true;
-          }
+        } else{
+          checkEmail = true;
         }
       }
-
+      console.log(checkEmail);
       if (checkQuestion == true) {
         this.user.errors.push("คำถามหรือคำตอบไม่ถูกต้อง");
       }

@@ -76,6 +76,7 @@ export default {
   props: ["app"],
   data() {
     return {
+      hospital: null,
       givebloods: [],
       giveblood: {
         id: "",
@@ -96,6 +97,9 @@ export default {
     };
   },
   async mounted() {
+    await this.app.req.get("auth/hospital/init").then((response) => {
+      this.hospital = response.data.hospital;
+    });
     await this.getGivebloods();
     await this.setLocation();
     await this.calInterval();

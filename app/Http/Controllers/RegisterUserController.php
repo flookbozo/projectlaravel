@@ -42,6 +42,9 @@ class RegisterUserController extends Controller
         $user->question = $request->question;
         $user->answer = $request->answer;
         $user->save();
+
+        $response['message'] = "Register user success";
+        return json_encode($response);
     }
 
     public function loginUser(Request $request)

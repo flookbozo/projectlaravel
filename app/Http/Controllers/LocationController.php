@@ -14,7 +14,6 @@ class LocationController extends Controller
         $hospitalname = null;
         if(isset($user->id))
         {
-            $user = Locationuser::find($user->idUser);
             $user->latitude = $request->latitude;
             $user->longitude = $request->longitude;
             $user->save();
