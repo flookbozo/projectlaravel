@@ -38,6 +38,7 @@ Route::get('edithospital', [HospitalController::class, 'index']);
 Route::get('edituser/{id}', [UserController::class, 'edit']); 
 Route::post('edituser/{id}', [UserController::class, 'update']);
 Route::get('edituser', [UserController::class, 'index']);
+Route::post('updateProfile', [UserController::class, 'updateProfile']);
 
 Route::post('resetuser/{id}', [ResetPassController::class, 'update']);
 Route::get('resetuser', [ResetPassController::class, 'index']);
