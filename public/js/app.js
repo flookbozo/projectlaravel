@@ -3774,7 +3774,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       },
       loading: false,
       interval: null,
-      size: null
+      size: null,
+      num: null,
+      localInterval: null
     };
   },
   mounted: function mounted() {
@@ -3814,10 +3816,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     deleteBlood: function deleteBlood(id, index) {
       var _this2 = this;
 
+      this.loading = true;
       axios__WEBPACK_IMPORTED_MODULE_1___default().delete("api/givebloods/" + id).then(function (response) {
         _this2.givebloods.splice(index, 1);
 
-        _this2.size = _this2.size - 1;
+        _this2.checkRequest();
+
+        _this2.loading = false;
       });
     },
     getGivebloods: function getGivebloods() {
@@ -3858,18 +3863,53 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 2:
                 if (_this5.size == 0) {
                   clearInterval(_this5.interval);
-                } else {
+                } else if (_this5.size == 1) {
                   _this5.interval = setInterval(_this5.calDistance, 5000);
+                  localStorage.setItem("interval", _this5.interval);
                 }
 
                 console.log(_this5.size);
+                _this5.localInterval = localStorage.getItem("interval");
+                console.log(_this5.localInterval);
 
-              case 4:
+              case 6:
               case "end":
                 return _context2.stop();
             }
           }
         }, _callee2);
+      }))();
+    },
+    checkRequest: function checkRequest() {
+      var _this6 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.next = 2;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("api/givebloods").then(function (response) {
+                  _this6.size = response.data.length;
+                });
+
+              case 2:
+                if (_this6.size == 0) {
+                  _this6.interval = localStorage.getItem("interval");
+                  clearInterval(_this6.interval);
+                  _this6.num++;
+                }
+
+                console.log(_this6.size);
+                console.log(_this6.num);
+                console.log(_this6.interval);
+
+              case 6:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
       }))();
     }
   }

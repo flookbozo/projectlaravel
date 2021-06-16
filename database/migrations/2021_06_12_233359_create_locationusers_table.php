@@ -25,6 +25,7 @@ class CreateLocationusersTable extends Migration
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
             $table->integer('reply')->default(0);
+            $table->timestamp('donate_at')->nullable();
         });
     }
 

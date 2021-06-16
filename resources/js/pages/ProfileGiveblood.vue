@@ -94,6 +94,8 @@ export default {
       loading: false,
       interval: null,
       size: null,
+      num: null,
+      localInterval: null
     };
   },
   async mounted() {
@@ -107,9 +109,11 @@ export default {
 
   methods: {
     deleteBlood(id, index) {
+      this.loading = true;
       axios.delete("api/givebloods/" + id).then((response) => {
-        this.givebloods.splice(index, 1);
-        this.size = this.size-1;
+          this.givebloods.splice(index, 1);
+          this.checkRequest();
+          this.loading = false;
       });
     },
 
@@ -138,16 +142,34 @@ export default {
       await axios.get("api/givebloods").then((response) => {
         this.size = response.data.length;
       });
-      if(this.size==0)
+      if(this.size == 0)
       {
         clearInterval(this.interval);
       }
-      else
+      else if(this.size == 1)
       {
-        this.interval = setInterval(this.calDistance, 5000); 
+        this.interval = setInterval(this.calDistance, 5000);
+        localStorage.setItem("interval", this.interval);
       }
       console.log(this.size);
+      this.localInterval = localStorage.getItem("interval");
+      console.log(this.localInterval);
     },
+    async checkRequest()
+    {
+      await axios.get("api/givebloods").then((response) => {
+        this.size = response.data.length;
+      });
+      if(this.size == 0)
+      {
+        this.interval = localStorage.getItem("interval");
+        clearInterval(this.interval);
+        this.num++;
+      }
+      console.log(this.size);
+      console.log(this.num);
+      console.log(this.interval);
+    }
   },
 };
 </script>

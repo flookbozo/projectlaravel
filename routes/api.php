@@ -10,6 +10,7 @@ use App\Http\Controllers\ResetPassHospitalController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\CalDistanceController;
 use App\Http\Controllers\RegisterUserController;
+use App\Http\Controllers\RegisterHosController;
 use App\Http\Controllers\CalBloodSupplyController;
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +54,12 @@ Route::prefix('auth')->group(function() {
         Route::post('login', [RegisterUserController::class, 'loginUser']);
         Route::post('register', [RegisterUserController::class, 'registerUser']);
         Route::post('location', [LocationController::class, 'store']);
+    });
+    Route::prefix('hospital')->group(function() {
+        Route::get('init', [RegisterHosController::class, 'init']);
+        Route::post('login', [RegisterHosController::class, 'loginHospital']);
+        Route::post('register', [RegisterHosController::class, 'registerHospital']);
+        Route::post('logout', [RegisterHosController::class, 'logout']);
     });
 });
 Route::post('calculate', [CalDistanceController::class, 'cal']);

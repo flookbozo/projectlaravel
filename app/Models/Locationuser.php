@@ -16,6 +16,7 @@ class Locationuser extends Model
         'longitude',
         'distance',
         'status',
-        'reply'
+        'reply',
+        'donate_at'
     ];
 }
