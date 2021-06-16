@@ -54,7 +54,7 @@ class CalDistanceController extends Controller
                                     $location->status = 2;
                                 }
                                 else if($distance <= 10.0){
-                                    $locaiton->status = 3;
+                                    $location->status = 3;
                                 }
                                 else if($distance > 10.0){
                                     $location->status = 0;
