@@ -1985,15 +1985,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
@@ -2009,10 +2000,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
-//
-//
-//
 //
 //
 //
@@ -2689,6 +2676,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "forgetpasswordHos",
@@ -2720,6 +2711,7 @@ __webpack_require__.r(__webpack_exports__);
       var checkEmailHospital = false;
       var checkQuestionAnswerHospital = false;
       var checkHospital = false;
+      var checkFalse = false;
 
       for (var i = 0; i < this.hospitals.length; i++) {
         checkQuestionHospital = false;
@@ -2731,26 +2723,20 @@ __webpack_require__.r(__webpack_exports__);
         if (this.hospital.email == this.hospitals[i].email) {
           if (this.hospital.question != this.hospitals[i].question && this.hospital.answer == this.hospitals[i].answer) {
             checkQuestionHospital = true;
+            break;
           } else if (this.hospital.question == this.hospitals[i].question && this.hospital.answer != this.hospitals[i].answer) {
             checkAnswerHospital = true;
+            break;
           } else if (this.hospital.question != this.hospitals[i].question && this.hospital.answer != this.hospitals[i].answer) {
             checkQuestionAnswerHospital = true;
+            break;
           } else if (this.hospital.question == this.hospitals[i].question && this.hospital.answer == this.hospitals[i].answer) {
             this.id_hospital = this.hospitals[i].id;
             checkHospital = true;
             break;
           }
         } else if (this.hospital.email != this.hospitals[i].email) {
-          if (this.hospital.question == this.hospitals[i].question && this.hospital.answer == this.hospitals[i].answer) {
-            checkEmailHospital = true;
-          } else if (this.hospital.question != this.hospitals[i].question && this.hospital.answer == this.hospitals[i].answer) {
-            checkEmailHospital = true;
-            checkQuestionHospital = true;
-          } else if (this.hospital.question == this.hospitals[i].question && this.hospital.answer != this.hospitals[i].answer) {
-            checkEmailHospital = true;
-            checkAnswerHospital = true;
-          } else if (this.hospital.question != this.hospitals[i].question && this.hospital.answer != this.hospitals[i].answer) {
-            checkQuestionAnswerHospital = true;
+          if (this.hospital.email != "") {
             checkEmailHospital = true;
           }
         }
@@ -2925,27 +2911,24 @@ __webpack_require__.r(__webpack_exports__);
         if (this.user.email == this.users[i].email) {
           if (this.user.question != this.users[i].question && this.user.answer == this.users[i].answer) {
             checkQuestion = true;
+            break;
           } else if (this.user.question == this.users[i].question && this.user.answer != this.users[i].answer) {
             checkAnswer = true;
+            break;
           } else if (this.user.question != this.users[i].question && this.user.answer != this.users[i].answer) {
             checkQuestionAnswer = true;
+            break;
           } else if (this.user.question == this.users[i].question && this.user.answer == this.users[i].answer) {
             this.id_user = this.users[i].id;
             check = true;
             break;
           }
-        } else if (this.user.email != this.users[i].email) {
-          if (this.user.question == this.users[i].question && this.user.answer == this.users[i].answer) {
-            checkEmail = true;
-          } else if (this.user.question != this.users[i].question && this.user.answer == this.users[i].answer) {
-            checkEmail = true;
-            checkQuestion = true;
-          } else if (this.user.question == this.users[i].question && this.user.answer != this.users[i].answer) {
-            checkEmail = true;
-            checkAnswer = true;
-          }
+        } else {
+          checkEmail = true;
         }
       }
+
+      console.log(checkEmail);
 
       if (checkQuestion == true) {
         this.user.errors.push("คำถามหรือคำตอบไม่ถูกต้อง");
@@ -3164,6 +3147,51 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -4546,6 +4574,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "register",
   props: ["app"],
@@ -4734,7 +4777,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       window.scrollTo({
         top: 0,
         left: 0,
-        behavior: 'smooth'
+        behavior: "smooth"
       });
       this.hospital.errors = [];
       var checkUsernameH = false;
@@ -4915,6 +4958,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "resetpasswordHospital",
   data: function data() {
@@ -5003,6 +5052,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "resetpasswordUser",
   data: function data() {
@@ -5040,6 +5092,13 @@ __webpack_require__.r(__webpack_exports__);
   \**************************************************************************************************************************************************************************************************************/
 /***/ (() => {
 
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -5501,6 +5560,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_ForgetpassUser__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./pages/ForgetpassUser */ "./resources/js/pages/ForgetpassUser.vue");
 /* harmony import */ var _pages_ForgetpassHospital__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./pages/ForgetpassHospital */ "./resources/js/pages/ForgetpassHospital.vue");
 /* harmony import */ var _pages_prepareblood__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./pages/prepareblood */ "./resources/js/pages/prepareblood.vue");
+/* harmony import */ var _pages_typeblood__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./pages/typeblood */ "./resources/js/pages/typeblood.vue");
+/* harmony import */ var _pages_typeblood1__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./pages/typeblood1 */ "./resources/js/pages/typeblood1.vue");
+/* harmony import */ var _pages_typeblood2__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./pages/typeblood2 */ "./resources/js/pages/typeblood2.vue");
+
+
+
 
 
 
@@ -5517,65 +5582,77 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ([{
-  path: '/',
+  path: "/",
   component: _pages_Home__WEBPACK_IMPORTED_MODULE_0__.default,
-  name: 'home'
+  name: "home"
 }, {
-  path: '/forgetpasshospital',
+  path: "/typeblood",
+  component: _pages_typeblood__WEBPACK_IMPORTED_MODULE_15__.default,
+  name: "typeblood"
+}, {
+  path: "/typeblood1",
+  component: _pages_typeblood1__WEBPACK_IMPORTED_MODULE_16__.default,
+  name: "typeblood1"
+}, {
+  path: "/typeblood2",
+  component: _pages_typeblood2__WEBPACK_IMPORTED_MODULE_17__.default,
+  name: "typeblood2"
+}, {
+  path: "/forgetpasshospital",
   component: _pages_ForgetpassHospital__WEBPACK_IMPORTED_MODULE_13__.default,
-  name: 'forgetpasshospital'
+  name: "forgetpasshospital"
 }, {
-  path: '/forgetpassuser',
+  path: "/forgetpassuser",
   component: _pages_ForgetpassUser__WEBPACK_IMPORTED_MODULE_12__.default,
-  name: 'forgetpassuser'
+  name: "forgetpassuser"
 }, {
-  path: '/register',
+  path: "/register",
   component: _pages_Register__WEBPACK_IMPORTED_MODULE_2__.default,
-  name: 'register'
+  name: "register"
 }, {
-  path: '/login',
+  path: "/login",
   component: _pages_Login__WEBPACK_IMPORTED_MODULE_3__.default,
-  name: 'login'
+  name: "login"
 }, {
-  path: '/profile',
+  path: "/profile",
   component: _pages_Profile__WEBPACK_IMPORTED_MODULE_4__.default,
-  name: 'profile'
+  name: "profile"
 }, {
-  path: '/profilehospital',
+  path: "/profilehospital",
   component: _pages_ProfileHospital__WEBPACK_IMPORTED_MODULE_5__.default,
-  name: 'profilehospital'
+  name: "profilehospital"
 }, {
-  path: '/about',
+  path: "/about",
   component: _pages_About__WEBPACK_IMPORTED_MODULE_1__.default,
-  name: 'about'
+  name: "about"
 }, {
-  path: '/edituser:id',
+  path: "/edituser:id",
   component: _pages_Edituser__WEBPACK_IMPORTED_MODULE_6__.default,
-  name: 'edituser'
+  name: "edituser"
 }, {
-  path: '/edithospital:id',
+  path: "/edithospital:id",
   component: _pages_EditHospital__WEBPACK_IMPORTED_MODULE_7__.default,
-  name: 'edithospital'
+  name: "edithospital"
 }, {
-  path: '/giveblood',
+  path: "/giveblood",
   component: _pages_Giveblood__WEBPACK_IMPORTED_MODULE_8__.default,
-  name: 'giveblood'
+  name: "giveblood"
 }, {
-  path: '/profilegiveblood',
+  path: "/profilegiveblood",
   component: _pages_ProfileGiveblood__WEBPACK_IMPORTED_MODULE_9__.default,
-  name: 'profilegiveblood'
+  name: "profilegiveblood"
 }, {
-  path: '/resetpasshospital:id',
+  path: "/resetpasshospital:id",
   component: _pages_ResetpassHospital__WEBPACK_IMPORTED_MODULE_10__.default,
-  name: 'resetpasshospital'
+  name: "resetpasshospital"
 }, {
-  path: '/resetpassuser:id',
+  path: "/resetpassuser:id",
   component: _pages_ResetpassUser__WEBPACK_IMPORTED_MODULE_11__.default,
-  name: 'resetpassuser'
+  name: "resetpassuser"
 }, {
-  path: '/prepareblood',
+  path: "/prepareblood",
   component: _pages_prepareblood__WEBPACK_IMPORTED_MODULE_14__.default,
-  name: 'prepareblood'
+  name: "prepareblood"
 }]);
 
 /***/ }),
@@ -10206,7 +10283,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.carousel-inner img {\n  width: 100%; /* Set width to 100% */\n  margin: auto;\n  min-height: 200px;\n}\n.thumbnail {\n  position: relative;\n  padding: 0px;\n  margin-bottom: 20px;\n  margin-top: 30px;\n}\n.thumbnail img {\n  width: 100%;\n}\n.thumbnail a.btn {\n  border-top-left-radius: 0px;\n  border-top-right-radius: 0px;\n}\n.card-header .card {\n  background-color: #fff0e2;\n}\n#H1 {\n  margin-top: 3%;\n  text-align: center;\n  font-size: 20px;\n  border-radius: 40px;\n}\n.image-hearder {\n  padding: 20px;\n  width: 500px;\n}\n#imhome {\n  width: 500px;\n}\n#donate {\n  background-color: #ff4343;\n  border-radius: 40px;\n  font-size: 20px;\n  box-shadow: 0 0 0 1px #fff inset, 0 8px 0 0 #e2d4c8, 0 8px 8px 1px;\n  background-color: #ff4343;\n}\n#bloodd{\n  margin-top: 3%;\n}\n#h4{\n  margin-bottom: 2%;\n  font-size: 40px;\n}\n#h5{\n margin-top: 2%;\n  font-size: 50px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n#coldee{\n  background-color:  #fff0e2;\n  border-radius: 40px;\n}\n#imdee{\n  width: 600px;\n}\n#pdeehead {\n  font-size: 15px;\n  color: #ff4343;\n}\n#rowdee {\n  margin-top: 4%;\n}\n#pdee {\n  font-size: 25px;\n  background-color: #ff4343;\n  border-radius: 30px;\n}\n.carousel-inner img {\n  width: 100%; /* Set width to 100% */\n  margin: auto;\n  min-height: 200px;\n}\n.thumbnail {\n  position: relative;\n  padding: 0px;\n  margin-bottom: 20px;\n  margin-top: 30px;\n}\n.thumbnail img {\n  width: 100%;\n}\n.thumbnail a.btn {\n  border-top-left-radius: 0px;\n  border-top-right-radius: 0px;\n}\n.card-header .card {\n  background-color: #fff0e2;\n}\n#H1 {\n  margin-top: 3%;\n  text-align: center;\n  font-size: 20px;\n  border-radius: 40px;\n  background-color: #ff4343;\n}\n.image-hearder {\n  padding: 20px;\n  width: 500px;\n}\n#imhome {\n  width: 500px;\n}\n#donate {\n  background-color: #ff4343;\n  border-radius: 40px;\n  font-size: 20px;\n  box-shadow: 0 0 0 1px #fff inset, 0 8px 0 0 #e2d4c8, 0 8px 8px 1px;\n  background-color: #ff4343;\n}\n#bloodd {\n  margin-top: 3%;\n}\n#h4 {\n  margin-bottom: 2%;\n  font-size: 40px;\n}\n#h5 {\n  margin-top: 2%;\n  font-size: 50px;\n}\n#imthum {\n  width: 200px;\n}\n#row1 {\n  background-color: #fff0e2;\n  border-radius: 40px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -10350,7 +10427,79 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nsection {\n  padding: 60px 0;\n}\n#tabs {\n  background: #fff0e2;\n  color: #ff4b45;\n  border-radius: 40px;\n}\n#tabs .nav-tabs .nav-item.show .nav-link,\n.nav-tabs .nav-link.active {\n  color: #ff4b45;\n  background-color: transparent;\n  border-color: transparent transparent #ff4b45;\n  border-bottom: 4px solid !important;\n  font-size: 20px;\n  font-weight: bold;\n}\n#tabs .nav-tabs .nav-link {\n  border: 1px solid transparent;\n  border-top-left-radius: 0.25rem;\n  border-top-right-radius: 0.25rem;\n  color: #ff4b45;\n  font-size: 22px;\n}\n#nav-tabContent {\n  margin-left: 6%;\n  margin-right: 6%;\n}\n#preparehead {\n  font-size: 18px;\n  color: black;\n}\n#p1 {\n  margin-left: 3%;\n  color: #1763d0;\n  font-size: 15px;\n}\n#p2 {\n  font-size: 20px;\n  color: #1763d0;\n}\n#p3 {\n  font-size: 25px;\n}\n#impre {\n  width: 15px;\n  margin-right: 1%;\n}\n#p4 {\n  margin-top: 5%;\n  font-size: 25px;\n}\n#p5{\n    border-radius: 40px;\n    font-size: 18px;\n     background: #ff4b45\n}\n#p6{\n    margin-left: 3%;\n    margin-right: 3%;\n    font-size: 90px;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nsection {\n  padding: 60px 0;\n}\n#tabs {\n  background: #fff0e2;\n  color: #ff4b45;\n  border-radius: 40px;\n}\n#tabs .nav-tabs .nav-item.show .nav-link,\n.nav-tabs .nav-link.active {\n  color: #ff4b45;\n  background-color: transparent;\n  border-color: transparent transparent #ff4b45;\n  border-bottom: 4px solid !important;\n  font-size: 20px;\n  font-weight: bold;\n}\n#tabs .nav-tabs .nav-link {\n  border: 1px solid transparent;\n\n  color: #ff4b45;\n  font-size: 22px;\n}\n#nav-tabContent {\n  margin-left: 6%;\n  margin-right: 6%;\n}\n#preparehead {\n  font-size: 18px;\n  color: black;\n}\n#p1 {\n  margin-left: 3%;\n  color: #1763d0;\n  font-size: 15px;\n}\n#p2 {\n  font-size: 20px;\n  color: #1763d0;\n}\n#p3 {\n  font-size: 25px;\n  background-color: #ff4b45;\n  border-radius: 40px;\n  margin-top: 3%;\n  margin-bottom: 2%;\n}\n#impre {\n  width: 15px;\n  margin-right: 1%;\n}\n#p5 {\n  border-radius: 40px;\n  font-size: 18px;\n  margin-right: 2%;\n  margin-left: 2%;\n  background: #ff4b45;\n}\n#p6 {\n  margin-left: 3%;\n  margin-right: 3%;\n  font-size: 70px;\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/typeblood.vue?vue&type=style&index=0&lang=css&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/typeblood.vue?vue&type=style&index=0&lang=css& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n#imtype{\n    width: 1000px;\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/typeblood1.vue?vue&type=style&index=0&lang=css&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/typeblood1.vue?vue&type=style&index=0&lang=css& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n#imtype{\n    width: 1000px;\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/typeblood2.vue?vue&type=style&index=0&lang=css&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/typeblood2.vue?vue&type=style&index=0&lang=css& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n#imtype{\n    width: 800px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -42106,6 +42255,123 @@ component.options.__file = "resources/js/pages/prepareblood.vue"
 
 /***/ }),
 
+/***/ "./resources/js/pages/typeblood.vue":
+/*!******************************************!*\
+  !*** ./resources/js/pages/typeblood.vue ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _typeblood_vue_vue_type_template_id_3c4b53e7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./typeblood.vue?vue&type=template&id=3c4b53e7& */ "./resources/js/pages/typeblood.vue?vue&type=template&id=3c4b53e7&");
+/* harmony import */ var _typeblood_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./typeblood.vue?vue&type=style&index=0&lang=css& */ "./resources/js/pages/typeblood.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+;
+
+
+/* normalize component */
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  script,
+  _typeblood_vue_vue_type_template_id_3c4b53e7___WEBPACK_IMPORTED_MODULE_0__.render,
+  _typeblood_vue_vue_type_template_id_3c4b53e7___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/typeblood.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/typeblood1.vue":
+/*!*******************************************!*\
+  !*** ./resources/js/pages/typeblood1.vue ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _typeblood1_vue_vue_type_template_id_4d28bada___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./typeblood1.vue?vue&type=template&id=4d28bada& */ "./resources/js/pages/typeblood1.vue?vue&type=template&id=4d28bada&");
+/* harmony import */ var _typeblood1_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./typeblood1.vue?vue&type=style&index=0&lang=css& */ "./resources/js/pages/typeblood1.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+;
+
+
+/* normalize component */
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  script,
+  _typeblood1_vue_vue_type_template_id_4d28bada___WEBPACK_IMPORTED_MODULE_0__.render,
+  _typeblood1_vue_vue_type_template_id_4d28bada___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/typeblood1.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/typeblood2.vue":
+/*!*******************************************!*\
+  !*** ./resources/js/pages/typeblood2.vue ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _typeblood2_vue_vue_type_template_id_4d36d25b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./typeblood2.vue?vue&type=template&id=4d36d25b& */ "./resources/js/pages/typeblood2.vue?vue&type=template&id=4d36d25b&");
+/* harmony import */ var _typeblood2_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./typeblood2.vue?vue&type=style&index=0&lang=css& */ "./resources/js/pages/typeblood2.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+;
+
+
+/* normalize component */
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  script,
+  _typeblood2_vue_vue_type_template_id_4d36d25b___WEBPACK_IMPORTED_MODULE_0__.render,
+  _typeblood2_vue_vue_type_template_id_4d36d25b___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/typeblood2.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/App.vue?vue&type=script&lang=js&":
 /*!*******************************************************!*\
   !*** ./resources/js/App.vue?vue&type=script&lang=js& ***!
@@ -42688,6 +42954,57 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/pages/typeblood.vue?vue&type=template&id=3c4b53e7&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/pages/typeblood.vue?vue&type=template&id=3c4b53e7& ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_typeblood_vue_vue_type_template_id_3c4b53e7___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_typeblood_vue_vue_type_template_id_3c4b53e7___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_typeblood_vue_vue_type_template_id_3c4b53e7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./typeblood.vue?vue&type=template&id=3c4b53e7& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/typeblood.vue?vue&type=template&id=3c4b53e7&");
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/typeblood1.vue?vue&type=template&id=4d28bada&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/pages/typeblood1.vue?vue&type=template&id=4d28bada& ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_typeblood1_vue_vue_type_template_id_4d28bada___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_typeblood1_vue_vue_type_template_id_4d28bada___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_typeblood1_vue_vue_type_template_id_4d28bada___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./typeblood1.vue?vue&type=template&id=4d28bada& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/typeblood1.vue?vue&type=template&id=4d28bada&");
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/typeblood2.vue?vue&type=template&id=4d36d25b&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/pages/typeblood2.vue?vue&type=template&id=4d36d25b& ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_typeblood2_vue_vue_type_template_id_4d36d25b___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_typeblood2_vue_vue_type_template_id_4d36d25b___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_typeblood2_vue_vue_type_template_id_4d36d25b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./typeblood2.vue?vue&type=template&id=4d36d25b& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/typeblood2.vue?vue&type=template&id=4d36d25b&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/Footer.vue?vue&type=style&index=0&lang=css&":
 /*!*****************************************************************************!*\
   !*** ./resources/js/components/Footer.vue?vue&type=style&index=0&lang=css& ***!
@@ -42926,6 +43243,57 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/pages/typeblood.vue?vue&type=style&index=0&lang=css&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/pages/typeblood.vue?vue&type=style&index=0&lang=css& ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_typeblood_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-style-loader/index.js!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./typeblood.vue?vue&type=style&index=0&lang=css& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/typeblood.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_typeblood_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_typeblood_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
+/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_typeblood_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== "default") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_typeblood_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[__WEBPACK_IMPORT_KEY__]
+/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/typeblood1.vue?vue&type=style&index=0&lang=css&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/pages/typeblood1.vue?vue&type=style&index=0&lang=css& ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_typeblood1_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-style-loader/index.js!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./typeblood1.vue?vue&type=style&index=0&lang=css& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/typeblood1.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_typeblood1_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_typeblood1_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
+/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_typeblood1_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== "default") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_typeblood1_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[__WEBPACK_IMPORT_KEY__]
+/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/typeblood2.vue?vue&type=style&index=0&lang=css&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/pages/typeblood2.vue?vue&type=style&index=0&lang=css& ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_typeblood2_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-style-loader/index.js!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./typeblood2.vue?vue&type=style&index=0&lang=css& */ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/typeblood2.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_typeblood2_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_typeblood2_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
+/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_typeblood2_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== "default") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_typeblood2_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[__WEBPACK_IMPORT_KEY__]
+/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/App.vue?vue&type=template&id=f348271a&":
 /*!****************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/App.vue?vue&type=template&id=f348271a& ***!
@@ -43033,41 +43401,7 @@ var staticRenderFns = [
               ]
             )
           ]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-2 mb-3" }, [
-          _c(
-            "div",
-            { staticClass: "text-uppercase", attrs: { id: "uppercase" } },
-            [
-              _c(
-                "a",
-                {
-                  staticStyle: { color: "#fff0e2" },
-                  attrs: { href: "#/About" }
-                },
-                [_vm._v("About us")]
-              )
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-2 mb-3" }, [
-          _c(
-            "div",
-            { staticClass: "text-uppercase", attrs: { id: "uppercase" } },
-            [
-              _c(
-                "a",
-                {
-                  staticStyle: { color: "#fff0e2" },
-                  attrs: { href: "/about" }
-                },
-                [_vm._v("Contact")]
-              )
-            ]
-          )
-        ])
+        )
       ]
     )
   },
@@ -43108,7 +43442,7 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("p", { staticStyle: { "line-height": "1.7rem" } }, [
               _vm._v(
-                "\n          สะดวกและรวดเร็วมากขึ้นเมื่อคุณสามารถบริจาคเลือดกับโรงพยาบาลที่ต้องการเลือดได้\n          โดยใช้แอปพลิเคชั่นและเว็บไซต์ Blood doanate\n          การช่วยเหลือของคุณเป็นสิ่งสำคัญสำหรับอีกชีวิตนึง\n        "
+                "\n          สะดวกและรวดเร็วมากขึ้นเมื่อคุณสามารถบริจาคเลือดกับโรงพยาบาลที่ต้องการเลือดได้\n          โดยใช้แอปพลิเคชันและเว็บไซต์ Blood doanate\n          การช่วยเหลือของคุณเป็นสิ่งสำคัญสำหรับอีกชีวิตนึง\n        "
               )
             ])
           ]
@@ -43196,23 +43530,6 @@ var render = function() {
                       attrs: { to: "/" }
                     },
                     [_vm._v("Home")]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                { staticClass: "nav-item" },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "nav-link",
-                      staticStyle: { color: "#fff0e2" },
-                      attrs: { to: "/About" }
-                    },
-                    [_vm._v("About")]
                   )
                 ],
                 1
@@ -43466,21 +43783,12 @@ var staticRenderFns = [
         ]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "text-center", attrs: { id: "im" } }, [
+      _c("div", { staticClass: "text-center" }, [
         _c("img", {
-          staticClass: "rounded",
-          attrs: { src: "images/blood.jpg", id: "imright" }
+          staticClass: "img-fluid",
+          attrs: { src: "images/231.jpg", alt: "" }
         }),
-        _vm._v(" "),
-        _c("img", {
-          staticClass: "rounded",
-          attrs: { src: "images/blood.jpg", id: "imright", alt: "..." }
-        }),
-        _vm._v(" "),
-        _c("img", {
-          staticClass: "rounded",
-          attrs: { src: "images/blood.jpg", id: "imright", alt: "..." }
-        })
+        _vm._v("\n    />\n  ")
       ]),
       _vm._v(" "),
       _c(
@@ -44967,7 +45275,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header", attrs: { id: "reset" } }, [
       _c("h3", { staticClass: "mb-1", staticStyle: { color: "#fff0e2" } }, [
-        _vm._v("Reset Password")
+        _vm._v("Forgot Password")
       ])
     ])
   },
@@ -45187,7 +45495,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header", attrs: { id: "reset" } }, [
       _c("h3", { staticClass: "mb-1", staticStyle: { color: "#fff0e2" } }, [
-        _vm._v("Reset Password")
+        _vm._v("Forgot Password")
       ])
     ])
   },
@@ -45511,7 +45819,7 @@ var render = function() {
         { staticClass: "text-center", attrs: { id: "bloodd" } },
         [
           _c("h4", { staticStyle: { color: "#ff4343" }, attrs: { id: "h5" } }, [
-            _vm._v('"รู้ไว้ไม่เสียหาย" ')
+            _vm._v('"รู้ไว้ไม่เสียหาย"')
           ]),
           _vm._v(" "),
           _c("h4", { attrs: { id: "h4" } }, [
@@ -45521,13 +45829,13 @@ var render = function() {
           _c(
             "router-link",
             {
-              staticClass: "btn  btn-lg btn3d",
+              staticClass: "btn btn-lg btn3d",
               staticStyle: { color: "#fff0e2" },
               attrs: { id: "donate", to: "/prepareblood" }
             },
             [
               _c("span", { staticClass: "glyphicon glyphicon-ok" }),
-              _vm._v("\n        คลิ๊กเลย")
+              _vm._v(" คลิ๊กเลย")
             ]
           )
         ],
@@ -45538,11 +45846,17 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "p-3 mb-2 bg-danger text-white", attrs: { id: "H1" } },
-        [_vm._v('\n      "บทความที่น่าสนใจ"\n    ')]
+        {
+          staticClass: "p-3 mb-2",
+          staticStyle: { color: "#fff0e2" },
+          attrs: { id: "H1" }
+        },
+        [_vm._v('\n      เกร็ดความรู้เกี่ยวกับ "โลหิต"\n    ')]
       ),
       _vm._v(" "),
-      _vm._m(2)
+      _vm._m(2),
+      _vm._v(" "),
+      _vm._m(3)
     ])
   ])
 }
@@ -45580,9 +45894,7 @@ var staticRenderFns = [
             _c("div", { staticClass: "carousel-item active" }, [
               _c("img", {
                 attrs: { src: "images/Untitled-1.jpg", alt: "First slide" }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "carousel-caption d-none d-md-block" })
+              })
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "carousel-item" }, [
@@ -45645,30 +45957,45 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
+    return _c("div", { staticClass: "row", attrs: { id: "row1" } }, [
       _c("div", { staticClass: "col-sm-6 col-md-4" }, [
         _c("div", { staticClass: "thumbnail" }, [
-          _c("h4", [_vm._v("ความสุขของ “การบริจาคโลหิต”")]),
+          _c("h4", { staticClass: "text-center" }, [
+            _vm._v('ความรู้พื้นฐานเกี่ยวกับ "โลหิต"')
+          ]),
           _vm._v(" "),
           _c("img", {
-            attrs: {
-              src:
-                "https://static.thairath.co.th/media/dFQROr7oWzulq5Fa4V4qANWrW0pdH9vmXPj9uOxgirUX3BKKLDZcvKHoED3JxAPLjA5.webp",
-              alt: ""
-            }
+            staticClass: "rounded mx-auto d-block",
+            attrs: { id: "imthum", src: "images/040.png", alt: "" }
           }),
           _vm._v(" "),
           _c(
             "a",
             {
-              staticClass: "btn btn-danger col-xs-12",
-              attrs: {
-                href:
-                  "https://www.brandbuffet.in.th/2019/04/lpn-blood-donation-csr/",
-                role: "button"
-              }
+              staticClass: "btn btn-danger text-center",
+              attrs: { href: "/#/typeblood", role: "button" }
             },
-            [_vm._v("View Snippet")]
+            [_vm._v("อ่านเพิ่มเติม")]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-6 col-md-4" }, [
+        _c("div", { staticClass: "thumbnail" }, [
+          _c("h4", { staticClass: "text-center" }, [_vm._v("ประเภทของโลหิต")]),
+          _vm._v(" "),
+          _c("img", {
+            staticClass: "rounded mx-auto d-block",
+            attrs: { id: "imthum", src: "images/025.png", alt: "" }
+          }),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "btn btn-danger text-center",
+              attrs: { role: "button", href: "/#/typeblood1" }
+            },
+            [_vm._v("อ่านเพิ่มเติม")]
           ),
           _vm._v(" "),
           _c("div", { staticClass: "clearfix" })
@@ -45677,58 +46004,81 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("div", { staticClass: "col-sm-6 col-md-4" }, [
         _c("div", { staticClass: "thumbnail" }, [
-          _c("h4", [_vm._v("ทำไมต้องบริจาคโลหิต?")]),
+          _c("h4", { staticClass: "text-center" }, [
+            _vm._v("หลักการให้และรับโลหิต")
+          ]),
           _vm._v(" "),
           _c("img", {
-            attrs: {
-              src:
-                "https://static.thairath.co.th/media/dFQROr7oWzulq5Fa4Vt8Uke92MlL0Ygtxa8UglL81auEhUaq8jUD3B0bEv5YzHM6XVy.webp",
-              alt: ""
-            }
+            staticClass: "rounded mx-auto d-block",
+            attrs: { id: "imthum", src: "images/012b.png", alt: "" }
           }),
           _vm._v(" "),
           _c(
             "a",
             {
-              staticClass: "btn btn-danger col-xs-12",
-              attrs: {
-                role: "button",
-                href: "https://www.redcross.or.th/news/information/13117/"
-              }
+              staticClass: "btn btn-danger",
+              attrs: { href: "/#/typeblood2", role: "button" }
             },
-            [_vm._v("View Snippet")]
+            [_vm._v("อ่านเพิ่มเติม")]
           ),
           _vm._v(" "),
           _c("div", { staticClass: "clearfix" })
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row", attrs: { id: "rowdee" } }, [
+      _c("div", { staticClass: "col", attrs: { id: "coldee" } }, [
+        _c(
+          "p",
+          {
+            staticClass: "text-center",
+            staticStyle: { color: "#fff0e2" },
+            attrs: { id: "pdee" }
+          },
+          [_vm._v("\n          ข้อดีของการบริจาคเลือด\n        ")]
+        ),
+        _vm._v(" "),
+        _c("p", { attrs: { id: "pdeehead" } }, [
+          _vm._v("ข้อที่ 1 ทำให้สุขภาพแข็งแรง")
+        ]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            "\n          หลายๆคนคงสงสัยว่าการบริจาคเลือด\n          เป็นการเอาเลือดออกจากตัวแล้วร่างกายจะแข็งแรงขึ้นได้อย่างไร จริงๆแล้ว\n          เลือดที่บริจาคออกไปเป็นเลือดส่วนเกินของร่างกายค่ะ หรือประมาณ 7%\n          ของปริมาณเลือดทั้งหมดในร่างกาย\n          โดยก่อนจะบริจาคจะมีการพิจารณาจากน้ำหนักตัวของผู้ให้บริจาคก่อน\n          ดังนั้นเลือดที่เสียไปจะไม่เป็นอันตรายต่อร่างกาย\n          ตรงกันข้ามกลับกระตุ้นให้ไขกระดูกผลิตเม็ดโลหิตใหม่ขึ้นมาแทน\n          ระบบไหลเวียนของเลือดจะดีขึ้น ทำให้ร่างกายแข็งแรงตามมา\n        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", { attrs: { id: "pdeehead" } }, [
+          _vm._v("ข้อดีข้อที่ 2 หุ่นดี ผิวเปล่งปลั่ง")
+        ]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            "\n          มีความเชื่อผิดๆ กันอยู่อย่างนึงว่าการบริจาคเลือดจะทำให้อ้วนขึ้น\n          ทำให้สาวๆ ไม่ค่อยกล้าบริจาค แต่จากข้อมูลของ\n          สสวท.ได้ออกมาเปิดเผยว่าเป็นความเชื่อที่ผิด\n          การบริจาคเลือดไม่ได้ทำให้อ้วน\n          แต่กลับทำให้ผู้บริจาคมีรูปร่างที่ดีขึ้นด้วยซ้ำไป\n          นอกจากนี้เลือดใหม่ที่ถูกผลิตขึ้นรวมทั้งการไหลเวียนของเลือดที่ดีขึ้น\n          จะช่วยให้ผิวพรรณเปล่งปลั่ง มีน้ำมีนวล และยังช่วยให้หน้าใสขึ้นด้วย\n          ไม่ต้องกินวิตามินเสริมก็สามารถมีผิวพรรณสดใสได้เหมือนกันนะ\n        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", { attrs: { id: "pdeehead" } }, [
+          _vm._v("ข้อดีข้อที่ 3 ลดความเสี่ยงที่จะเป็นมะเร็งได้ด้วย")
+        ]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            "\n          สถาบันคาโรลินสกา สตอคโฮล์ม สวีเดน\n          ได้ศึกษาข้อมูลจากผู้บริจาคเลือดสวีเดนและเดนมาร์ค พบว่า\n          การบริจาคเลือดช่วยลดความเสี่ยงจากมะเร็งได้หลายชนิดเลย เช่น มะเร็งตับ\n          มะเร็งปอด มะเร็งลำไส้ใหญ่ มะเร็งกระเพาะอาหาร ฯลฯ\n          นอกจากนี้ยังมีข้อมูลเพิ่มเติมว่าในรายที่มีธาตุเหล็กในร่างกายมากเกินไป\n          มีผลต่อการเกิดโรคเส้นเลือดหัวใจอุดตันหรือมะเร็งบางชนิด\n          การบริจาคเลือดจะช่วยลดปริมาณธาตุเหล็กส่วนเกินเหล่านั้นออกไปได้\n          และยิ่งเราบริจาคเลือดบ่อยเท่าไหร่\n          ความเสี่ยงโรคมะเร็งจะลดลงมากเท่านั้น โดยเฉพาะในเพศชาย\n          แต่ความถี่ของการบริจาคเลือดระบุไว้ว่า\n        "
+          )
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-sm-6 col-md-4" }, [
-        _c("div", { staticClass: "thumbnail" }, [
-          _c("h4", [_vm._v("บริจาคเลือด ส่งผลดีมากกว่าที่คิด")]),
-          _vm._v(" "),
-          _c("img", {
-            attrs: {
-              src:
-                "https://static.thairath.co.th/media/dFQROr7oWzulq5Fa4VnQRboWrCOVznBpo2KGwjocrEkxD55KtnAziS153RRU76jbIoc.webp",
-              alt: ""
-            }
-          }),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass: "btn btn-danger col-xs-12",
-              attrs: {
-                href: "https://hilight.kapook.com/view/27717",
-                role: "button"
-              }
-            },
-            [_vm._v("View Snippet")]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "clearfix" })
-        ])
+      _c("div", { staticClass: "col" }, [
+        _c("img", {
+          staticClass: "rounded mx-auto d-block",
+          attrs: { id: "imdee", src: "images/5483126.png", alt: "" }
+        })
       ])
     ])
   }
@@ -47516,6 +47866,26 @@ var render = function() {
                                       _vm._v(" "),
                                       _c("option", [
                                         _vm._v("ชื่อสัตว์เลี้ยงตัวแรก")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("option", [_vm._v("สัตว์ที่คุณกลัว")]),
+                                      _vm._v(" "),
+                                      _c("option", [_vm._v("สัตว์ที่คุณชอบ")]),
+                                      _vm._v(" "),
+                                      _c("option", [
+                                        _vm._v("คุณเกิดจังหวัดอะไร")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("option", [_vm._v("ชื่อบิดา")]),
+                                      _vm._v(" "),
+                                      _c("option", [_vm._v("ชื่อมารดา")]),
+                                      _vm._v(" "),
+                                      _c("option", [
+                                        _vm._v("ชื่อน้องสาว/พี่สาวของคุณ")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("option", [
+                                        _vm._v("ชื่อน้องชาย/พี่ชายของคุณ")
                                       ])
                                     ]
                                   ),
@@ -48598,6 +48968,26 @@ var render = function() {
                                       _vm._v(" "),
                                       _c("option", [
                                         _vm._v("ชื่อสัตว์เลี้ยงตัวแรก")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("option", [_vm._v("สัตว์ที่คุณกลัว")]),
+                                      _vm._v(" "),
+                                      _c("option", [_vm._v("สัตว์ที่คุณชอบ")]),
+                                      _vm._v(" "),
+                                      _c("option", [
+                                        _vm._v("คุณเกิดจังหวัดอะไร")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("option", [_vm._v("ชื่อบิดา")]),
+                                      _vm._v(" "),
+                                      _c("option", [_vm._v("ชื่อมารดา")]),
+                                      _vm._v(" "),
+                                      _c("option", [
+                                        _vm._v("ชื่อน้องสาว/พี่สาวของคุณ")
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("option", [
+                                        _vm._v("ชื่อน้องชาย/พี่ชายของคุณ")
                                       ])
                                     ]
                                   ),
@@ -48755,6 +49145,8 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "card" }, [
+      _vm._m(0),
+      _vm._v(" "),
       _c("div", { staticClass: "card-body" }, [
         _c("div", { staticClass: "col-md-6 offset-md-3" }, [
           _c(
@@ -48846,7 +49238,7 @@ var render = function() {
                 })
               ]),
               _vm._v(" "),
-              _vm._m(0)
+              _vm._m(1)
             ]
           )
         ])
@@ -48859,10 +49251,26 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text-center" }, [
-      _c("button", { staticClass: "btn btn-success btn-lg btn-block" }, [
-        _vm._v("\n              Reset Password\n            ")
+    return _c("div", { staticClass: "card-header", attrs: { id: "reset" } }, [
+      _c("h3", { staticClass: "mb-1", staticStyle: { color: "#fff0e2" } }, [
+        _vm._v("Reset Password")
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-center" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-lg btn-block",
+          staticStyle: { color: "#fff0e2" },
+          attrs: { id: "buttonlogin" }
+        },
+        [_vm._v("\n              Reset Password\n            ")]
+      )
     ])
   }
 ]
@@ -48890,6 +49298,8 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "card" }, [
+      _vm._m(0),
+      _vm._v(" "),
       _c("div", { staticClass: "card-body" }, [
         _c("div", { staticClass: "col-md-6 offset-md-3" }, [
           _c(
@@ -48981,7 +49391,7 @@ var render = function() {
                 })
               ]),
               _vm._v(" "),
-              _vm._m(0)
+              _vm._m(1)
             ]
           )
         ])
@@ -48994,10 +49404,26 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text-center" }, [
-      _c("button", { staticClass: "btn btn-success btn-lg btn-block" }, [
-        _vm._v("\n              Reset Password\n            ")
+    return _c("div", { staticClass: "card-header", attrs: { id: "reset" } }, [
+      _c("h3", { staticClass: "mb-1", staticStyle: { color: "#fff0e2" } }, [
+        _vm._v("Reset Password")
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-center" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn  btn-lg btn-block",
+          staticStyle: { color: "#fff0e2" },
+          attrs: { id: "buttonlogin" }
+        },
+        [_vm._v("\n              Reset Password\n            ")]
+      )
     ])
   }
 ]
@@ -49044,9 +49470,9 @@ var staticRenderFns = [
               staticClass: "rounded",
               attrs: { src: "images/0011.png", width: "80px", alt: "" }
             }),
-            _vm._v("โลหิต"),
+            _vm._v("การบริจาคโลหิต"),
             _c("img", {
-              staticClass: "rounded ",
+              staticClass: "rounded",
               attrs: { src: "images/00111.png", width: "80px", alt: "" }
             })
           ]
@@ -49054,15 +49480,11 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("br"),
         _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "p-3 mb-2  text-white", attrs: { id: "p5" } },
-          [
-            _vm._v(
-              "\n      คำว่า “โลหิต” อาจฟังดูน่าหวาดเสียวและน่ากลัวสำหรับคนบางคน\n      แต่สำหรับโรงพยาบาลแล้ว โลหิตเป็นสิ่งจำเป็นและสำคัญในการรักษาผู้ป่วย\n      ไม่ว่าจะเป็นผู้ป่วยผ่าตัด ผู้ป่วยโรคเลือด ผู้ป่วยมะเร็ง\n      รวมทั้งการรักษาหลายๆ อย่างในปัจจุบันนี้ จะไม่สามารถทำได้หากไม่มีโลหิต\n    "
-            )
-          ]
-        ),
+        _c("div", { staticClass: "p-3 mb-2 text-white", attrs: { id: "p5" } }, [
+          _vm._v(
+            "\n      - ปกติแล้วมนุษย์จะมีโลหิตอยู่ประมาณ 4,000 - 5,000 ซี.ซี.\n      และการบริจาคโลหิตแต่ละคร้ัง จะบริจาคเพียง 300 - 400 ซี.ซี. หรือ ประมาณ 6\n      - 7 % ของโลหิตทั้งหมดในร่างกาย การบริจาคโลหิตเท่ากับ การกระตุ้นให้\n      ไขกระดูกสร้างเม็ดโลหิตใหม่ๆ ออกมาชดเชยให้มีระดับเท่าเดิม ภายใน 7 - 14 วัน\n      การบริจาคสามารถบริจาคโลหิตได้ทุก ๆ 3 เดือน ไม่ควรบริจาคก่อนครบกำหนด\n      จะทำให้ร่างกายขาดเหล็ก อาจทำให้เกิดภาวะโลหิตจางได้\n    "
+          )
+        ]),
         _vm._v(" "),
         _c("br")
       ]),
@@ -49150,7 +49572,11 @@ var staticRenderFns = [
                     [
                       _c(
                         "p",
-                        { staticClass: "text-center", attrs: { id: "p3" } },
+                        {
+                          staticClass: "text-center",
+                          staticStyle: { color: "#fff0e2" },
+                          attrs: { id: "p3" }
+                        },
                         [
                           _vm._v(
                             "\n                คุณสมบัติของผู้บริจาครวม (Whole Blood)\n              "
@@ -49263,7 +49689,11 @@ var staticRenderFns = [
                       _vm._v(" "),
                       _c(
                         "p",
-                        { staticClass: "text-center", attrs: { id: "p4" } },
+                        {
+                          staticClass: "text-center",
+                          staticStyle: { color: "#fff0e2" },
+                          attrs: { id: "p3" }
+                        },
                         [
                           _vm._v(
                             "\n                ใครบ้างที่ไม่สามารถบริจาคโลหิตได้\n              "
@@ -49340,8 +49770,16 @@ var staticRenderFns = [
                     [
                       _c(
                         "p",
-                        { staticClass: "text-center", attrs: { id: "p3" } },
-                        [_vm._v("ก่อนบริจาคโลหิต")]
+                        {
+                          staticClass: "text-center",
+                          staticStyle: { color: "#fff0e2" },
+                          attrs: { id: "p3" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                ก่อนบริจาคโลหิต\n              "
+                          )
+                        ]
                       ),
                       _vm._v(" "),
                       _c("p", { attrs: { id: "p2" } }, [
@@ -49425,8 +49863,16 @@ var staticRenderFns = [
                     [
                       _c(
                         "p",
-                        { staticClass: "text-center", attrs: { id: "p3" } },
-                        [_vm._v("หลังบริจาคโลหิต")]
+                        {
+                          staticClass: "text-center",
+                          staticStyle: { color: "#fff0e2" },
+                          attrs: { id: "p3" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                หลังบริจาคโลหิต\n              "
+                          )
+                        ]
                       ),
                       _vm._v(" "),
                       _c("p", { attrs: { id: "preparehead" } }, [
@@ -49517,6 +49963,117 @@ var staticRenderFns = [
           ])
         ])
       ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/typeblood.vue?vue&type=template&id=3c4b53e7&":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/typeblood.vue?vue&type=template&id=3c4b53e7& ***!
+  \****************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container" }, [
+      _c("img", {
+        staticClass: "rounded mx-auto d-block",
+        attrs: { id: "imtype", src: "images/phpunit.jpg", alt: "" }
+      })
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/typeblood1.vue?vue&type=template&id=4d28bada&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/typeblood1.vue?vue&type=template&id=4d28bada& ***!
+  \*****************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container" }, [
+      _c("img", {
+        staticClass: "rounded mx-auto d-block",
+        attrs: { id: "imtype", src: "images/Untitled211.jpg", alt: "" }
+      })
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/typeblood2.vue?vue&type=template&id=4d36d25b&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/typeblood2.vue?vue&type=template&id=4d36d25b& ***!
+  \*****************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container" }, [
+      _c("img", {
+        staticClass: "rounded mx-auto d-block",
+        attrs: { id: "imtype", src: "images/Untitled22.jpg", alt: "" }
+      })
     ])
   }
 ]
@@ -53081,6 +53638,69 @@ if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__(/*! !../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
 var update = add("7e043c3d", content, false, {});
+// Hot Module Replacement
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/typeblood.vue?vue&type=style&index=0&lang=css&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/typeblood.vue?vue&type=style&index=0&lang=css& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./typeblood.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/typeblood.vue?vue&type=style&index=0&lang=css&");
+if(content.__esModule) content = content.default;
+if(typeof content === 'string') content = [[module.id, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(/*! !../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
+var update = add("a3b1789a", content, false, {});
+// Hot Module Replacement
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/typeblood1.vue?vue&type=style&index=0&lang=css&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/typeblood1.vue?vue&type=style&index=0&lang=css& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./typeblood1.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/typeblood1.vue?vue&type=style&index=0&lang=css&");
+if(content.__esModule) content = content.default;
+if(typeof content === 'string') content = [[module.id, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(/*! !../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
+var update = add("7118a27d", content, false, {});
+// Hot Module Replacement
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/typeblood2.vue?vue&type=style&index=0&lang=css&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-style-loader/index.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/typeblood2.vue?vue&type=style&index=0&lang=css& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./typeblood2.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/typeblood2.vue?vue&type=style&index=0&lang=css&");
+if(content.__esModule) content = content.default;
+if(typeof content === 'string') content = [[module.id, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(/*! !../../../node_modules/vue-style-loader/lib/addStylesClient.js */ "./node_modules/vue-style-loader/lib/addStylesClient.js").default
+var update = add("ebafe8c6", content, false, {});
 // Hot Module Replacement
 if(false) {}
 

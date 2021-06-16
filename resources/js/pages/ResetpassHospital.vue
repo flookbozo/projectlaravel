@@ -1,10 +1,12 @@
 <template>
   <div class="container">
     <div class="card">
+      <div class="card-header" id="reset">
+        <h3 class="mb-1" style="color: #fff0e2">Reset Password</h3>
+      </div>
       <div class="card-body">
         <div class="col-md-6 offset-md-3">
           <form v-on:submit.prevent="updatePost">
-            
             <div class="form-group">
               <label>Email</label>
               <input
@@ -34,7 +36,11 @@
             </div>
 
             <div class="text-center">
-              <button class="btn btn-success btn-lg btn-block">
+              <button
+                class="btn btn-lg btn-block"
+                id="buttonlogin"
+                style="color: #fff0e2"
+              >
                 Reset Password
               </button>
             </div>
@@ -51,7 +57,7 @@ export default {
   data() {
     return {
       hospitals: [],
-      post:null,
+      post: null,
     };
   },
   created() {
@@ -64,7 +70,6 @@ export default {
   },
   methods: {
     updatePost() {
-      
       axios
         .post(
           `http://127.0.0.1:8000/api/resethospital/${this.$route.params.id}`,
@@ -73,7 +78,6 @@ export default {
         .then((response) => {
           this.$router.push({ name: "login" });
         });
-
     },
   },
 };

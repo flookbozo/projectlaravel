@@ -2,7 +2,7 @@
   <div class="container">
     <div class="card">
       <div class="card-header" id="reset">
-        <h3 class="mb-1" style="color:#fff0e2">Reset Password</h3>
+        <h3 class="mb-1" style="color: #fff0e2">Forgot Password</h3>
       </div>
       <div class="card-body">
         <div class="col-md-6 offset-md-3">
@@ -55,7 +55,11 @@
             </div>
 
             <div class="text-center">
-              <button class="btn btn-lg btn-block" id="buttonlogin" style="color:#fff0e2">
+              <button
+                class="btn btn-lg btn-block"
+                id="buttonlogin"
+                style="color: #fff0e2"
+              >
                 Reset Password
               </button>
             </div>
@@ -97,7 +101,7 @@ export default {
       var checkEmailHospital = false;
       var checkQuestionAnswerHospital = false;
       var checkHospital = false;
-      
+      var checkFalse = false;
 
       for (var i = 0; i < this.hospitals.length; i++) {
         checkQuestionHospital = false;
@@ -106,52 +110,36 @@ export default {
         checkQuestionAnswerHospital = false;
         checkFalse = false;
         if (this.hospital.email == this.hospitals[i].email) {
-          if (
-            this.hospital.question != this.hospitals[i].question &&
-            this.hospital.answer == this.hospitals[i].answer
-          ) {
-            checkQuestionHospital = true;
-          } else if (
-            this.hospital.question == this.hospitals[i].question &&
-            this.hospital.answer != this.hospitals[i].answer
-          ) {
-            checkAnswerHospital = true;
-          } else if (
-            this.hospital.question != this.hospitals[i].question &&
-            this.hospital.answer != this.hospitals[i].answer
-          ) {
-            checkQuestionAnswerHospital = true;
-          } else if (
-            this.hospital.question == this.hospitals[i].question &&
-            this.hospital.answer == this.hospitals[i].answer
-          ) {
-            this.id_hospital = this.hospitals[i].id;
-            checkHospital = true;
-            break;
-          }
-        } else if (this.hospital.email != this.hospitals[i].email) {
-          if (
-            this.hospital.question == this.hospitals[i].question &&
-            this.hospital.answer == this.hospitals[i].answer
-          ) {
-            checkEmailHospital = true;
-          } else if (
-            this.hospital.question != this.hospitals[i].question &&
-            this.hospital.answer == this.hospitals[i].answer
-          ) {
-            checkEmailHospital = true;
-            checkQuestionHospital = true;
-          } else if (
-            this.hospital.question == this.hospitals[i].question &&
-            this.hospital.answer != this.hospitals[i].answer
-          ) {
-            checkEmailHospital = true;
-            checkAnswerHospital = true;
-          } else if (
-            this.hospital.question != this.hospitals[i].question &&
-            this.hospital.answer != this.hospitals[i].answer
-          ) {
-            checkQuestionAnswerHospital = true;
+          
+            if (
+              this.hospital.question != this.hospitals[i].question &&
+              this.hospital.answer == this.hospitals[i].answer
+            ) {
+              checkQuestionHospital = true;
+              break;
+            } else if (
+              this.hospital.question == this.hospitals[i].question &&
+              this.hospital.answer != this.hospitals[i].answer
+            ) {
+              checkAnswerHospital = true;
+              break;
+            } else if (
+              this.hospital.question != this.hospitals[i].question &&
+              this.hospital.answer != this.hospitals[i].answer
+            ) {
+              checkQuestionAnswerHospital = true;
+              break;
+            } else if (
+              this.hospital.question == this.hospitals[i].question &&
+              this.hospital.answer == this.hospitals[i].answer
+            ) {
+              this.id_hospital = this.hospitals[i].id;
+              checkHospital = true;
+              break;
+            }
+          
+        } else if (this.hospital.email != this.hospitals[i].email){
+          if (this.hospital.email != "") {
             checkEmailHospital = true;
           }
         }

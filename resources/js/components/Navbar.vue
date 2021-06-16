@@ -24,11 +24,7 @@
               >Home</router-link
             >
           </li>
-          <li class="nav-item">
-            <router-link class="nav-link" style="color: #fff0e2" to="/About"
-              >About</router-link
-            >
-          </li>
+         
         </ul>
         <div v-if="!app.user" class="navbar-nav ml-auto mt-2 mt-lg-0">
           <li class="nav-item">

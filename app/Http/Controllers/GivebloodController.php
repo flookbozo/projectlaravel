@@ -27,7 +27,7 @@ class GivebloodController extends Controller
             "deficiencyBlood" => $request->input("deficiencyBlood")
         ]);
         $user->save();
-        return response()->json('Product created!');
+        return response()->json('Giveblood created!');
     }
 
     public function deleteGiveblood($id)
