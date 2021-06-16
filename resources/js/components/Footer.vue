@@ -8,17 +8,8 @@
           </div>
         </div>
 
-        <div class="col-md-2 mb-3">
-          <div class="text-uppercase" id="uppercase">
-            <a style="color: #fff0e2" href="#/About">About us</a>
-          </div>
-        </div>
 
-        <div class="col-md-2 mb-3">
-          <div class="text-uppercase" id="uppercase">
-            <a style="color: #fff0e2" href="/about">Contact</a>
-          </div>
-        </div>
+      
       </div>
       <hr class="style1" style="margin: 0 15%" />
 
@@ -46,7 +37,7 @@
           </div>
           <p style="line-height: 1.7rem">
             สะดวกและรวดเร็วมากขึ้นเมื่อคุณสามารถบริจาคเลือดกับโรงพยาบาลที่ต้องการเลือดได้
-            โดยใช้แอปพลิเคชั่นและเว็บไซต์ Blood doanate
+            โดยใช้แอปพลิเคชันและเว็บไซต์ Blood doanate
             การช่วยเหลือของคุณเป็นสิ่งสำคัญสำหรับอีกชีวิตนึง
           </p>
         </div>

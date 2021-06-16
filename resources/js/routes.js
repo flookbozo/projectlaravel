@@ -1,98 +1,113 @@
-import Home from './pages/Home';
-import About from './pages/About';
-import Register from './pages/Register';
-import Login from './pages/Login';
-import Profile from './pages/Profile';
-import ProfileHospital from './pages/ProfileHospital';
-import Edituser from './pages/Edituser';
-import EditHospital from './pages/EditHospital';
-import Giveblood from './pages/Giveblood';
-import ProfileGiveblood from './pages/ProfileGiveblood';
-import ResetpassHospital from './pages/ResetpassHospital';
-import ResetpassUser from './pages/ResetpassUser';
-import ForgetpassUser from './pages/ForgetpassUser';
-import ForgetpassHospital from './pages/ForgetpassHospital';
-import prepareblood from './pages/prepareblood';
-
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import Profile from "./pages/Profile";
+import ProfileHospital from "./pages/ProfileHospital";
+import Edituser from "./pages/Edituser";
+import EditHospital from "./pages/EditHospital";
+import Giveblood from "./pages/Giveblood";
+import ProfileGiveblood from "./pages/ProfileGiveblood";
+import ResetpassHospital from "./pages/ResetpassHospital";
+import ResetpassUser from "./pages/ResetpassUser";
+import ForgetpassUser from "./pages/ForgetpassUser";
+import ForgetpassHospital from "./pages/ForgetpassHospital";
+import prepareblood from "./pages/prepareblood";
+import typeblood from "./pages/typeblood";
+import typeblood1 from "./pages/typeblood1";
+import typeblood2 from "./pages/typeblood2";
 export default [
     {
-        path: '/',
+        path: "/",
         component: Home,
-        name : 'home'
+        name: "home"
     },
     {
-        path: '/forgetpasshospital',
+        path: "/typeblood",
+        component: typeblood,
+        name: "typeblood"
+    },
+    {
+        path: "/typeblood1",
+        component: typeblood1,
+        name: "typeblood1"
+    },
+    {
+        path: "/typeblood2",
+        component: typeblood2,
+        name: "typeblood2"
+    },
+    {
+        path: "/forgetpasshospital",
         component: ForgetpassHospital,
-        name : 'forgetpasshospital'
+        name: "forgetpasshospital"
     },
     {
-        path: '/forgetpassuser',
+        path: "/forgetpassuser",
         component: ForgetpassUser,
-        name : 'forgetpassuser'
+        name: "forgetpassuser"
     },
-    
+
     {
-        path: '/register',
+        path: "/register",
         component: Register,
-        name: 'register'
+        name: "register"
     },
 
     {
-        path: '/login',
+        path: "/login",
         component: Login,
-        name : 'login'
+        name: "login"
     },
 
     {
-        path: '/profile',
+        path: "/profile",
         component: Profile,
-        name : 'profile'
+        name: "profile"
     },
     {
-        path: '/profilehospital',
+        path: "/profilehospital",
         component: ProfileHospital,
-        name : 'profilehospital'
+        name: "profilehospital"
     },
     {
-        path: '/about',
+        path: "/about",
         component: About,
-        name : 'about'
+        name: "about"
     },
     {
-        path: '/edituser:id',
+        path: "/edituser:id",
         component: Edituser,
-        name : 'edituser'
+        name: "edituser"
     },
     {
-        path: '/edithospital:id',
+        path: "/edithospital:id",
         component: EditHospital,
-        name : 'edithospital'
+        name: "edithospital"
     },
     {
-        path: '/giveblood',
+        path: "/giveblood",
         component: Giveblood,
-        name : 'giveblood'
+        name: "giveblood"
     },
     {
-        path: '/profilegiveblood',
+        path: "/profilegiveblood",
         component: ProfileGiveblood,
-        name : 'profilegiveblood'
+        name: "profilegiveblood"
     },
     {
-        path: '/resetpasshospital:id',
+        path: "/resetpasshospital:id",
         component: ResetpassHospital,
-        name : 'resetpasshospital'
-    }
-    ,
-    {
-        path: '/resetpassuser:id',
-        component:ResetpassUser,
-        name : 'resetpassuser'
+        name: "resetpasshospital"
     },
     {
-        path: '/prepareblood',
-        component:prepareblood,
-        name : 'prepareblood'
+        path: "/resetpassuser:id",
+        component: ResetpassUser,
+        name: "resetpassuser"
+    },
+    {
+        path: "/prepareblood",
+        component: prepareblood,
+        name: "prepareblood"
     }
-
-]
+];

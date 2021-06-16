@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <div class="card">
-      <div class="card-header" id="reset" >
-        <h3 class="mb-1" style="color:#fff0e2" >Reset Password</h3>
+       <div class="card-header" id="reset">
+        <h3 class="mb-1" style="color: #fff0e2">Forgot Password</h3>
       </div>
       <div class="card-body">
         <div class="col-md-6 offset-md-3">

@@ -292,6 +292,13 @@
                           <option value="">โปรดเลือกคำถาม</option>
                           <option>สัตว์เลี้ยงตัวแรก</option>
                           <option>ชื่อสัตว์เลี้ยงตัวแรก</option>
+                          <option>สัตว์ที่คุณกลัว</option>
+                          <option>สัตว์ที่คุณชอบ</option>
+                          <option>คุณเกิดจังหวัดอะไร</option>
+                          <option>ชื่อบิดา</option>
+                          <option>ชื่อมารดา</option>
+                          <option>ชื่อน้องสาว/พี่สาวของคุณ</option>
+                          <option>ชื่อน้องชาย/พี่ชายของคุณ</option>
                         </select>
                         <div class="select-dropdown"></div>
                       </div>
@@ -598,8 +605,16 @@
                           v-model="user.question"
                         >
                           <option value="">โปรดเลือกคำถาม</option>
+
                           <option>สัตว์เลี้ยงตัวแรก</option>
                           <option>ชื่อสัตว์เลี้ยงตัวแรก</option>
+                          <option>สัตว์ที่คุณกลัว</option>
+                          <option>สัตว์ที่คุณชอบ</option>
+                          <option>คุณเกิดจังหวัดอะไร</option>
+                          <option>ชื่อบิดา</option>
+                          <option>ชื่อมารดา</option>
+                          <option>ชื่อน้องสาว/พี่สาวของคุณ</option>
+                          <option>ชื่อน้องชาย/พี่ชายของคุณ</option>
                         </select>
                         <div class="select-dropdown"></div>
                       </div>
@@ -698,7 +713,7 @@ export default {
       var checkUsername = false;
       var checkUseremail = false;
       for (var i = 0; i < this.users.length; i++) {
-        if (this.user.email == this.users[i].email ) {
+        if (this.user.email == this.users[i].email) {
           checkUseremail = true;
         }
         if (this.user.username == this.users[i].username) {
@@ -772,7 +787,7 @@ export default {
         this.user.errors.push("ใส่คำตอบเพื่อความปลอดภัย");
       }
       if (!this.user.errors.length) {
-          window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
         const data = {
           username: this.user.username,
           password: this.user.password,
@@ -803,7 +818,7 @@ export default {
       }
     },
     onSubmitHospital() {
-      window.scrollTo({top:0, left:0, behavior: 'smooth'})
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
       this.hospital.errors = [];
       var checkUsernameH = false;
       var checkHosemail = false;

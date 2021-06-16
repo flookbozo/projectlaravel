@@ -39,19 +39,8 @@
         </div>
       </div>
     </div>
-    <div class="text-center" id="im">
-      <img src="images/blood.jpg" id="imright" class="rounded" />
-      <img
-        src="images/blood.jpg"
-        id="imright"
-        class="rounded"
-        alt="..."
-      />
-      <img
-        src="images/blood.jpg"
-        id="imright"
-        class="rounded"
-        alt="..."
+    <div class="text-center" >
+      <img  class="img-fluid" src="images/231.jpg" alt="">
       />
     </div>
     <div

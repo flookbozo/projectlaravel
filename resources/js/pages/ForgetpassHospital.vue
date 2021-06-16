@@ -2,7 +2,7 @@
   <div class="container">
     <div class="card">
       <div class="card-header" id="reset">
-        <h3 class="mb-1" style="color:#fff0e2">Reset Password</h3>
+        <h3 class="mb-1" style="color: #fff0e2">Forgot Password</h3>
       </div>
       <div class="card-body">
         <div class="col-md-6 offset-md-3">
@@ -55,7 +55,11 @@
             </div>
 
             <div class="text-center">
-              <button class="btn btn-lg btn-block" id="buttonlogin" style="color:#fff0e2">
+              <button
+                class="btn btn-lg btn-block"
+                id="buttonlogin"
+                style="color: #fff0e2"
+              >
                 Reset Password
               </button>
             </div>
@@ -98,7 +102,6 @@ export default {
       var checkQuestionAnswerHospital = false;
       var checkHospital = false;
       var checkFalse = false;
-      
 
       for (var i = 0; i < this.hospitals.length; i++) {
         checkQuestionHospital = false;

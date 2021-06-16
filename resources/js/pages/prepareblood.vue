@@ -1,26 +1,29 @@
 <template>
   <div class="container">
     <div class="">
-      <h6 id="p6" class="text-center" style="color: #ff4343"><img
-                  class="rounded"
-                  src="images/0011.png"
-                  width="80px"
-                  alt=""
-                />โลหิต<img
-                  class="rounded "
-                  src="images/00111.png"
-                  width="80px"
-                  alt=""
-                /></h6>
+      <h6 id="p6" class="text-center" style="color: #ff4343">
+        <img
+          class="rounded"
+          src="images/0011.png"
+          width="80px"
+          alt=""
+        />การบริจาคโลหิต<img
+          class="rounded"
+          src="images/00111.png"
+          width="80px"
+          alt=""
+        />
+      </h6>
       <br />
-      <div class="p-3 mb-2  text-white" id="p5">
-        คำว่า “โลหิต” อาจฟังดูน่าหวาดเสียวและน่ากลัวสำหรับคนบางคน
-        แต่สำหรับโรงพยาบาลแล้ว โลหิตเป็นสิ่งจำเป็นและสำคัญในการรักษาผู้ป่วย
-        ไม่ว่าจะเป็นผู้ป่วยผ่าตัด ผู้ป่วยโรคเลือด ผู้ป่วยมะเร็ง
-        รวมทั้งการรักษาหลายๆ อย่างในปัจจุบันนี้ จะไม่สามารถทำได้หากไม่มีโลหิต
+      <div class="p-3 mb-2 text-white" id="p5">
+        - ปกติแล้วมนุษย์จะมีโลหิตอยู่ประมาณ 4,000 - 5,000 ซี.ซี.
+        และการบริจาคโลหิตแต่ละคร้ัง จะบริจาคเพียง 300 - 400 ซี.ซี. หรือ ประมาณ 6
+        - 7 % ของโลหิตทั้งหมดในร่างกาย การบริจาคโลหิตเท่ากับ การกระตุ้นให้
+        ไขกระดูกสร้างเม็ดโลหิตใหม่ๆ ออกมาชดเชยให้มีระดับเท่าเดิม ภายใน 7 - 14 วัน
+        การบริจาคสามารถบริจาคโลหิตได้ทุก ๆ 3 เดือน ไม่ควรบริจาคก่อนครบกำหนด
+        จะทำให้ร่างกายขาดเหล็ก อาจทำให้เกิดภาวะโลหิตจางได้
       </div>
-      
-     
+
       <br />
     </div>
     <section id="tabs">
@@ -68,7 +71,7 @@
                 role="tabpanel"
                 aria-labelledby="nav-home-tab"
               >
-                <p id="p3" class="text-center">
+                <p id="p3" class="text-center" style="color: #fff0e2">
                   คุณสมบัติของผู้บริจาครวม (Whole Blood)
                 </p>
                 <p id="preparehead">
@@ -131,7 +134,7 @@
                   ผู้หญิงที่อยู่ระหว่างมีประจำเดือน
                   เมื่อประจำเดือนหยุดให้บริจาคโลหิตได้
                 </p>
-                <p id="p4" class="text-center">
+                <p id="p3" class="text-center" style="color: #fff0e2">
                   ใครบ้างที่ไม่สามารถบริจาคโลหิตได้
                 </p>
                 <p id="preparehead">
@@ -175,7 +178,9 @@
                 role="tabpanel"
                 aria-labelledby="nav-about-tab"
               >
-                <p id="p3" class="text-center">ก่อนบริจาคโลหิต</p>
+                <p id="p3" class="text-center" style="color: #fff0e2">
+                  ก่อนบริจาคโลหิต
+                </p>
                 <p id="p2">
                   การเตรียมตัวก่อนบริจาคโลหิต
                   เพื่อไม่ให้ผู้บริจาคโลหิตอ่อนเพลียมากหลังบริจาคโลหิต
@@ -228,7 +233,9 @@
                 role="tabpanel"
                 aria-labelledby="nav-about-tab"
               >
-                <p id="p3" class="text-center">หลังบริจาคโลหิต</p>
+                <p id="p3" class="text-center" style="color: #fff0e2">
+                  หลังบริจาคโลหิต
+                </p>
                 <p id="preparehead">
                   <img id="impre" src="images/blood-drop.png" /> นอนพักที่เตียง
                   5 นาที หากไม่มีอาการผิดปกติ จึงลุกจากเตียง และไปนั่งพัก 10 -15
@@ -266,11 +273,11 @@
                   งดออกกำลังกายที่ทำให้เสียเหงื่อ เป็นเวลา 24 ชั่วโมง
                 </p>
                 <img
-        class="rounded mx-auto d-block"
-        src="images/037.png"
-        width="200px"
-        alt=""
-      />
+                  class="rounded mx-auto d-block"
+                  src="images/037.png"
+                  width="200px"
+                  alt=""
+                />
               </div>
             </div>
           </div>
@@ -301,15 +308,13 @@ section {
 }
 #tabs .nav-tabs .nav-link {
   border: 1px solid transparent;
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
+
   color: #ff4b45;
   font-size: 22px;
 }
 #nav-tabContent {
   margin-left: 6%;
   margin-right: 6%;
-
 }
 
 #preparehead {
@@ -328,26 +333,28 @@ section {
 }
 #p3 {
   font-size: 25px;
+  background-color: #ff4b45;
+  border-radius: 40px;
+  margin-top: 3%;
+  margin-bottom: 2%;
 }
 #impre {
   width: 15px;
   margin-right: 1%;
 }
-#p4 {
-  margin-top: 5%;
-  font-size: 25px;
-}
-#p5{
-    border-radius: 40px;
-    font-size: 18px;
-     background: #ff4b45
-}
-#p6{
-    margin-left: 3%;
-    margin-right: 3%;
-    font-size: 90px;
-}
 
+#p5 {
+  border-radius: 40px;
+  font-size: 18px;
+  margin-right: 2%;
+  margin-left: 2%;
+  background: #ff4b45;
+}
+#p6 {
+  margin-left: 3%;
+  margin-right: 3%;
+  font-size: 70px;
+}
 </style>
 <script>
 </script>
