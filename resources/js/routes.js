@@ -16,11 +16,18 @@ import prepareblood from "./pages/prepareblood";
 import typeblood from "./pages/typeblood";
 import typeblood1 from "./pages/typeblood1";
 import typeblood2 from "./pages/typeblood2";
+import profileblooddonate from "./pages/profileblooddonate";
+
 export default [
     {
         path: "/",
         component: Home,
         name: "home"
+    },
+    {
+        path: "/profileblooddonate",
+        component:profileblooddonate,
+        name: "profileblooddonate"
     },
     {
         path: "/typeblood",

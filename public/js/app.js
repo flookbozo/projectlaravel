@@ -2092,6 +2092,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "navbar",
   props: ["app"],
@@ -3491,6 +3495,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "login",
   props: ["app"],
@@ -3499,12 +3515,14 @@ __webpack_require__.r(__webpack_exports__);
       user: {
         email: "",
         password: "",
-        errors: []
+        errors: [],
+        errors401: []
       },
       hospital: {
         email: "",
         password: "",
-        errors: []
+        errors: [],
+        errors401: []
       }
     };
   },
@@ -3513,13 +3531,22 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.user.errors = [];
+      this.user.errors401 = [];
 
-      if (!this.user.email) {
-        this.user.errors.push("โปรดใส่ Email");
+      if (this.user.email == "") {
+        this.user.errors['email'] = "โปรดใส่อีเมล";
+        this.user.errors.length++;
+      } else if (!/[\w.@]/.test(this.user.email)) {
+        this.user.errors['email'] = "โปรดกรอกตัวอักษรหรือตัวเลข";
+        this.user.errors.length++;
+      } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(this.user.email)) {
+        this.user.errors['email'] = "โปรดกรอกแบบฟอร์มอีเมล ตัวอย่าง a@email.com";
+        this.user.errors.length++;
       }
 
       if (!this.user.password) {
-        this.user.errors.push("โปรดใส่ Password");
+        this.user.errors['password'] = "โปรดใส่รหัสผ่าน";
+        this.user.errors.length++;
       }
 
       if (!this.user.errors.length) {
@@ -3533,7 +3560,7 @@ __webpack_require__.r(__webpack_exports__);
 
           _this.$router.push("/");
         })["catch"](function (error) {
-          _this.user.errors.push(error.response.data.error);
+          _this.user.errors401.push(error.response.data.error);
         });
       }
     },
@@ -3541,13 +3568,22 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       this.hospital.errors = [];
+      this.hospital.errors401 = [];
 
       if (!this.hospital.email) {
-        this.hospital.errors.push("โปรดใส่ Username");
+        this.hospital.errors['email'] = "โปรดใส่อีเมล";
+        this.hospital.errors.length++;
+      } else if (!/[\w.@]/.test(this.hospital.email)) {
+        this.hospital.errors['email'] = "โปรดกรอกตัวอักษรหรือตัวเลข";
+        this.hospital.errors.length++;
+      } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(this.hospital.email)) {
+        this.hospital.errors['email'] = "โปรดกรอกแบบฟอร์มอีเมล ตัวอย่าง a@email.com";
+        this.hospital.errors.length++;
       }
 
       if (!this.hospital.password) {
-        this.hospital.errors.push("โปรดใส่ Password");
+        this.hospital.errors['password'] = "โปรดใส่รหัสผ่าน";
+        this.hospital.errors.length++;
       }
 
       if (!this.hospital.errors.length) {
@@ -3561,7 +3597,7 @@ __webpack_require__.r(__webpack_exports__);
 
           _this2.$router.push("/");
         })["catch"](function (error) {
-          _this2.hospital.errors.push(error.response.data.error);
+          _this2.hospital.errors401.push(error.response.data.error);
         });
       }
     },
@@ -3717,10 +3753,6 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-//
-//
-//
-//
 //
 //
 //
@@ -4746,6 +4778,105 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "register",
   props: ["app"],
@@ -4764,7 +4895,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         prefix: "",
         firstname: "",
         lastname: ""
-      }, _defineProperty(_user, "gender", ""), _defineProperty(_user, "duringpregnancy", ""), _defineProperty(_user, "breastfeeding", ""), _defineProperty(_user, "givebirth_past_6", ""), _defineProperty(_user, "typeblood", ""), _defineProperty(_user, "typerh", ""), _defineProperty(_user, "date", ""), _defineProperty(_user, "phonnumber", ""), _defineProperty(_user, "question", ""), _defineProperty(_user, "answer", ""), _defineProperty(_user, "errors", []), _user),
+      }, _defineProperty(_user, "gender", ""), _defineProperty(_user, "duringpregnancy", ""), _defineProperty(_user, "breastfeeding", ""), _defineProperty(_user, "givebirth_past_6", ""), _defineProperty(_user, "typeblood", ""), _defineProperty(_user, "typerh", ""), _defineProperty(_user, "date", ""), _defineProperty(_user, "phonnumber", ""), _defineProperty(_user, "question", ""), _defineProperty(_user, "answer", ""), _defineProperty(_user, "errors", []), _defineProperty(_user, "errors401", []), _user),
       hospital: {
         username: "",
         password: "",
@@ -4781,7 +4912,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         phonnumber: "",
         question: "",
         answer: "",
-        errors: []
+        errors: [],
+        errors401: []
       }
     };
   },
@@ -4799,7 +4931,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     onSubmitUser: function onSubmitUser() {
       var _this2 = this;
 
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth"
+      });
       this.user.errors = [];
+      this.user.errors401 = [];
       var checkUsername = false;
       var checkUseremail = false;
 
@@ -4814,93 +4952,120 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
 
       if (checkUsername == true) {
-        this.user.errors.push("มี Username นี้อยู่ในระบบแล้ว");
+        this.user.errors401.push("มี Username นี้อยู่ในระบบแล้ว");
       }
 
       if (checkUseremail == true) {
-        this.user.errors.push("มี Email นี้อยู่ในระบบแล้ว");
+        this.user.errors401.push("มี Email นี้อยู่ในระบบแล้ว");
       }
 
-      if (!this.user.username) {
-        this.user.errors.push("โปรดใส่ Username");
+      if (this.user.username == "") {
+        this.user.errors['username'] = "โปรดใส่ Username";
+        this.user.errors.length++;
+      } else if (/[^\w.]/.test(this.user.username)) {
+        this.user.errors['username'] = "โปรดกรอกตัวอักษรหรือตัวเลข";
+        this.user.errors.length++;
       }
 
       if (!this.user.password) {
-        this.user.errors.push("โปรดใส่ Password");
+        this.user.errors['password'] = "โปรดใส่ Password";
+        this.user.errors.length++;
       }
 
       if (!this.user.passwordAgain) {
-        this.user.errors.push("โปรดใส่ Password อีกครั้ง");
+        this.user.errors['passwordAgain'] = "โปรดใส่ Password อีกครั้ง";
+        this.user.errors.length++;
       }
 
       if (this.user.password !== this.user.passwordAgain) {
-        this.user.errors.push("Passwords ไม่ตรงกัน");
+        this.user.errors401.push("Passwords ไม่ตรงกัน");
       }
 
-      if (!this.user.email) {
-        this.user.errors.push("โปรดใส่ Email");
+      if (this.user.email == "") {
+        this.user.errors['email'] = "โปรดใส่ Email";
+        this.user.errors.length++;
+      } else if (!/[\w.@]/.test(this.user.email)) {
+        this.user.errors['email'] = "โปรดกรอกตัวอักษรหรือตัวเลข";
+        this.user.errors.length++;
+      } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(this.user.email)) {
+        this.user.errors['email'] = "โปรดกรอกแบบฟอร์มอีเมล ตัวอย่าง a@email.com";
+        this.user.errors.length++;
       }
 
       if (!this.user.prefix) {
-        this.user.errors.push("โปรดใส่คำนำหน้า");
+        this.user.errors['prefix'] = "โปรดใส่คำนำหน้า";
+        this.user.errors.length++;
       }
 
-      if (!this.user.firstname) {
-        this.user.errors.push("โปรดใส่ชื่อ");
+      if (this.user.firstname == "") {
+        this.user.errors['firstname'] = "โปรดใส่ชื่อ";
+        this.user.errors.length++;
+      } else if (/[^\wก-๙]/.test(this.user.firstname)) {
+        this.user.errors['firstname'] = "โปรดกรอกตัวอักษรหรือตัวเลข";
+        this.user.errors.length++;
       }
 
-      if (!this.user.lastname) {
-        this.user.errors.push("โปรดใส่นามสกุล");
+      if (this.user.lastname == "") {
+        this.user.errors['lastname'] = "โปรดใส่นามสกุล";
+        this.user.errors.length++;
+      } else if (/[^\wก-๙]/.test(this.user.lastname)) {
+        this.user.errors['lastname'] = "โปรดกรอกตัวอักษรหรือตัวเลข";
+        this.user.errors.length++;
       }
 
       if (!this.user.gender) {
-        this.user.errors.push("โปรดเลือกเพศ");
+        this.user.errors['gender'] = "โปรดเลือกเพศ";
+        this.user.errors.length++;
       }
 
       if (this.user.gender == "หญิง") {
         if (!this.user.duringpregnancy) {
-          this.user.errors.push("โปรดกรอกข้อมูลเพิ่มเติมให้ครบ");
+          this.user.errors['duringpregnancy'] = "โปรดกรอกข้อมูลเพิ่มเติมให้ครบ";
+          this.user.errors.length++;
         }
 
         if (!this.user.breastfeeding) {
-          this.user.errors.push("โปรดกรอกข้อมูลเพิ่มเติมให้ครบ");
+          this.user.errors['breastfeeding'] = "โปรดกรอกข้อมูลเพิ่มเติมให้ครบ";
+          this.user.errors.length++;
         }
 
         if (!this.user.givebirth_past_6) {
-          this.user.errors.push("โปรดกรอกข้อมูลเพิ่มเติมให้ครบ");
+          this.user.errors['givebirth_past_6'] = "โปรดกรอกข้อมูลเพิ่มเติมให้ครบ";
+          this.user.errors.length++;
         }
       }
 
       if (!this.user.typeblood) {
-        this.user.errors.push("โปรดเลือกกรุ๊ปเลือด");
+        this.user.errors['typeblood'] = "โปรดเลือกกรุ๊ปเลือด";
+        this.user.errors.length++;
       }
 
       if (!this.user.typerh) {
-        this.user.errors.push("โปรดเลือกกรุ๊ปเลือด RH");
+        this.user.errors['typerh'] = "โปรดเลือกกรุ๊ปเลือด RH";
+        this.user.errors.length++;
       }
 
       if (!this.user.date) {
-        this.user.errors.push("โปรดใส่วัน/เดือน/ปีเกิด");
+        this.user.errors['date'] = "โปรดใส่วัน/เดือน/ปีเกิด";
+        this.user.errors.length++;
       }
 
       if (!this.user.phonnumber) {
-        this.user.errors.push("โปรดใส่เบอร์โทรศัพท์");
+        this.user.errors['phonnumber'] = "โปรดใส่เบอร์โทรศัพท์";
+        this.user.errors.length++;
       }
 
       if (!this.user.question) {
-        this.user.errors.push("ใส่คำถามเพื่อความปลอดภัย");
+        this.user.errors['question'] = "ใส่คำถามเพื่อความปลอดภัย";
+        this.user.errors.length++;
       }
 
       if (!this.user.answer) {
-        this.user.errors.push("ใส่คำตอบเพื่อความปลอดภัย");
+        this.user.errors['answer'] = "ใส่คำตอบเพื่อความปลอดภัย";
+        this.user.errors.length++;
       }
 
       if (!this.user.errors.length) {
-        window.scrollTo({
-          top: 0,
-          left: 0,
-          behavior: "smooth"
-        });
         var data = {
           username: this.user.username,
           password: this.user.password,
@@ -4924,7 +5089,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
           _this2.$router.push("/");
         })["catch"](function (error) {
-          _this2.user.errors.push(error.response.data.user.error);
+          _this2.user.errors401.push(error.response.data.user.error);
         });
       }
     },
@@ -4937,6 +5102,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         behavior: "smooth"
       });
       this.hospital.errors = [];
+      this.hospital.errors401 = [];
       var checkUsernameH = false;
       var checkHosemail = false;
 
@@ -4951,79 +5117,113 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
 
       if (checkUsernameH == true) {
-        this.hospital.errors.push("มี Username นี้อยู่ในระบบแล้ว");
+        this.hospital.errors401.push("มี Username นี้อยู่ในระบบแล้ว");
       }
 
       if (checkHosemail == true) {
-        this.hospital.errors.push("มี Email นี้อยู่ในระบบแล้ว");
+        this.hospital.errors401.push("มี Email นี้อยู่ในระบบแล้ว");
       }
 
-      if (!this.hospital.username) {
-        this.hospital.errors.push("โปรดใส่ Username");
+      if (this.hospital.username == "") {
+        this.hospital.errors['username'] = "โปรดใส่ Username";
+        this.hospital.errors.length++;
+      } else if (/[^\w.]/.test(this.hospital.username)) {
+        this.hospital.errors['username'] = "โปรดกรอกตัวอักษรหรือตัวเลข";
+        this.hospital.errors.length++;
       }
 
       if (!this.hospital.password) {
-        this.hospital.errors.push("โปรดใส่ Password");
+        this.hospital.errors['password'] = "โปรดใส่ Password";
+        this.hospital.errors.length++;
       }
 
       if (!this.hospital.passwordAgain) {
-        this.hospital.errors.push("โปรดใส่ Password อีกครั้ง");
+        this.hospital.errors['passwordAgain'] = "โปรดใส่ Password อีกครั้ง";
+        this.hospital.errors.length++;
       }
 
       if (this.hospital.password !== this.hospital.passwordAgain) {
-        this.hospital.errors.push("Passwords ไม่ตรงกัน");
+        this.hospital.errors401.push("Passwords ไม่ตรงกัน");
       }
 
-      if (!this.hospital.email) {
-        this.hospital.errors.push("โปรดใส่ Email");
+      if (this.hospital.email == "") {
+        this.hospital.errors['email'] = "โปรดใส่ Email";
+        this.hospital.errors.length++;
+      } else if (!/[\w.@]/.test(this.hospital.email)) {
+        this.hospital.errors['email'] = "โปรดกรอกตัวอักษรหรือตัวเลข";
+        this.hospital.errors.length++;
+      } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(this.hospital.email)) {
+        this.hospital.errors['email'] = "โปรดกรอกแบบฟอร์มอีเมล ตัวอย่าง a@email.com";
+        this.hospital.errors.length++;
       }
 
       if (!this.hospital.prefix) {
-        this.hospital.errors.push("โปรดใส่คำนำหน้า");
+        this.hospital.errors['prefix'] = "โปรดใส่คำนำหน้า";
+        this.hospital.errors.length++;
       }
 
-      if (!this.hospital.firstname) {
-        this.hospital.errors.push("โปรดใส่ชื่อ");
+      if (this.hospital.firstname == "") {
+        this.hospital.errors['firstname'] = "โปรดใส่ชื่อ";
+        this.hospital.errors.length++;
+      } else if (/[^\wก-๙]/.test(this.hospital.firstname)) {
+        this.hospital.errors['firstname'] = "โปรดกรอกตัวอักษรหรือตัวเลข";
+        this.hospital.errors.length++;
       }
 
-      if (!this.hospital.lastname) {
-        this.hospital.errors.push("โปรดใส่นามสกุล");
+      if (this.hospital.lastname == "") {
+        this.hospital.errors['lastname'] = "โปรดใส่นามสกุล";
+        this.hospital.errors.length++;
+      } else if (/[^\wก-๙]/.test(this.hospital.lastname)) {
+        this.hospital.errors['lastname'] = "โปรดกรอกตัวอักษรหรือตัวเลข";
+        this.hospital.errors.length++;
       }
 
       if (!this.hospital.hospitalname) {
-        this.hospital.errors.push("โปรดใส่ชื่อโรงพยาบาล");
+        this.hospital.errors['hospitalname'] = "โปรดใส่ชื่อโรงพยาบาล";
+        this.hospital.errors.length++;
+      } else if (/[^\wก-๙.]/.test(this.hospital.hospitalname)) {
+        this.hospital.errors['hospitalname'] = "โปรดกรอกตัวอักษรหรือตัวเลข";
+        this.hospital.errors.length++;
       }
 
       if (!this.hospital.hospitaladdress) {
-        this.hospital.errors.push("โปรดใส่ที่อยู่โรงพยาบาล");
+        this.hospital.errors['hospitaladdress'] = "โปรดใส่ที่อยู่โรงพยาบาล";
+        this.hospital.errors.length++;
       }
 
       if (!this.hospital.provine) {
-        this.hospital.errors.push("โปรดใส่จังหวัด");
+        this.hospital.errors['provine'] = "โปรดใส่จังหวัด";
+        this.hospital.errors.length++;
       }
 
       if (!this.hospital.addresscode) {
-        this.hospital.errors.push("โปรดใส่เลขไปรษณีย์");
+        this.hospital.errors['addresscode'] = "โปรดใส่เลขไปรษณีย์";
+        this.hospital.errors.length++;
       }
 
       if (!this.hospital.phonnumber) {
-        this.hospital.errors.push("โปรดใส่เบอร์โทรศัพท์");
+        this.hospital.errors['phonnumber'] = "โปรดใส่เบอร์โทรศัพท์";
+        this.hospital.errors.length++;
       }
 
       if (!this.hospital.hospitallongitude) {
-        this.hospital.errors.push("โปรดใส่ลองจิจูด");
+        this.hospital.errors['hospitallongitude'] = "โปรดใส่ลองจิจูด";
+        this.hospital.errors.length++;
       }
 
       if (!this.hospital.hospitallattitude) {
-        this.hospital.errors.push("โปรดใส่ละติจูด");
+        this.hospital.errors['hospitallattitude'] = "โปรดใส่ละติจูด";
+        this.hospital.errors.length++;
       }
 
       if (!this.hospital.question) {
-        this.hospital.errors.push("ใส่คำถามเพื่อความปลอดภัย");
+        this.hospital.errors['question'] = "ใส่คำถามเพื่อความปลอดภัย";
+        this.hospital.errors.length++;
       }
 
       if (!this.hospital.answer) {
-        this.hospital.errors.push("ใส่คำตอบเพื่อความปลอดภัย");
+        this.hospital.errors['answer'] = "ใส่คำตอบเพื่อความปลอดภัย";
+        this.hospital.errors.length++;
       }
 
       if (!this.hospital.errors.length) {
@@ -5049,7 +5249,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
           _this3.$router.push("/");
         })["catch"](function (error) {
-          _this3.hospital.errors.push(error.response.data.hospital.error);
+          _this3.hospital.errors401.push(error.response.data.hospital.error);
         });
       }
     }
@@ -5618,6 +5818,149 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/profileblooddonate.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/profileblooddonate.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "profileblooddonate",
+  props: ["app"],
+  data: function data() {
+    var _user;
+
+    return {
+      giveblooddonates: [],
+      users: [],
+      givebloods: [],
+      giveblooddonate: {
+        id: "",
+        idUser: "",
+        idHospital: "",
+        blooddonate: "",
+        idRequest: ""
+      },
+      giveblood: {
+        id: "",
+        idHospital: "",
+        typeblood: "",
+        typerh: "",
+        date: "",
+        deficiencyBlood: ""
+      },
+      user: (_user = {
+        username: "",
+        password: "",
+        passwordAgain: "",
+        gender: "",
+        email: "",
+        prefix: "",
+        firstname: "",
+        lastname: ""
+      }, _defineProperty(_user, "gender", ""), _defineProperty(_user, "duringpregnancy", ""), _defineProperty(_user, "breastfeeding", ""), _defineProperty(_user, "givebirth_past_6", ""), _defineProperty(_user, "typeblood", ""), _defineProperty(_user, "typerh", ""), _defineProperty(_user, "date", ""), _defineProperty(_user, "phonnumber", ""), _defineProperty(_user, "question", ""), _defineProperty(_user, "answer", ""), _user)
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    this.getGivebloods();
+    this.geUser();
+    this.getGiveblooddonate();
+    this.app.req.get("auth/hospital/init").then(function (response) {
+      _this.hospital = response.data.hospital;
+    });
+  },
+  methods: {
+    getGivebloods: function getGivebloods() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get("api/giveblooddonate").then(function (response) {
+        _this2.giveblooddonates = response.data;
+      });
+    },
+    geUser: function geUser() {
+      var _this3 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get("api/edituser").then(function (response) {
+        _this3.users = response.data;
+      });
+    },
+    getGiveblooddonate: function getGiveblooddonate() {
+      var _this4 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get("api/givebloods").then(function (response) {
+        _this4.givebloods = response.data;
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -5728,6 +6071,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_typeblood__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./pages/typeblood */ "./resources/js/pages/typeblood.vue");
 /* harmony import */ var _pages_typeblood1__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./pages/typeblood1 */ "./resources/js/pages/typeblood1.vue");
 /* harmony import */ var _pages_typeblood2__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./pages/typeblood2 */ "./resources/js/pages/typeblood2.vue");
+/* harmony import */ var _pages_profileblooddonate__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./pages/profileblooddonate */ "./resources/js/pages/profileblooddonate.vue");
+
 
 
 
@@ -5750,6 +6095,10 @@ __webpack_require__.r(__webpack_exports__);
   path: "/",
   component: _pages_Home__WEBPACK_IMPORTED_MODULE_0__.default,
   name: "home"
+}, {
+  path: "/profileblooddonate",
+  component: _pages_profileblooddonate__WEBPACK_IMPORTED_MODULE_18__.default,
+  name: "profileblooddonate"
 }, {
   path: "/typeblood",
   component: _pages_typeblood__WEBPACK_IMPORTED_MODULE_15__.default,
@@ -43178,6 +43527,45 @@ component.options.__file = "resources/js/pages/prepareblood.vue"
 
 /***/ }),
 
+/***/ "./resources/js/pages/profileblooddonate.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/pages/profileblooddonate.vue ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _profileblooddonate_vue_vue_type_template_id_6e1044c9___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./profileblooddonate.vue?vue&type=template&id=6e1044c9& */ "./resources/js/pages/profileblooddonate.vue?vue&type=template&id=6e1044c9&");
+/* harmony import */ var _profileblooddonate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./profileblooddonate.vue?vue&type=script&lang=js& */ "./resources/js/pages/profileblooddonate.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _profileblooddonate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _profileblooddonate_vue_vue_type_template_id_6e1044c9___WEBPACK_IMPORTED_MODULE_0__.render,
+  _profileblooddonate_vue_vue_type_template_id_6e1044c9___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/profileblooddonate.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/pages/typeblood.vue":
 /*!******************************************!*\
   !*** ./resources/js/pages/typeblood.vue ***!
@@ -43571,6 +43959,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/pages/profileblooddonate.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/pages/profileblooddonate.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_profileblooddonate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./profileblooddonate.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/profileblooddonate.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_profileblooddonate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/App.vue?vue&type=template&id=f348271a&":
 /*!*************************************************************!*\
   !*** ./resources/js/App.vue?vue&type=template&id=f348271a& ***!
@@ -43873,6 +44277,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_prepareblood_vue_vue_type_template_id_15a349bc___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_prepareblood_vue_vue_type_template_id_15a349bc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./prepareblood.vue?vue&type=template&id=15a349bc& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/prepareblood.vue?vue&type=template&id=15a349bc&");
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/profileblooddonate.vue?vue&type=template&id=6e1044c9&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/pages/profileblooddonate.vue?vue&type=template&id=6e1044c9& ***!
+  \**********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_profileblooddonate_vue_vue_type_template_id_6e1044c9___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_profileblooddonate_vue_vue_type_template_id_6e1044c9___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_profileblooddonate_vue_vue_type_template_id_6e1044c9___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./profileblooddonate.vue?vue&type=template&id=6e1044c9& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/profileblooddonate.vue?vue&type=template&id=6e1044c9&");
 
 
 /***/ }),
@@ -44557,6 +44978,15 @@ var render = function() {
                                     attrs: { to: "/Profilegiveblood" }
                                   },
                                   [_vm._v("การขอเลือด")]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "router-link",
+                                  {
+                                    staticClass: "dropdown-item",
+                                    attrs: { to: "/profileblooddonate" }
+                                  },
+                                  [_vm._v("เลือด")]
                                 )
                               ],
                               1
@@ -47063,7 +47493,7 @@ var render = function() {
                         }
                       },
                       [
-                        _vm.hospital.errors.length
+                        _vm.hospital.errors401.length
                           ? _c(
                               "div",
                               {
@@ -47074,7 +47504,7 @@ var render = function() {
                                 _c(
                                   "ul",
                                   { staticClass: "mb-0" },
-                                  _vm._l(_vm.hospital.errors, function(
+                                  _vm._l(_vm.hospital.errors401, function(
                                     error,
                                     index
                                   ) {
@@ -47105,7 +47535,7 @@ var render = function() {
                               }
                             ],
                             staticClass: "form-control",
-                            attrs: { type: "text", placeholder: "Email" },
+                            attrs: { type: "email", placeholder: "Email" },
                             domProps: { value: _vm.hospital.email },
                             on: {
                               input: function($event) {
@@ -47119,7 +47549,17 @@ var render = function() {
                                 )
                               }
                             }
-                          })
+                          }),
+                          _vm._v(" "),
+                          _vm.hospital.errors.email
+                            ? _c("div", { staticClass: "text-danger" }, [
+                                _vm._v(
+                                  "\n                  " +
+                                    _vm._s(_vm.hospital.errors.email) +
+                                    "\n                "
+                                )
+                              ])
+                            : _vm._e()
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "form-group" }, [
@@ -47152,7 +47592,17 @@ var render = function() {
                                 )
                               }
                             }
-                          })
+                          }),
+                          _vm._v(" "),
+                          _vm.hospital.errors.password
+                            ? _c("div", { staticClass: "text-danger" }, [
+                                _vm._v(
+                                  "\n                  " +
+                                    _vm._s(_vm.hospital.errors.password) +
+                                    "\n                "
+                                )
+                              ])
+                            : _vm._e()
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "text-center" }, [
@@ -47227,12 +47677,15 @@ var render = function() {
                         }
                       },
                       [
-                        _vm.user.errors.length
+                        _vm.user.errors401.length
                           ? _c("div", { staticClass: "alert alert-danger" }, [
                               _c(
                                 "ul",
                                 { staticClass: "mb-0" },
-                                _vm._l(_vm.user.errors, function(error, index) {
+                                _vm._l(_vm.user.errors401, function(
+                                  error,
+                                  index
+                                ) {
                                   return _c("li", { key: index }, [
                                     _vm._v(
                                       "\n                    " +
@@ -47259,7 +47712,7 @@ var render = function() {
                               }
                             ],
                             staticClass: "form-control",
-                            attrs: { type: "text", placeholder: "Email" },
+                            attrs: { type: "email", placeholder: "Email" },
                             domProps: { value: _vm.user.email },
                             on: {
                               input: function($event) {
@@ -47269,7 +47722,17 @@ var render = function() {
                                 _vm.$set(_vm.user, "email", $event.target.value)
                               }
                             }
-                          })
+                          }),
+                          _vm._v(" "),
+                          _vm.user.errors.email
+                            ? _c("div", { staticClass: "text-danger" }, [
+                                _vm._v(
+                                  "\n                  " +
+                                    _vm._s(_vm.user.errors.email) +
+                                    "\n                "
+                                )
+                              ])
+                            : _vm._e()
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "form-group" }, [
@@ -47302,7 +47765,17 @@ var render = function() {
                                 )
                               }
                             }
-                          })
+                          }),
+                          _vm._v(" "),
+                          _vm.user.errors.password
+                            ? _c("div", { staticClass: "text-danger" }, [
+                                _vm._v(
+                                  "\n                  " +
+                                    _vm._s(_vm.user.errors.password) +
+                                    "\n                "
+                                )
+                              ])
+                            : _vm._e()
                         ]),
                         _vm._v(" "),
                         _c(
@@ -47656,77 +48129,80 @@ var render = function() {
                 staticClass: "table table-striped",
                 attrs: { align: "center" }
               },
-              _vm._l(_vm.givebloods, function(giveblood, index) {
-                return _c("div", { key: giveblood.id }, [
-                  giveblood.idHospital == _vm.app.user.id
-                    ? _c("div", [
-                        _c("div", [
-                          _vm._m(0, true),
-                          _vm._v(" "),
-                          _c("tbody", [
-                            _c(
-                              "tr",
-                              { attrs: { id: "tablegiveblood", scope: "row" } },
-                              [
-                                _c("td", { staticClass: "text-center" }, [
-                                  _vm._v(_vm._s(giveblood.typeblood))
-                                ]),
-                                _vm._v(" "),
-                                _c("td", { staticClass: "text-center" }, [
-                                  _vm._v(_vm._s(giveblood.typerh))
-                                ]),
-                                _vm._v(" "),
-                                _c("td", { staticClass: "text-center" }, [
-                                  _vm._v(
-                                    "\n                      " +
-                                      _vm._s(giveblood.deficiencyBlood) +
-                                      "\n                    "
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c("td", { staticClass: "text-center" }, [
-                                  _c(
-                                    "div",
-                                    {
-                                      staticClass: "btn-group",
-                                      attrs: { role: "group" }
-                                    },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          staticClass: "btn",
-                                          attrs: {
-                                            href: "javascript:;",
-                                            id: "edit"
-                                          },
-                                          on: {
-                                            click: function($event) {
-                                              return _vm.deleteBlood(
-                                                giveblood.id,
-                                                index
-                                              )
-                                            }
-                                          }
+              [
+                _vm._m(0),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.givebloods, function(giveblood, index) {
+                    return _c(
+                      "tr",
+                      {
+                        key: giveblood.id,
+                        attrs: { id: "tablegiveblood", scope: "row" }
+                      },
+                      [
+                        giveblood.idHospital == _vm.app.user.id
+                          ? [
+                              _c("td", { staticClass: "text-center" }, [
+                                _vm._v(_vm._s(giveblood.typeblood))
+                              ]),
+                              _vm._v(" "),
+                              _c("td", { staticClass: "text-center" }, [
+                                _vm._v(_vm._s(giveblood.typerh))
+                              ]),
+                              _vm._v(" "),
+                              _c("td", { staticClass: "text-center" }, [
+                                _vm._v(
+                                  "\n                  " +
+                                    _vm._s(giveblood.deficiencyBlood) +
+                                    "\n                "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("td", { staticClass: "text-center" }, [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass: "btn-group",
+                                    attrs: { role: "group" }
+                                  },
+                                  [
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass: "btn",
+                                        attrs: {
+                                          href: "javascript:;",
+                                          id: "edit"
                                         },
-                                        [
-                                          _vm._v(
-                                            "\n                          Delete\n                        "
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ])
-                              ]
-                            )
-                          ])
-                        ])
-                      ])
-                    : _vm._e()
-                ])
-              }),
-              0
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.deleteBlood(
+                                              giveblood.id,
+                                              index
+                                            )
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                    Delete\n                  "
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ])
+                            ]
+                          : _vm._e()
+                      ],
+                      2
+                    )
+                  }),
+                  0
+                )
+              ]
             ),
             _vm._v(" "),
             _c(
@@ -47769,7 +48245,7 @@ var staticRenderFns = [
         _c(
           "th",
           { staticClass: "text-center col-sm-2", attrs: { scope: "col " } },
-          [_vm._v("\n                    กรุ๊ปเลือด RH\n                  ")]
+          [_vm._v("\n                กรุ๊ปเลือด RH\n              ")]
         ),
         _vm._v(" "),
         _c(
@@ -47777,7 +48253,7 @@ var staticRenderFns = [
           { staticClass: "text-center col-sm-3", attrs: { scope: "col" } },
           [
             _vm._v(
-              "\n                    ปริมาณโลหิตที่ต้องการ (cc)\n                  "
+              "\n                ปริมาณโลหิตที่ต้องการ (cc)\n              "
             )
           ]
         ),
@@ -48040,12 +48516,12 @@ var render = function() {
                           }
                         },
                         [
-                          _vm.hospital.errors.length
+                          _vm.hospital.errors401.length
                             ? _c("div", { staticClass: "alert alert-danger" }, [
                                 _c(
                                   "ul",
                                   { staticClass: "mb-0" },
-                                  _vm._l(_vm.hospital.errors, function(
+                                  _vm._l(_vm.hospital.errors401, function(
                                     error,
                                     index
                                   ) {
@@ -48089,7 +48565,17 @@ var render = function() {
                                   )
                                 }
                               }
-                            })
+                            }),
+                            _vm._v(" "),
+                            _vm.hospital.errors.username
+                              ? _c("div", { staticClass: "text-danger" }, [
+                                  _vm._v(
+                                    "\n                    " +
+                                      _vm._s(_vm.hospital.errors.username) +
+                                      "\n                  "
+                                  )
+                                ])
+                              : _vm._e()
                           ]),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group" }, [
@@ -48122,7 +48608,17 @@ var render = function() {
                                   )
                                 }
                               }
-                            })
+                            }),
+                            _vm._v(" "),
+                            _vm.hospital.errors.password
+                              ? _c("div", { staticClass: "text-danger" }, [
+                                  _vm._v(
+                                    "\n                    " +
+                                      _vm._s(_vm.hospital.errors.password) +
+                                      "\n                  "
+                                  )
+                                ])
+                              : _vm._e()
                           ]),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group" }, [
@@ -48155,7 +48651,19 @@ var render = function() {
                                   )
                                 }
                               }
-                            })
+                            }),
+                            _vm._v(" "),
+                            _vm.hospital.errors.passwordAgain
+                              ? _c("div", { staticClass: "text-danger" }, [
+                                  _vm._v(
+                                    "\n                    " +
+                                      _vm._s(
+                                        _vm.hospital.errors.passwordAgain
+                                      ) +
+                                      "\n                  "
+                                  )
+                                ])
+                              : _vm._e()
                           ]),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group" }, [
@@ -48185,7 +48693,17 @@ var render = function() {
                                   )
                                 }
                               }
-                            })
+                            }),
+                            _vm._v(" "),
+                            _vm.hospital.errors.email
+                              ? _c("div", { staticClass: "text-danger" }, [
+                                  _vm._v(
+                                    "\n                    " +
+                                      _vm._s(_vm.hospital.errors.email) +
+                                      "\n                  "
+                                  )
+                                ])
+                              : _vm._e()
                           ]),
                           _vm._v(" "),
                           _c("label", [_vm._v("ชื่อผู้ดูแล")]),
@@ -48239,7 +48757,17 @@ var render = function() {
                                     _vm._v(" "),
                                     _c("option", [_vm._v("นางสาว")])
                                   ]
-                                )
+                                ),
+                                _vm._v(" "),
+                                _vm.hospital.errors.prefix
+                                  ? _c("div", { staticClass: "text-danger" }, [
+                                      _vm._v(
+                                        "\n                        " +
+                                          _vm._s(_vm.hospital.errors.prefix) +
+                                          "\n                      "
+                                      )
+                                    ])
+                                  : _vm._e()
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col" }, [
@@ -48267,7 +48795,19 @@ var render = function() {
                                       )
                                     }
                                   }
-                                })
+                                }),
+                                _vm._v(" "),
+                                _vm.hospital.errors.firstname
+                                  ? _c("div", { staticClass: "text-danger" }, [
+                                      _vm._v(
+                                        "\n                        " +
+                                          _vm._s(
+                                            _vm.hospital.errors.firstname
+                                          ) +
+                                          "\n                      "
+                                      )
+                                    ])
+                                  : _vm._e()
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col" }, [
@@ -48298,7 +48838,17 @@ var render = function() {
                                       )
                                     }
                                   }
-                                })
+                                }),
+                                _vm._v(" "),
+                                _vm.hospital.errors.lastname
+                                  ? _c("div", { staticClass: "text-danger" }, [
+                                      _vm._v(
+                                        "\n                        " +
+                                          _vm._s(_vm.hospital.errors.lastname) +
+                                          "\n                      "
+                                      )
+                                    ])
+                                  : _vm._e()
                               ])
                             ])
                           ]),
@@ -48333,7 +48883,17 @@ var render = function() {
                                   )
                                 }
                               }
-                            })
+                            }),
+                            _vm._v(" "),
+                            _vm.hospital.errors.hospitalname
+                              ? _c("div", { staticClass: "text-danger" }, [
+                                  _vm._v(
+                                    "\n                    " +
+                                      _vm._s(_vm.hospital.errors.hospitalname) +
+                                      "\n                  "
+                                  )
+                                ])
+                              : _vm._e()
                           ]),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group" }, [
@@ -48371,7 +48931,19 @@ var render = function() {
                                   }
                                 }
                               })
-                            ])
+                            ]),
+                            _vm._v(" "),
+                            _vm.hospital.errors.hospitaladdress
+                              ? _c("div", { staticClass: "text-danger" }, [
+                                  _vm._v(
+                                    "\n                    " +
+                                      _vm._s(
+                                        _vm.hospital.errors.hospitaladdress
+                                      ) +
+                                      "\n                  "
+                                  )
+                                ])
+                              : _vm._e()
                           ]),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group" }, [
@@ -48569,7 +49141,17 @@ var render = function() {
                                 _vm._v(" "),
                                 _c("option", [_vm._v("อุบลราชธานี")])
                               ]
-                            )
+                            ),
+                            _vm._v(" "),
+                            _vm.hospital.errors.provine
+                              ? _c("div", { staticClass: "text-danger" }, [
+                                  _vm._v(
+                                    "\n                    " +
+                                      _vm._s(_vm.hospital.errors.provine) +
+                                      "\n                  "
+                                  )
+                                ])
+                              : _vm._e()
                           ]),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group" }, [
@@ -48602,7 +49184,17 @@ var render = function() {
                                   )
                                 }
                               }
-                            })
+                            }),
+                            _vm._v(" "),
+                            _vm.hospital.errors.addresscode
+                              ? _c("div", { staticClass: "text-danger" }, [
+                                  _vm._v(
+                                    "\n                    " +
+                                      _vm._s(_vm.hospital.errors.addresscode) +
+                                      "\n                  "
+                                  )
+                                ])
+                              : _vm._e()
                           ]),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group" }, [
@@ -48632,7 +49224,17 @@ var render = function() {
                                   )
                                 }
                               }
-                            })
+                            }),
+                            _vm._v(" "),
+                            _vm.hospital.errors.phonnumber
+                              ? _c("div", { staticClass: "text-danger" }, [
+                                  _vm._v(
+                                    "\n                    " +
+                                      _vm._s(_vm.hospital.errors.phonnumber) +
+                                      "\n                  "
+                                  )
+                                ])
+                              : _vm._e()
                           ]),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group" }, [
@@ -48667,7 +49269,19 @@ var render = function() {
                                   )
                                 }
                               }
-                            })
+                            }),
+                            _vm._v(" "),
+                            _vm.hospital.errors.hospitallattitude
+                              ? _c("div", { staticClass: "text-danger" }, [
+                                  _vm._v(
+                                    "\n                    " +
+                                      _vm._s(
+                                        _vm.hospital.errors.hospitallattitude
+                                      ) +
+                                      "\n                  "
+                                  )
+                                ])
+                              : _vm._e()
                           ]),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group" }, [
@@ -48702,7 +49316,19 @@ var render = function() {
                                   )
                                 }
                               }
-                            })
+                            }),
+                            _vm._v(" "),
+                            _vm.hospital.errors.hospitallongitude
+                              ? _c("div", { staticClass: "text-danger" }, [
+                                  _vm._v(
+                                    "\n                    " +
+                                      _vm._s(
+                                        _vm.hospital.errors.hospitallongitude
+                                      ) +
+                                      "\n                  "
+                                  )
+                                ])
+                              : _vm._e()
                           ]),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group" }, [
@@ -48813,7 +49439,23 @@ var render = function() {
                                     ]
                                   ),
                                   _vm._v(" "),
-                                  _c("div", { staticClass: "select-dropdown" })
+                                  _c("div", { staticClass: "select-dropdown" }),
+                                  _vm._v(" "),
+                                  _vm.hospital.errors.question
+                                    ? _c(
+                                        "div",
+                                        { staticClass: "text-danger" },
+                                        [
+                                          _vm._v(
+                                            "\n                        " +
+                                              _vm._s(
+                                                _vm.hospital.errors.question
+                                              ) +
+                                              "\n                      "
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
                                 ]
                               ),
                               _vm._v(" "),
@@ -48844,7 +49486,17 @@ var render = function() {
                                     )
                                   }
                                 }
-                              })
+                              }),
+                              _vm._v(" "),
+                              _vm.hospital.errors.answer
+                                ? _c("div", { staticClass: "text-danger" }, [
+                                    _vm._v(
+                                      "\n                      " +
+                                        _vm._s(_vm.hospital.errors.answer) +
+                                        "\n                    "
+                                    )
+                                  ])
+                                : _vm._e()
                             ])
                           ]),
                           _vm._v(" "),
@@ -48886,12 +49538,12 @@ var render = function() {
                           }
                         },
                         [
-                          _vm.user.errors.length
+                          _vm.user.errors401.length
                             ? _c("div", { staticClass: "alert alert-danger" }, [
                                 _c(
                                   "ul",
                                   { staticClass: "mb-0" },
-                                  _vm._l(_vm.user.errors, function(
+                                  _vm._l(_vm.user.errors401, function(
                                     error,
                                     index
                                   ) {
@@ -48935,7 +49587,17 @@ var render = function() {
                                   )
                                 }
                               }
-                            })
+                            }),
+                            _vm._v(" "),
+                            _vm.user.errors.username
+                              ? _c("div", { staticClass: "text-danger" }, [
+                                  _vm._v(
+                                    "\n                    " +
+                                      _vm._s(_vm.user.errors.username) +
+                                      "\n                  "
+                                  )
+                                ])
+                              : _vm._e()
                           ]),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group" }, [
@@ -48968,7 +49630,17 @@ var render = function() {
                                   )
                                 }
                               }
-                            })
+                            }),
+                            _vm._v(" "),
+                            _vm.user.errors.password
+                              ? _c("div", { staticClass: "text-danger" }, [
+                                  _vm._v(
+                                    "\n                    " +
+                                      _vm._s(_vm.user.errors.password) +
+                                      "\n                  "
+                                  )
+                                ])
+                              : _vm._e()
                           ]),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group" }, [
@@ -49001,7 +49673,17 @@ var render = function() {
                                   )
                                 }
                               }
-                            })
+                            }),
+                            _vm._v(" "),
+                            _vm.user.errors.passwordAgain
+                              ? _c("div", { staticClass: "text-danger" }, [
+                                  _vm._v(
+                                    "\n                    " +
+                                      _vm._s(_vm.user.errors.passwordAgain) +
+                                      "\n                  "
+                                  )
+                                ])
+                              : _vm._e()
                           ]),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group" }, [
@@ -49031,7 +49713,17 @@ var render = function() {
                                   )
                                 }
                               }
-                            })
+                            }),
+                            _vm._v(" "),
+                            _vm.user.errors.email
+                              ? _c("div", { staticClass: "text-danger" }, [
+                                  _vm._v(
+                                    "\n                    " +
+                                      _vm._s(_vm.user.errors.email) +
+                                      "\n                  "
+                                  )
+                                ])
+                              : _vm._e()
                           ]),
                           _vm._v(" "),
                           _c("label", [_vm._v("ชื่อ")]),
@@ -49085,7 +49777,17 @@ var render = function() {
                                     _vm._v(" "),
                                     _c("option", [_vm._v("นางสาว")])
                                   ]
-                                )
+                                ),
+                                _vm._v(" "),
+                                _vm.user.errors.prefix
+                                  ? _c("div", { staticClass: "text-danger" }, [
+                                      _vm._v(
+                                        "\n                        " +
+                                          _vm._s(_vm.user.errors.prefix) +
+                                          "\n                      "
+                                      )
+                                    ])
+                                  : _vm._e()
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col" }, [
@@ -49113,7 +49815,17 @@ var render = function() {
                                       )
                                     }
                                   }
-                                })
+                                }),
+                                _vm._v(" "),
+                                _vm.user.errors.firstname
+                                  ? _c("div", { staticClass: "text-danger" }, [
+                                      _vm._v(
+                                        "\n                        " +
+                                          _vm._s(_vm.user.errors.firstname) +
+                                          "\n                      "
+                                      )
+                                    ])
+                                  : _vm._e()
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col" }, [
@@ -49144,7 +49856,17 @@ var render = function() {
                                       )
                                     }
                                   }
-                                })
+                                }),
+                                _vm._v(" "),
+                                _vm.user.errors.lastname
+                                  ? _c("div", { staticClass: "text-danger" }, [
+                                      _vm._v(
+                                        "\n                        " +
+                                          _vm._s(_vm.user.errors.lastname) +
+                                          "\n                      "
+                                      )
+                                    ])
+                                  : _vm._e()
                               ])
                             ])
                           ]),
@@ -49208,6 +49930,16 @@ var render = function() {
                                     ])
                                   ]
                                 ),
+                                _vm._v(" "),
+                                _vm.user.errors.gender
+                                  ? _c("div", { staticClass: "text-danger" }, [
+                                      _vm._v(
+                                        "\n                      " +
+                                          _vm._s(_vm.user.errors.gender) +
+                                          "\n                    "
+                                      )
+                                    ])
+                                  : _vm._e(),
                                 _vm._v(" "),
                                 _vm.user.gender == "หญิง"
                                   ? _c("div", [
@@ -49340,7 +50072,26 @@ var render = function() {
                                                   [_vm._v("ไม่ใช่")]
                                                 )
                                               ]
-                                            )
+                                            ),
+                                            _vm._v(" "),
+                                            _vm.user.errors.duringpregnancy
+                                              ? _c(
+                                                  "div",
+                                                  {
+                                                    staticClass: "text-danger"
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "\n                            " +
+                                                        _vm._s(
+                                                          _vm.user.errors
+                                                            .duringpregnancy
+                                                        ) +
+                                                        "\n                          "
+                                                    )
+                                                  ]
+                                                )
+                                              : _vm._e()
                                           ]
                                         ),
                                         _vm._v(" "),
@@ -49466,7 +50217,26 @@ var render = function() {
                                                   [_vm._v("ไม่ใช่")]
                                                 )
                                               ]
-                                            )
+                                            ),
+                                            _vm._v(" "),
+                                            _vm.user.errors.breastfeeding
+                                              ? _c(
+                                                  "div",
+                                                  {
+                                                    staticClass: "text-danger"
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "\n                            " +
+                                                        _vm._s(
+                                                          _vm.user.errors
+                                                            .breastfeeding
+                                                        ) +
+                                                        "\n                          "
+                                                    )
+                                                  ]
+                                                )
+                                              : _vm._e()
                                           ]
                                         ),
                                         _vm._v(" "),
@@ -49594,7 +50364,26 @@ var render = function() {
                                                   [_vm._v("ไม่ใช่")]
                                                 )
                                               ]
-                                            )
+                                            ),
+                                            _vm._v(" "),
+                                            _vm.user.errors.givebirth_past_6
+                                              ? _c(
+                                                  "div",
+                                                  {
+                                                    staticClass: "text-danger"
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "\n                            " +
+                                                        _vm._s(
+                                                          _vm.user.errors
+                                                            .givebirth_past_6
+                                                        ) +
+                                                        "\n                          "
+                                                    )
+                                                  ]
+                                                )
+                                              : _vm._e()
                                           ]
                                         )
                                       ])
@@ -49673,7 +50462,17 @@ var render = function() {
                                       staticClass: "select-dropdown"
                                     })
                                   ]
-                                )
+                                ),
+                                _vm._v(" "),
+                                _vm.user.errors.typeblood
+                                  ? _c("div", { staticClass: "text-danger" }, [
+                                      _vm._v(
+                                        "\n                        " +
+                                          _vm._s(_vm.user.errors.typeblood) +
+                                          "\n                      "
+                                      )
+                                    ])
+                                  : _vm._e()
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col" }, [
@@ -49737,7 +50536,17 @@ var render = function() {
                                       staticClass: "select-dropdown"
                                     })
                                   ]
-                                )
+                                ),
+                                _vm._v(" "),
+                                _vm.user.errors.typerh
+                                  ? _c("div", { staticClass: "text-danger" }, [
+                                      _vm._v(
+                                        "\n                        " +
+                                          _vm._s(_vm.user.errors.typerh) +
+                                          "\n                      "
+                                      )
+                                    ])
+                                  : _vm._e()
                               ])
                             ])
                           ]),
@@ -49773,7 +50582,17 @@ var render = function() {
                                     )
                                   }
                                 }
-                              })
+                              }),
+                              _vm._v(" "),
+                              _vm.user.errors.date
+                                ? _c("div", { staticClass: "text-danger" }, [
+                                    _vm._v(
+                                      "\n                      " +
+                                        _vm._s(_vm.user.errors.date) +
+                                        "\n                    "
+                                    )
+                                  ])
+                                : _vm._e()
                             ])
                           ]),
                           _vm._v(" "),
@@ -49804,7 +50623,17 @@ var render = function() {
                                   )
                                 }
                               }
-                            })
+                            }),
+                            _vm._v(" "),
+                            _vm.user.errors.phonnumber
+                              ? _c("div", { staticClass: "text-danger" }, [
+                                  _vm._v(
+                                    "\n                    " +
+                                      _vm._s(_vm.user.errors.phonnumber) +
+                                      "\n                  "
+                                  )
+                                ])
+                              : _vm._e()
                           ]),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group" }, [
@@ -49919,6 +50748,16 @@ var render = function() {
                                 ]
                               ),
                               _vm._v(" "),
+                              _vm.user.errors.question
+                                ? _c("div", { staticClass: "text-danger" }, [
+                                    _vm._v(
+                                      "\n                      " +
+                                        _vm._s(_vm.user.errors.question) +
+                                        "\n                    "
+                                    )
+                                  ])
+                                : _vm._e(),
+                              _vm._v(" "),
                               _c("input", {
                                 directives: [
                                   {
@@ -49946,7 +50785,17 @@ var render = function() {
                                     )
                                   }
                                 }
-                              })
+                              }),
+                              _vm._v(" "),
+                              _vm.user.errors.answer
+                                ? _c("div", { staticClass: "text-danger" }, [
+                                    _vm._v(
+                                      "\n                      " +
+                                        _vm._s(_vm.user.errors.answer) +
+                                        "\n                    "
+                                    )
+                                  ])
+                                : _vm._e()
                             ])
                           ]),
                           _vm._v(" "),
@@ -50887,6 +51736,202 @@ var staticRenderFns = [
         ])
       ])
     ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/profileblooddonate.vue?vue&type=template&id=6e1044c9&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/profileblooddonate.vue?vue&type=template&id=6e1044c9& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "card" }, [
+      _c(
+        "div",
+        {
+          staticClass: "card-header",
+          staticStyle: { color: "#fff0e2" },
+          attrs: { id: "giveblood" }
+        },
+        [_vm._v("\n      ตารางผู้บริจาค\n    ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "table",
+        { staticClass: "table table-striped", attrs: { align: "center" } },
+        _vm._l(_vm.giveblooddonates, function(giveblooddonate) {
+          return _c("div", { key: giveblooddonate.id }, [
+            giveblooddonate.idHospital == _vm.app.user.id
+              ? _c(
+                  "div",
+                  _vm._l(_vm.users, function(user) {
+                    return _c("div", { key: user.id }, [
+                      user.id == giveblooddonate.idUser
+                        ? _c(
+                            "div",
+                            _vm._l(_vm.givebloods, function(giveblood) {
+                              return _c("div", { key: giveblood.id }, [
+                                giveblooddonate.idRequest == giveblood.id
+                                  ? _c("div", [
+                                      _vm._m(0, true),
+                                      _vm._v(" "),
+                                      _c("tbody", [
+                                        _c(
+                                          "tr",
+                                          {
+                                            attrs: {
+                                              id: "tablegiveblood",
+                                              scope: "row"
+                                            }
+                                          },
+                                          [
+                                            _c(
+                                              "td",
+                                              { staticClass: "text-center" },
+                                              [_vm._v(_vm._s(user.firstname))]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "td",
+                                              { staticClass: "text-center" },
+                                              [_vm._v(_vm._s(user.lastname))]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "td",
+                                              { staticClass: "text-center" },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(giveblood.typeblood)
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "td",
+                                              { staticClass: "text-center" },
+                                              [_vm._v(_vm._s(giveblood.typerh))]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "td",
+                                              { staticClass: "text-center" },
+                                              [
+                                                _vm._v(
+                                                  "\n                        " +
+                                                    _vm._s(
+                                                      giveblooddonate.blooddonate
+                                                    ) +
+                                                    "\n                      "
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "td",
+                                              { staticClass: "text-center" },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(giveblood.bloodsupply)
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ])
+                                    ])
+                                  : _vm._e()
+                              ])
+                            }),
+                            0
+                          )
+                        : _vm._e()
+                    ])
+                  }),
+                  0
+                )
+              : _vm._e()
+          ])
+        }),
+        0
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "tr",
+      { staticStyle: { color: "#ff4b45" }, attrs: { id: "tablegive" } },
+      [
+        _c(
+          "th",
+          { staticClass: "text-center col-sm-2", attrs: { scope: "col" } },
+          [_vm._v("ชื่อ")]
+        ),
+        _vm._v(" "),
+        _c(
+          "th",
+          { staticClass: "text-center col-sm-2", attrs: { scope: "col " } },
+          [_vm._v("นามสกุล")]
+        ),
+        _vm._v(" "),
+        _c(
+          "th",
+          { staticClass: "text-center col-sm-1", attrs: { scope: "col" } },
+          [
+            _vm._v(
+              "\n                      กรุ๊ปเลือดที่บริจาค\n                    "
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "th",
+          { staticClass: "text-center col-sm-2", attrs: { scope: "col" } },
+          [_vm._v("กรุ๊ป RH")]
+        ),
+        _vm._v(" "),
+        _c(
+          "th",
+          { staticClass: "text-center col-sm-3", attrs: { scope: "col" } },
+          [
+            _vm._v(
+              "\n                      ปริมาณโลหิตที่บริจาค (cc.)\n                    "
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "th",
+          { staticClass: "text-center col-sm-3", attrs: { scope: "col" } },
+          [
+            _vm._v(
+              "\n                      ปริมาณโลหิตที่ยังต้องการ\n                    "
+            )
+          ]
+        )
+      ]
+    )
   }
 ]
 render._withStripped = true

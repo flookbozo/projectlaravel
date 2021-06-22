@@ -40,10 +40,10 @@
             <div class="card-body" id="card-body">
               <div class="col-md-6 offset-md-3">
                 <form v-on:submit.prevent="onSubmitHospital">
-                  <div class="alert alert-danger" v-if="hospital.errors.length">
+                  <div class="alert alert-danger" v-if="hospital.errors401.length">
                     <ul class="mb-0">
                       <li
-                        v-for="(error, index) in hospital.errors"
+                        v-for="(error, index) in hospital.errors401"
                         :key="index"
                       >
                         {{ error }}
@@ -59,6 +59,9 @@
                       placeholder="Username"
                       v-model="hospital.username"
                     />
+                    <div class="text-danger" v-if="hospital.errors.username">
+                      {{ hospital.errors.username }}
+                    </div>
                   </div>
 
                   <div class="form-group">
@@ -69,6 +72,9 @@
                       placeholder="Password"
                       v-model="hospital.password"
                     />
+                    <div class="text-danger" v-if="hospital.errors.password">
+                      {{ hospital.errors.password }}
+                    </div>
                   </div>
 
                   <div class="form-group">
@@ -79,6 +85,9 @@
                       placeholder="Password Again"
                       v-model="hospital.passwordAgain"
                     />
+                    <div class="text-danger" v-if="hospital.errors.passwordAgain">
+                      {{ hospital.errors.passwordAgain }}
+                    </div>
                   </div>
 
                   <div class="form-group">
@@ -89,6 +98,9 @@
                       placeholder="Email"
                       v-model="hospital.email"
                     />
+                    <div class="text-danger" v-if="hospital.errors.email">
+                      {{ hospital.errors.email }}
+                    </div>
                   </div>
 
                   <label>ชื่อผู้ดูแล</label>
@@ -104,6 +116,9 @@
                           <option>นาง</option>
                           <option>นางสาว</option>
                         </select>
+                        <div class="text-danger" v-if="hospital.errors.prefix">
+                          {{ hospital.errors.prefix }}
+                        </div>
                       </div>
                       <div class="col">
                         <input
@@ -112,6 +127,9 @@
                           placeholder="ชื่อ"
                           v-model="hospital.firstname"
                         />
+                        <div class="text-danger" v-if="hospital.errors.firstname">
+                          {{ hospital.errors.firstname }}
+                        </div>
                       </div>
                       <div class="col">
                         <input
@@ -120,6 +138,9 @@
                           placeholder="นามสกุล"
                           v-model="hospital.lastname"
                         />
+                        <div class="text-danger" v-if="hospital.errors.lastname">
+                          {{ hospital.errors.lastname }}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -131,6 +152,9 @@
                       placeholder="ชื่อโรงพยาบาล"
                       v-model="hospital.hospitalname"
                     />
+                    <div class="text-danger" v-if="hospital.errors.hospitalname">
+                      {{ hospital.errors.hospitalname }}
+                    </div>
                   </div>
                   <div class="form-group">
                     <label>ที่อยู่โรงพยาบาล</label>
@@ -142,6 +166,9 @@
                         placeholder="ที่อยู่โรงพยาบาล"
                         v-model="hospital.hospitaladdress"
                       ></textarea>
+                    </div>
+                    <div class="text-danger" v-if="hospital.errors.hospitaladdress">
+                      {{ hospital.errors.hospitaladdress }}
                     </div>
                   </div>
                   <div class="form-group">
@@ -229,6 +256,9 @@
                       <option>อุทัยธานี</option>
                       <option>อุบลราชธานี</option>
                     </select>
+                    <div class="text-danger" v-if="hospital.errors.provine">
+                      {{ hospital.errors.provine }}
+                    </div>
                   </div>
                   <div class="form-group">
                     <label>รหัสไปรษณีย์</label>
@@ -238,6 +268,9 @@
                       placeholder="รหัสไปรษณีย์"
                       v-model="hospital.addresscode"
                     />
+                    <div class="text-danger" v-if="hospital.errors.addresscode">
+                      {{ hospital.errors.addresscode }}
+                    </div>
                   </div>
                   <div class="form-group">
                     <label>เบอร์โทรศัพท์โรงพยาบาล</label>
@@ -246,6 +279,9 @@
                       placeholder="เบอร์โทรศัพท์"
                       v-model="hospital.phonnumber"
                     />
+                    <div class="text-danger" v-if="hospital.errors.phonnumber">
+                      {{ hospital.errors.phonnumber }}
+                    </div>
                   </div>
                   <div class="form-group">
                     <label>ละติจูด</label>
@@ -255,6 +291,9 @@
                       placeholder="ตัวอย่าง: 13.716331"
                       v-model="hospital.hospitallattitude"
                     />
+                    <div class="text-danger" v-if="hospital.errors.hospitallattitude">
+                      {{ hospital.errors.hospitallattitude }}
+                    </div>
                   </div>
                   <div class="form-group">
                     <label>ลองจิจูด</label>
@@ -264,6 +303,9 @@
                       placeholder="ตัวอย่าง: 100.5917665"
                       v-model="hospital.hospitallongitude"
                     />
+                    <div class="text-danger" v-if="hospital.errors.hospitallongitude">
+                      {{ hospital.errors.hospitallongitude }}
+                    </div>
                   </div>
 
                   <div class="form-group">
@@ -301,6 +343,9 @@
                           <option>ชื่อน้องชาย/พี่ชายของคุณ</option>
                         </select>
                         <div class="select-dropdown"></div>
+                        <div class="text-danger" v-if="hospital.errors.question">
+                          {{ hospital.errors.question }}
+                        </div>
                       </div>
 
                       <input
@@ -309,6 +354,9 @@
                         placeholder="คำตอบ"
                         v-model="hospital.answer"
                       />
+                      <div class="text-danger" v-if="hospital.errors.answer">
+                        {{ hospital.errors.answer }}
+                      </div>
                     </div>
                   </div>
                   <div class="text-center">
@@ -335,9 +383,9 @@
             <div class="card-body" id="card-body">
               <div class="col-md-6 offset-md-3">
                 <form v-on:submit.prevent="onSubmitUser">
-                  <div class="alert alert-danger" v-if="user.errors.length">
+                  <div class="alert alert-danger" v-if="user.errors401.length">
                     <ul class="mb-0">
-                      <li v-for="(error, index) in user.errors" :key="index">
+                      <li v-for="(error, index) in user.errors401" :key="index">
                         {{ error }}
                       </li>
                     </ul>
@@ -350,6 +398,9 @@
                       placeholder="Username"
                       v-model="user.username"
                     />
+                    <div class="text-danger" v-if="user.errors.username">
+                      {{ user.errors.username }}
+                    </div>
                   </div>
 
                   <div class="form-group">
@@ -360,6 +411,9 @@
                       placeholder="Password"
                       v-model="user.password"
                     />
+                    <div class="text-danger" v-if="user.errors.password">
+                      {{ user.errors.password }}
+                    </div>
                   </div>
 
                   <div class="form-group">
@@ -370,6 +424,9 @@
                       placeholder="Password Confirm"
                       v-model="user.passwordAgain"
                     />
+                    <div class="text-danger" v-if="user.errors.passwordAgain">
+                      {{ user.errors.passwordAgain }}
+                    </div>
                   </div>
 
                   <div class="form-group">
@@ -380,6 +437,9 @@
                       placeholder="Email"
                       v-model="user.email"
                     />
+                    <div class="text-danger" v-if="user.errors.email">
+                      {{ user.errors.email }}
+                    </div>
                   </div>
 
                   <label>ชื่อ</label>
@@ -395,6 +455,9 @@
                           <option>นาง</option>
                           <option>นางสาว</option>
                         </select>
+                        <div class="text-danger" v-if="user.errors.prefix">
+                          {{ user.errors.prefix }}
+                        </div>
                       </div>
                       <div class="col">
                         <input
@@ -403,6 +466,9 @@
                           placeholder="ชื่อ"
                           v-model="user.firstname"
                         />
+                        <div class="text-danger" v-if="user.errors.firstname">
+                          {{ user.errors.firstname }}
+                        </div>
                       </div>
                       <div class="col">
                         <input
@@ -411,6 +477,9 @@
                           placeholder="นามสกุล"
                           v-model="user.lastname"
                         />
+                        <div class="text-danger" v-if="user.errors.lastname">
+                          {{ user.errors.lastname }}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -423,6 +492,9 @@
                         <option value="ชาย">ชาย</option>
                         <option value="หญิง">หญิง</option>
                       </select>
+                      <div class="text-danger" v-if="user.errors.gender">
+                        {{ user.errors.gender }}
+                      </div>
                       <div v-if="user.gender == 'หญิง'">
                         <label style="color: #ff4343"
                           >*โปรดกรอกข้อมูลเพิ่มเติม*</label
@@ -456,6 +528,9 @@
                                 >ไม่ใช่</label
                               >
                             </div>
+                            <div class="text-danger" v-if="user.errors.duringpregnancy">
+                              {{ user.errors.duringpregnancy }}
+                            </div>
                           </div>
                           <label>คุณอยู่ในระหว่างการให้นมบุตรหรือไม่</label>
                           <div class="form-group">
@@ -484,6 +559,9 @@
                               <label class="form-check-label" for="inlineRadio2"
                                 >ไม่ใช่</label
                               >
+                            </div>
+                            <div class="text-danger" v-if="user.errors.breastfeeding">
+                              {{ user.errors.breastfeeding }}
                             </div>
                           </div>
 
@@ -517,6 +595,9 @@
                                 >ไม่ใช่</label
                               >
                             </div>
+                            <div class="text-danger" v-if="user.errors.givebirth_past_6">
+                              {{ user.errors.givebirth_past_6 }}
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -542,6 +623,9 @@
                           </select>
                           <div class="select-dropdown"></div>
                         </div>
+                       <div class="text-danger" v-if="user.errors.typeblood">
+                          {{ user.errors.typeblood }}
+                        </div>
                       </div>
                       <div class="col">
                         <div
@@ -557,6 +641,9 @@
                           </select>
                           <div class="select-dropdown"></div>
                         </div>
+                        <div class="text-danger" v-if="user.errors.typerh">
+                          {{ user.errors.typerh }}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -569,6 +656,9 @@
                         id="example-date-input"
                         v-model="user.date"
                       />
+                      <div class="text-danger" v-if="user.errors.date">
+                        {{ user.errors.date }}
+                      </div>
                     </div>
                   </div>
 
@@ -579,6 +669,9 @@
                       placeholder="เบอร์โทรศัพท์"
                       v-model="user.phonnumber"
                     />
+                    <div class="text-danger" v-if="user.errors.phonnumber">
+                      {{ user.errors.phonnumber }}
+                    </div>
                   </div>
 
                   <div class="form-group">
@@ -618,6 +711,9 @@
                         </select>
                         <div class="select-dropdown"></div>
                       </div>
+                      <div class="text-danger" v-if="user.errors.question">
+                        {{ user.errors.question }}
+                      </div>
 
                       <input
                         class="form-control"
@@ -625,6 +721,9 @@
                         placeholder="คำตอบ"
                         v-model="user.answer"
                       />
+                      <div class="text-danger" v-if="user.errors.answer">
+                        {{ user.errors.answer }}
+                      </div>
                     </div>
                   </div>
 
@@ -677,6 +776,7 @@ export default {
         question: "",
         answer: "",
         errors: [],
+        errors401: []
       },
       hospital: {
         username: "",
@@ -695,6 +795,7 @@ export default {
         question: "",
         answer: "",
         errors: [],
+        errors401: []
       },
     };
   },
@@ -709,7 +810,9 @@ export default {
 
   methods: {
     onSubmitUser() {
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
       this.user.errors = [];
+      this.user.errors401 = [];
       var checkUsername = false;
       var checkUseremail = false;
       for (var i = 0; i < this.users.length; i++) {
@@ -721,73 +824,116 @@ export default {
         }
       }
       if (checkUsername == true) {
-        this.user.errors.push("มี Username นี้อยู่ในระบบแล้ว");
+        this.user.errors401.push("มี Username นี้อยู่ในระบบแล้ว");
       }
+  
       if (checkUseremail == true) {
-        this.user.errors.push("มี Email นี้อยู่ในระบบแล้ว");
+        this.user.errors401.push("มี Email นี้อยู่ในระบบแล้ว");
       }
-      if (!this.user.username) {
-        this.user.errors.push("โปรดใส่ Username");
+      if (this.user.username == "") {
+        this.user.errors['username'] = "โปรดใส่ Username";
+        this.user.errors.length++;
+      }
+      else if(/[^\w.]/.test(this.user.username))
+      {
+        this.user.errors['username'] = "โปรดกรอกตัวอักษรหรือตัวเลข";
+        this.user.errors.length++;
       }
 
       if (!this.user.password) {
-        this.user.errors.push("โปรดใส่ Password");
+        this.user.errors['password'] = "โปรดใส่ Password";
+        this.user.errors.length++;
       }
 
       if (!this.user.passwordAgain) {
-        this.user.errors.push("โปรดใส่ Password อีกครั้ง");
+        this.user.errors['passwordAgain'] = "โปรดใส่ Password อีกครั้ง";
+        this.user.errors.length++;
       }
 
       if (this.user.password !== this.user.passwordAgain) {
-        this.user.errors.push("Passwords ไม่ตรงกัน");
+        this.user.errors401.push("Passwords ไม่ตรงกัน");
       }
-      if (!this.user.email) {
-        this.user.errors.push("โปรดใส่ Email");
+      if (this.user.email == "") {
+        this.user.errors['email'] = "โปรดใส่ Email";
+        this.user.errors.length++;
       }
-      if (!this.user.prefix) {
-        this.user.errors.push("โปรดใส่คำนำหน้า");
+      else if(!/[\w.@]/.test(this.user.email))
+      {
+        this.user.errors['email'] = "โปรดกรอกตัวอักษรหรือตัวเลข";
+        this.user.errors.length++;
+      }
+      else if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(this.user.email))
+      {
+        this.user.errors['email'] = "โปรดกรอกแบบฟอร์มอีเมล ตัวอย่าง a@email.com";
+        this.user.errors.length++;
       }
 
-      if (!this.user.firstname) {
-        this.user.errors.push("โปรดใส่ชื่อ");
+      if (!this.user.prefix) {
+        this.user.errors['prefix'] = "โปรดใส่คำนำหน้า";
+        this.user.errors.length++;
       }
-      if (!this.user.lastname) {
-        this.user.errors.push("โปรดใส่นามสกุล");
+
+      if (this.user.firstname == "") {
+        this.user.errors['firstname'] = "โปรดใส่ชื่อ";
+        this.user.errors.length++;
+      }
+      else if(/[^\wก-๙]/.test(this.user.firstname))
+      {
+        this.user.errors['firstname'] = "โปรดกรอกตัวอักษรหรือตัวเลข";
+        this.user.errors.length++;
+      }
+      if (this.user.lastname == "") {
+        this.user.errors['lastname'] = "โปรดใส่นามสกุล";
+        this.user.errors.length++;
+      }
+      else if(/[^\wก-๙]/.test(this.user.lastname))
+      {
+        this.user.errors['lastname'] = "โปรดกรอกตัวอักษรหรือตัวเลข";
+        this.user.errors.length++;
       }
       if (!this.user.gender) {
-        this.user.errors.push("โปรดเลือกเพศ");
+        this.user.errors['gender'] = "โปรดเลือกเพศ";
+        this.user.errors.length++;
       }
       if (this.user.gender == "หญิง") {
         if (!this.user.duringpregnancy) {
-          this.user.errors.push("โปรดกรอกข้อมูลเพิ่มเติมให้ครบ");
+          this.user.errors['duringpregnancy'] = "โปรดกรอกข้อมูลเพิ่มเติมให้ครบ";
+          this.user.errors.length++;
         }
         if (!this.user.breastfeeding) {
-          this.user.errors.push("โปรดกรอกข้อมูลเพิ่มเติมให้ครบ");
+          this.user.errors['breastfeeding'] = "โปรดกรอกข้อมูลเพิ่มเติมให้ครบ";
+          this.user.errors.length++;
         }
         if (!this.user.givebirth_past_6) {
-          this.user.errors.push("โปรดกรอกข้อมูลเพิ่มเติมให้ครบ");
+          this.user.errors['givebirth_past_6'] = "โปรดกรอกข้อมูลเพิ่มเติมให้ครบ";
+          this.user.errors.length++;
         }
       }
       if (!this.user.typeblood) {
-        this.user.errors.push("โปรดเลือกกรุ๊ปเลือด");
+        this.user.errors['typeblood'] = "โปรดเลือกกรุ๊ปเลือด";
+        this.user.errors.length++;
       }
       if (!this.user.typerh) {
-        this.user.errors.push("โปรดเลือกกรุ๊ปเลือด RH");
+        this.user.errors['typerh'] = "โปรดเลือกกรุ๊ปเลือด RH";
+        this.user.errors.length++;
       }
       if (!this.user.date) {
-        this.user.errors.push("โปรดใส่วัน/เดือน/ปีเกิด");
+        this.user.errors['date'] = "โปรดใส่วัน/เดือน/ปีเกิด";
+        this.user.errors.length++;
       }
       if (!this.user.phonnumber) {
-        this.user.errors.push("โปรดใส่เบอร์โทรศัพท์");
+        this.user.errors['phonnumber'] = "โปรดใส่เบอร์โทรศัพท์";
+        this.user.errors.length++;
       }
       if (!this.user.question) {
-        this.user.errors.push("ใส่คำถามเพื่อความปลอดภัย");
+        this.user.errors['question'] = "ใส่คำถามเพื่อความปลอดภัย";
+        this.user.errors.length++;
       }
       if (!this.user.answer) {
-        this.user.errors.push("ใส่คำตอบเพื่อความปลอดภัย");
+        this.user.errors['answer'] = "ใส่คำตอบเพื่อความปลอดภัย";
+        this.user.errors.length++;
       }
       if (!this.user.errors.length) {
-        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
         const data = {
           username: this.user.username,
           password: this.user.password,
@@ -813,13 +959,14 @@ export default {
             this.$router.push("/");
           })
           .catch((error) => {
-            this.user.errors.push(error.response.data.user.error);
+            this.user.errors401.push(error.response.data.user.error);
           });
       }
     },
     onSubmitHospital() {
       window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
       this.hospital.errors = [];
+      this.hospital.errors401 = [];
       var checkUsernameH = false;
       var checkHosemail = false;
 
@@ -833,65 +980,111 @@ export default {
       }
 
       if (checkUsernameH == true) {
-        this.hospital.errors.push("มี Username นี้อยู่ในระบบแล้ว");
+        this.hospital.errors401.push("มี Username นี้อยู่ในระบบแล้ว");
       }
       if (checkHosemail == true) {
-        this.hospital.errors.push("มี Email นี้อยู่ในระบบแล้ว");
+        this.hospital.errors401.push("มี Email นี้อยู่ในระบบแล้ว");
       }
 
-      if (!this.hospital.username) {
-        this.hospital.errors.push("โปรดใส่ Username");
+      if (this.hospital.username == "") {
+        this.hospital.errors['username'] = "โปรดใส่ Username";
+        this.hospital.errors.length++;
+      }
+      else if(/[^\w.]/.test(this.hospital.username))
+      {
+        this.hospital.errors['username'] = "โปรดกรอกตัวอักษรหรือตัวเลข";
+        this.hospital.errors.length++;
       }
 
       if (!this.hospital.password) {
-        this.hospital.errors.push("โปรดใส่ Password");
+        this.hospital.errors['password'] = "โปรดใส่ Password";
+        this.hospital.errors.length++;
       }
 
       if (!this.hospital.passwordAgain) {
-        this.hospital.errors.push("โปรดใส่ Password อีกครั้ง");
+        this.hospital.errors['passwordAgain'] = "โปรดใส่ Password อีกครั้ง";
+        this.hospital.errors.length++;
       }
 
       if (this.hospital.password !== this.hospital.passwordAgain) {
-        this.hospital.errors.push("Passwords ไม่ตรงกัน");
+        this.hospital.errors401.push("Passwords ไม่ตรงกัน");
       }
-      if (!this.hospital.email) {
-        this.hospital.errors.push("โปรดใส่ Email");
+      if (this.hospital.email == "") {
+        this.hospital.errors['email'] = "โปรดใส่ Email";
+        this.hospital.errors.length++;
+      }
+      else if(!/[\w.@]/.test(this.hospital.email))
+      {
+        this.hospital.errors['email'] = "โปรดกรอกตัวอักษรหรือตัวเลข";
+        this.hospital.errors.length++;
+      }
+      else if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(this.hospital.email))
+      {
+        this.hospital.errors['email'] = "โปรดกรอกแบบฟอร์มอีเมล ตัวอย่าง a@email.com";
+        this.hospital.errors.length++;
       }
       if (!this.hospital.prefix) {
-        this.hospital.errors.push("โปรดใส่คำนำหน้า");
+        this.hospital.errors['prefix'] = "โปรดใส่คำนำหน้า";
+        this.hospital.errors.length++;
       }
-      if (!this.hospital.firstname) {
-        this.hospital.errors.push("โปรดใส่ชื่อ");
+      if (this.hospital.firstname == "") {
+        this.hospital.errors['firstname'] = "โปรดใส่ชื่อ";
+        this.hospital.errors.length++;
       }
-      if (!this.hospital.lastname) {
-        this.hospital.errors.push("โปรดใส่นามสกุล");
+      else if(/[^\wก-๙]/.test(this.hospital.firstname))
+      {
+        this.hospital.errors['firstname'] = "โปรดกรอกตัวอักษรหรือตัวเลข";
+        this.hospital.errors.length++;
+      }
+      if (this.hospital.lastname == "") {
+        this.hospital.errors['lastname'] = "โปรดใส่นามสกุล";
+        this.hospital.errors.length++;
+      }
+      else if(/[^\wก-๙]/.test(this.hospital.lastname))
+      {
+        this.hospital.errors['lastname'] = "โปรดกรอกตัวอักษรหรือตัวเลข";
+        this.hospital.errors.length++;
       }
       if (!this.hospital.hospitalname) {
-        this.hospital.errors.push("โปรดใส่ชื่อโรงพยาบาล");
+        this.hospital.errors['hospitalname'] = "โปรดใส่ชื่อโรงพยาบาล";
+        this.hospital.errors.length++;
+      }
+      else if(/[^\wก-๙.]/.test(this.hospital.hospitalname))
+      {
+        this.hospital.errors['hospitalname'] = "โปรดกรอกตัวอักษรหรือตัวเลข";
+        this.hospital.errors.length++;
       }
       if (!this.hospital.hospitaladdress) {
-        this.hospital.errors.push("โปรดใส่ที่อยู่โรงพยาบาล");
+        this.hospital.errors['hospitaladdress'] = "โปรดใส่ที่อยู่โรงพยาบาล";
+        this.hospital.errors.length++;
       }
       if (!this.hospital.provine) {
-        this.hospital.errors.push("โปรดใส่จังหวัด");
+        this.hospital.errors['provine'] = "โปรดใส่จังหวัด";
+        this.hospital.errors.length++;
       }
       if (!this.hospital.addresscode) {
-        this.hospital.errors.push("โปรดใส่เลขไปรษณีย์");
+        this.hospital.errors['addresscode'] = "โปรดใส่เลขไปรษณีย์";
+        this.hospital.errors.length++;
       }
       if (!this.hospital.phonnumber) {
-        this.hospital.errors.push("โปรดใส่เบอร์โทรศัพท์");
+        this.hospital.errors['phonnumber'] = "โปรดใส่เบอร์โทรศัพท์";
+        this.hospital.errors.length++;
       }
       if (!this.hospital.hospitallongitude) {
-        this.hospital.errors.push("โปรดใส่ลองจิจูด");
+        this.hospital.errors['hospitallongitude'] = "โปรดใส่ลองจิจูด";
+        this.hospital.errors.length++;
       }
       if (!this.hospital.hospitallattitude) {
-        this.hospital.errors.push("โปรดใส่ละติจูด");
+        this.hospital.errors['hospitallattitude'] = "โปรดใส่ละติจูด";
+        this.hospital.errors.length++;
       }
       if (!this.hospital.question) {
-        this.hospital.errors.push("ใส่คำถามเพื่อความปลอดภัย");
+        this.hospital.errors['question'] = "ใส่คำถามเพื่อความปลอดภัย";
+        this.hospital.errors.length++;
       }
       if (!this.hospital.answer) {
-        this.hospital.errors.push("ใส่คำตอบเพื่อความปลอดภัย");
+        this.hospital.errors['answer'] = "ใส่คำตอบเพื่อความปลอดภัย";
+        this.hospital.errors.length++;
       }
 
       if (!this.hospital.errors.length) {
@@ -919,7 +1112,7 @@ export default {
             this.$router.push("/");
           })
           .catch((error) => {
-            this.hospital.errors.push(error.response.data.hospital.error);
+            this.hospital.errors401.push(error.response.data.hospital.error);
           });
       }
     },

@@ -17,6 +17,7 @@ class CreateDonatehistoriesTable extends Migration
             $table->id();
             $table->integer('idUser');
             $table->integer('idHospital');
+            $table->integer('idRequest');
             $table->integer('blooddonate');
             $table->timestamps();
         });

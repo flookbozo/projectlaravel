@@ -66,6 +66,10 @@
                 <router-link class="dropdown-item" to="/Profilegiveblood"
                   >การขอเลือด</router-link
                 >
+
+                 <router-link class="dropdown-item" to="/profileblooddonate"
+                  >เลือด</router-link
+                >
               </div>
 
               <a @click="logout" href="javascript:;" class="dropdown-item"

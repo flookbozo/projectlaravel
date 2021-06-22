@@ -12,6 +12,7 @@ use App\Http\Controllers\CalDistanceController;
 use App\Http\Controllers\RegisterUserController;
 use App\Http\Controllers\RegisterHosController;
 use App\Http\Controllers\CalBloodSupplyController;
+use App\Http\Controllers\GiveblooddonateController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -26,6 +27,8 @@ use App\Http\Controllers\CalBloodSupplyController;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('giveblooddonate', [GiveblooddonateController::class,'index']); 
 
 Route::post('givebloods', [GivebloodController::class, 'store']);
 Route::get('givebloods', [GivebloodController::class, 'index']);      

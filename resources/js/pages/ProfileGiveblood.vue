@@ -15,43 +15,39 @@
             id="imagegive"
           />
           <table class="table table-striped" align="center">
-            <div v-for="(giveblood, index) in givebloods" :key="giveblood.id">
-              <div v-if="giveblood.idHospital == app.user.id">
-                <div>
-                  <tr id="tablegive" style="color: #ff4b45">
-                    <th class="text-center col-sm-2" scope="col">กรุ๊ปเลือด</th>
-                    <th class="text-center col-sm-2" scope="col ">
-                      กรุ๊ปเลือด RH
-                    </th>
-                    <th class="text-center col-sm-3" scope="col">
-                      ปริมาณโลหิตที่ต้องการ (cc)
-                    </th>
-                    <th class="text-center col-sm-4" scope="col">ลบคำขอ</th>
-                  </tr>
-                  <tbody>
-                    <tr id="tablegiveblood" scope="row">
-                      <td class="text-center">{{ giveblood.typeblood }}</td>
-                      <td class="text-center">{{ giveblood.typerh }}</td>
-                      <td class="text-center">
-                        {{ giveblood.deficiencyBlood }}
-                      </td>
-                      <td class="text-center">
-                        <div class="btn-group" role="group">
-                          <a
-                            href="javascript:;"
-                            class="btn"
-                            id="edit"
-                            v-on:click="deleteBlood(giveblood.id, index)"
-                          >
-                            Delete
-                          </a>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </div>
-              </div>
-            </div>
+            <tr id="tablegive" style="color: #ff4b45">
+              <th class="text-center col-sm-2" scope="col">กรุ๊ปเลือด</th>
+                <th class="text-center col-sm-2" scope="col ">
+                  กรุ๊ปเลือด RH
+                </th>
+                <th class="text-center col-sm-3" scope="col">
+                  ปริมาณโลหิตที่ต้องการ (cc)
+                </th>
+                <th class="text-center col-sm-4" scope="col">ลบคำขอ</th>
+            </tr>
+            <tbody>
+              <tr id="tablegiveblood" scope="row" v-for="(giveblood, index) in givebloods" :key="giveblood.id">
+                <template v-if="giveblood.idHospital == app.user.id">
+                  <td class="text-center">{{ giveblood.typeblood }}</td>
+                  <td class="text-center">{{ giveblood.typerh }}</td>
+                  <td class="text-center">
+                    {{ giveblood.deficiencyBlood }}
+                  </td>
+                  <td class="text-center">
+                  <div class="btn-group" role="group">
+                    <a
+                      href="javascript:;"
+                      class="btn"
+                      id="edit"
+                      v-on:click="deleteBlood(giveblood.id, index)"
+                    >
+                      Delete
+                    </a>
+                  </div>
+                  </td>
+                </template>
+              </tr>
+            </tbody>
           </table>
           <div class="text-center">
             <router-link

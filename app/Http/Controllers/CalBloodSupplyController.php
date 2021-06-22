@@ -29,6 +29,7 @@ class CalBloodSupplyController extends Controller
                 $history = new Donatehistory();
                 $history->idUser = $request->idUser;
                 $history->idHospital = $location->idHospital;
+                $history->idRequest = $request->idRequest;
                 $history->blooddonate = 350;
                 $history->save();
             }

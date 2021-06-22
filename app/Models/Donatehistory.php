@@ -11,6 +11,7 @@ class Donatehistory extends Model
     protected $fillable = [
         'idUser',
         'idHospital',
-        'blooddonate'
+        'idRequest',
+        'blooddonate',
     ];
 }
