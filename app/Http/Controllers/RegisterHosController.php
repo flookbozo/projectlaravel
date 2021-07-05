@@ -45,7 +45,7 @@ class RegisterHosController extends Controller
 
     public function loginHospital(Request $request)
     {
-        if (Auth::guard('hospitals')->attempt(['email' => $request->email, 'password' => $request->password], true))
+        if (Auth::guard('hospitals')->attempt(['username' => $request->username, 'password' => $request->password], true))
         {
             return response()->json(Auth::guard('hospitals')->user(),200);
         }

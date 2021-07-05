@@ -52,15 +52,15 @@
                 </div>
 
                 <div class="form-group">
-                  <label>Email</label>
+                  <label>Username</label>
                   <input
-                    type="email"
+                    type="text"
                     class="form-control"
-                    placeholder="Email"
-                    v-model="hospital.email"
+                    placeholder="Username"
+                    v-model="hospital.username"
                   />
-                  <div class="text-danger" v-if="hospital.errors.email">
-                    {{ hospital.errors.email }}
+                  <div class="text-danger" v-if="hospital.errors.username">
+                    {{ hospital.errors.username }}
                   </div>
                 </div>
 
@@ -116,15 +116,15 @@
                 </div>
 
                 <div class="form-group">
-                  <label>Email</label>
+                  <label>Username</label>
                   <input
-                    type="email"
+                    type="text"
                     class="form-control"
-                    placeholder="Email"
-                    v-model="user.email"
+                    placeholder="Username"
+                    v-model="user.username"
                   />
-                  <div class="text-danger" v-if="user.errors.email">
-                    {{ user.errors.email }}
+                  <div class="text-danger" v-if="user.errors.username">
+                    {{ user.errors.username }}
                   </div>
                 </div>
 
@@ -168,13 +168,13 @@ export default {
   data() {
     return {
       user: {
-        email: "",
+        username: "",
         password: "",
         errors: [],
         errors401: []
       },
       hospital: {
-        email: "",
+        username: "",
         password: "",
         errors: [],
         errors401: []
@@ -185,18 +185,13 @@ export default {
     onSubmitUser() {
       this.user.errors = [];
       this.user.errors401 = [];
-      if (this.user.email == "") {
-        this.user.errors['email'] = "โปรดใส่อีเมล";
+      if (this.user.username == "") {
+        this.user.errors['username'] = "โปรดใส่อีเมล";
         this.user.errors.length++;
       }
-      else if(!/[\w.@]/.test(this.user.email))
+      else if(!/[\w.@]/.test(this.user.username))
       {
-        this.user.errors['email'] = "โปรดกรอกตัวอักษรหรือตัวเลข";
-        this.user.errors.length++;
-      }
-      else if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(this.user.email))
-      {
-        this.user.errors['email'] = "โปรดกรอกแบบฟอร์มอีเมล ตัวอย่าง a@email.com";
+        this.user.errors['username'] = "โปรดกรอกตัวอักษรหรือตัวเลข";
         this.user.errors.length++;
       }
 
@@ -207,7 +202,7 @@ export default {
 
       if (!this.user.errors.length) {
         const data = {
-          email: this.user.email,
+          username: this.user.username,
           password: this.user.password,
         };
         this.app.req
@@ -225,20 +220,16 @@ export default {
     onSubmitHospital() {
       this.hospital.errors = [];
       this.hospital.errors401 = [];
-     if (!this.hospital.email) {
-        this.hospital.errors['email'] = "โปรดใส่อีเมล";
+     if (!this.hospital.username) {
+        this.hospital.errors['username'] = "โปรดใส่อีเมล";
         this.hospital.errors.length++;
       }
-      else if(!/[\w.@]/.test(this.hospital.email))
+      else if(!/[\w.@]/.test(this.hospital.username))
       {
-        this.hospital.errors['email'] = "โปรดกรอกตัวอักษรหรือตัวเลข";
+        this.hospital.errors['username'] = "โปรดกรอกตัวอักษรหรือตัวเลข";
         this.hospital.errors.length++;
       }
-      else if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(this.hospital.email))
-      {
-        this.hospital.errors['email'] = "โปรดกรอกแบบฟอร์มอีเมล ตัวอย่าง a@email.com";
-        this.hospital.errors.length++;
-      }
+      
       if (!this.hospital.password) {
         this.hospital.errors['password'] = "โปรดใส่รหัสผ่าน";
         this.hospital.errors.length++;
@@ -246,7 +237,7 @@ export default {
 
       if (!this.hospital.errors.length) {
         const data = {
-          email: this.hospital.email,
+          username: this.hospital.username,
           password: this.hospital.password,
         };
 

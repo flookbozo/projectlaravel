@@ -103,7 +103,7 @@
                     </div>
                   </div>
 
-                  <label>ชื่อผู้ดูแล</label>
+                  <label>ชื่อผู้ดูแลระบบโรงพยาบาล</label>
                   <div class="form-group">
                     <div class="row">
                       <div class="col">
@@ -112,6 +112,8 @@
                           v-model="hospital.prefix"
                         >
                           <option value="">คำนำหน้า</option>
+                          <option>นายแพทย์</option>
+                          <option>แพทย์หญิง</option>
                           <option>นาย</option>
                           <option>นาง</option>
                           <option>นางสาว</option>
@@ -284,7 +286,7 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label>ละติจูด</label>
+                    <label>ละติจูด (ค้นหาได้จาก Google Map)</label>
                     <input
                       type="text"
                       class="form-control"
@@ -296,7 +298,7 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label>ลองจิจูด</label>
+                    <label>ลองจิจูด (ค้นหาได้จาก Google Map)</label>
                     <input
                       type=""
                       class="form-control"
@@ -969,6 +971,7 @@ export default {
       this.hospital.errors401 = [];
       var checkUsernameH = false;
       var checkHosemail = false;
+      var checkHosname = false;
 
       for (var i = 0; i < this.hospitals.length; i++) {
         if (this.hospital.email == this.hospitals[i].email) {
@@ -977,6 +980,9 @@ export default {
         if (this.hospital.username == this.hospitals[i].username) {
           checkUsernameH = true;
         }
+        if (this.hospital.hospitalname == this.hospitals[i].hospitalname) {
+          checkHosname = true;
+        }
       }
 
       if (checkUsernameH == true) {
@@ -984,6 +990,9 @@ export default {
       }
       if (checkHosemail == true) {
         this.hospital.errors401.push("มี Email นี้อยู่ในระบบแล้ว");
+      }
+      if (checkHosname == true) {
+        this.hospital.errors401.push("มีชื่อโรงพยาบาลนี้อยู่ในระบบแล้ว")
       }
 
       if (this.hospital.username == "") {

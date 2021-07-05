@@ -3513,13 +3513,13 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       user: {
-        email: "",
+        username: "",
         password: "",
         errors: [],
         errors401: []
       },
       hospital: {
-        email: "",
+        username: "",
         password: "",
         errors: [],
         errors401: []
@@ -3533,14 +3533,11 @@ __webpack_require__.r(__webpack_exports__);
       this.user.errors = [];
       this.user.errors401 = [];
 
-      if (this.user.email == "") {
-        this.user.errors['email'] = "โปรดใส่อีเมล";
+      if (this.user.username == "") {
+        this.user.errors['username'] = "โปรดใส่อีเมล";
         this.user.errors.length++;
-      } else if (!/[\w.@]/.test(this.user.email)) {
-        this.user.errors['email'] = "โปรดกรอกตัวอักษรหรือตัวเลข";
-        this.user.errors.length++;
-      } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(this.user.email)) {
-        this.user.errors['email'] = "โปรดกรอกแบบฟอร์มอีเมล ตัวอย่าง a@email.com";
+      } else if (!/[\w.@]/.test(this.user.username)) {
+        this.user.errors['username'] = "โปรดกรอกตัวอักษรหรือตัวเลข";
         this.user.errors.length++;
       }
 
@@ -3551,7 +3548,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (!this.user.errors.length) {
         var data = {
-          email: this.user.email,
+          username: this.user.username,
           password: this.user.password
         };
         this.app.req.post("auth/user/login", this.user).then(function (response) {
@@ -3570,14 +3567,11 @@ __webpack_require__.r(__webpack_exports__);
       this.hospital.errors = [];
       this.hospital.errors401 = [];
 
-      if (!this.hospital.email) {
-        this.hospital.errors['email'] = "โปรดใส่อีเมล";
+      if (!this.hospital.username) {
+        this.hospital.errors['username'] = "โปรดใส่อีเมล";
         this.hospital.errors.length++;
-      } else if (!/[\w.@]/.test(this.hospital.email)) {
-        this.hospital.errors['email'] = "โปรดกรอกตัวอักษรหรือตัวเลข";
-        this.hospital.errors.length++;
-      } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(this.hospital.email)) {
-        this.hospital.errors['email'] = "โปรดกรอกแบบฟอร์มอีเมล ตัวอย่าง a@email.com";
+      } else if (!/[\w.@]/.test(this.hospital.username)) {
+        this.hospital.errors['username'] = "โปรดกรอกตัวอักษรหรือตัวเลข";
         this.hospital.errors.length++;
       }
 
@@ -3588,7 +3582,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (!this.hospital.errors.length) {
         var data = {
-          email: this.hospital.email,
+          username: this.hospital.username,
           password: this.hospital.password
         };
         this.app.req.post("auth/hospital/login", this.hospital).then(function (response) {
@@ -4877,6 +4871,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "register",
   props: ["app"],
@@ -5105,6 +5101,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.hospital.errors401 = [];
       var checkUsernameH = false;
       var checkHosemail = false;
+      var checkHosname = false;
 
       for (var i = 0; i < this.hospitals.length; i++) {
         if (this.hospital.email == this.hospitals[i].email) {
@@ -5114,6 +5111,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         if (this.hospital.username == this.hospitals[i].username) {
           checkUsernameH = true;
         }
+
+        if (this.hospital.hospitalname == this.hospitals[i].hospitalname) {
+          checkHosname = true;
+        }
       }
 
       if (checkUsernameH == true) {
@@ -5122,6 +5123,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       if (checkHosemail == true) {
         this.hospital.errors401.push("มี Email นี้อยู่ในระบบแล้ว");
+      }
+
+      if (checkHosname == true) {
+        this.hospital.errors401.push("มีชื่อโรงพยาบาลนี้อยู่ในระบบแล้ว");
       }
 
       if (this.hospital.username == "") {
@@ -47530,20 +47535,20 @@ var render = function() {
                           : _vm._e(),
                         _vm._v(" "),
                         _c("div", { staticClass: "form-group" }, [
-                          _c("label", [_vm._v("Email")]),
+                          _c("label", [_vm._v("Username")]),
                           _vm._v(" "),
                           _c("input", {
                             directives: [
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: _vm.hospital.email,
-                                expression: "hospital.email"
+                                value: _vm.hospital.username,
+                                expression: "hospital.username"
                               }
                             ],
                             staticClass: "form-control",
-                            attrs: { type: "email", placeholder: "Email" },
-                            domProps: { value: _vm.hospital.email },
+                            attrs: { type: "text", placeholder: "Username" },
+                            domProps: { value: _vm.hospital.username },
                             on: {
                               input: function($event) {
                                 if ($event.target.composing) {
@@ -47551,18 +47556,18 @@ var render = function() {
                                 }
                                 _vm.$set(
                                   _vm.hospital,
-                                  "email",
+                                  "username",
                                   $event.target.value
                                 )
                               }
                             }
                           }),
                           _vm._v(" "),
-                          _vm.hospital.errors.email
+                          _vm.hospital.errors.username
                             ? _c("div", { staticClass: "text-danger" }, [
                                 _vm._v(
                                   "\n                  " +
-                                    _vm._s(_vm.hospital.errors.email) +
+                                    _vm._s(_vm.hospital.errors.username) +
                                     "\n                "
                                 )
                               ])
@@ -47707,35 +47712,39 @@ var render = function() {
                           : _vm._e(),
                         _vm._v(" "),
                         _c("div", { staticClass: "form-group" }, [
-                          _c("label", [_vm._v("Email")]),
+                          _c("label", [_vm._v("Username")]),
                           _vm._v(" "),
                           _c("input", {
                             directives: [
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: _vm.user.email,
-                                expression: "user.email"
+                                value: _vm.user.username,
+                                expression: "user.username"
                               }
                             ],
                             staticClass: "form-control",
-                            attrs: { type: "email", placeholder: "Email" },
-                            domProps: { value: _vm.user.email },
+                            attrs: { type: "text", placeholder: "Username" },
+                            domProps: { value: _vm.user.username },
                             on: {
                               input: function($event) {
                                 if ($event.target.composing) {
                                   return
                                 }
-                                _vm.$set(_vm.user, "email", $event.target.value)
+                                _vm.$set(
+                                  _vm.user,
+                                  "username",
+                                  $event.target.value
+                                )
                               }
                             }
                           }),
                           _vm._v(" "),
-                          _vm.user.errors.email
+                          _vm.user.errors.username
                             ? _c("div", { staticClass: "text-danger" }, [
                                 _vm._v(
                                   "\n                  " +
-                                    _vm._s(_vm.user.errors.email) +
+                                    _vm._s(_vm.user.errors.username) +
                                     "\n                "
                                 )
                               ])
@@ -48713,7 +48722,7 @@ var render = function() {
                               : _vm._e()
                           ]),
                           _vm._v(" "),
-                          _c("label", [_vm._v("ชื่อผู้ดูแล")]),
+                          _c("label", [_vm._v("ชื่อผู้ดูแลระบบโรงพยาบาล")]),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group" }, [
                             _c("div", { staticClass: "row" }, [
@@ -48757,6 +48766,10 @@ var render = function() {
                                     _c("option", { attrs: { value: "" } }, [
                                       _vm._v("คำนำหน้า")
                                     ]),
+                                    _vm._v(" "),
+                                    _c("option", [_vm._v("นายแพทย์")]),
+                                    _vm._v(" "),
+                                    _c("option", [_vm._v("แพทย์หญิง")]),
                                     _vm._v(" "),
                                     _c("option", [_vm._v("นาย")]),
                                     _vm._v(" "),
@@ -49245,7 +49258,9 @@ var render = function() {
                           ]),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group" }, [
-                            _c("label", [_vm._v("ละติจูด")]),
+                            _c("label", [
+                              _vm._v("ละติจูด (ค้นหาได้จาก Google Map)")
+                            ]),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
@@ -49292,7 +49307,9 @@ var render = function() {
                           ]),
                           _vm._v(" "),
                           _c("div", { staticClass: "form-group" }, [
-                            _c("label", [_vm._v("ลองจิจูด")]),
+                            _c("label", [
+                              _vm._v("ลองจิจูด (ค้นหาได้จาก Google Map)")
+                            ]),
                             _vm._v(" "),
                             _c("input", {
                               directives: [
