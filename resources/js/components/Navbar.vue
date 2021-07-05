@@ -68,7 +68,7 @@
                 >
 
                  <router-link class="dropdown-item" to="/profileblooddonate"
-                  >เลือด</router-link
+                  >ผู้บริจาค</router-link
                 >
               </div>
 

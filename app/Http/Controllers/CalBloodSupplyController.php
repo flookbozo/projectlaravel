@@ -18,28 +18,47 @@ class CalBloodSupplyController extends Controller
         if($answer == 1)
         {
             $sumblood = $giveblood->bloodreceived + 350;
-            if($sumblood <= $giveblood->deficiencyBlood)
+            if($giveblood->bloodsupply != 0)
             {
-                $giveblood->bloodreceived = $sumblood;
-                $giveblood->bloodsupply = $giveblood->bloodsupply - 350;
-                $response['messages'] = "ขอบคุณสำหรับความร่วมมือ ทางโรงพยาบาลกำลังรอโลหิตของคุณอยู่";
-                $response['success'] = true;
-                $location->donate_at = date('Y-m-d H:i:s', $time);
+                if($sumblood <= $giveblood->deficiencyBlood)
+                {
+                    $giveblood->bloodreceived = $sumblood;
+                    $giveblood->bloodsupply = $giveblood->bloodsupply - 350;
+                    $response['messages'] = "ขอบคุณสำหรับความร่วมมือ ทางโรงพยาบาลกำลังรอโลหิตของคุณอยู่";
+                    $response['success'] = true;
+                    $location->donate_at = date('Y-m-d H:i:s', $time);
 
-                $history = new Donatehistory();
-                $history->idUser = $request->idUser;
-                $history->idHospital = $location->idHospital;
-                $history->idRequest = $request->idRequest;
-                $history->blooddonate = 350;
-                $history->save();
+                    $history = new Donatehistory();
+                    $history->idUser = $request->idUser;
+                    $history->idHospital = $location->idHospital;
+                    $history->idRequest = $request->idRequest;
+                    $history->blooddonate = 350;
+                    $history->save();
+                }
+                else
+                {
+                    $giveblood->bloodreceived = $giveblood->deficiencyBlood;
+                    $giveblood->bloodsupply = 0;
+                    $response['messages'] = "ขอบคุณสำหรับความร่วมมือ ทางโรงพยาบาลกำลังรอโลหิตของคุณอยู่";
+                    $response['success'] = true;
+                    $location->donate_at = date('Y-m-d H:i:s', $time);
+
+                    $history = new Donatehistory();
+                    $history->idUser = $request->idUser;
+                    $history->idHospital = $location->idHospital;
+                    $history->idRequest = $request->idRequest;
+                    $history->blooddonate = 350;
+                    $history->save();
+                }
+                $location->reply = 1;
+                $location->status = 0;
             }
             else
             {
                 $response['messages'] = "ขออภัยตอนนี้ทางโรงพยาบาลได้รับโลหิตครบตามที่ต้องการแล้ว ขอบคุณสำหรับความร่วมมือของท่าน";
                 $response['success'] = false;
             }
-            $location->reply = 1;
-            $location->status = 0;
+            
         }
         else if ($answer == 2)
         {

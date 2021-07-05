@@ -5181,7 +5181,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       if (!this.hospital.hospitalname) {
         this.hospital.errors['hospitalname'] = "โปรดใส่ชื่อโรงพยาบาล";
         this.hospital.errors.length++;
-      } else if (/[^\wก-๙.]/.test(this.hospital.hospitalname)) {
+      } else if (/[^\wก-๙. ]/.test(this.hospital.hospitalname)) {
         this.hospital.errors['hospitalname'] = "โปรดกรอกตัวอักษรหรือตัวเลข";
         this.hospital.errors.length++;
       }
@@ -5833,6 +5833,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -44986,7 +44993,7 @@ var render = function() {
                                     staticClass: "dropdown-item",
                                     attrs: { to: "/profileblooddonate" }
                                   },
-                                  [_vm._v("เลือด")]
+                                  [_vm._v("ผู้บริจาค")]
                                 )
                               ],
                               1
@@ -48679,7 +48686,7 @@ var render = function() {
                                 }
                               ],
                               staticClass: "form-control",
-                              attrs: { type: "email", placeholder: "Email" },
+                              attrs: { type: "text", placeholder: "Email" },
                               domProps: { value: _vm.hospital.email },
                               on: {
                                 input: function($event) {
@@ -49699,7 +49706,7 @@ var render = function() {
                                 }
                               ],
                               staticClass: "form-control",
-                              attrs: { type: "email", placeholder: "Email" },
+                              attrs: { type: "text", placeholder: "Email" },
                               domProps: { value: _vm.user.email },
                               on: {
                                 input: function($event) {
@@ -51834,11 +51841,11 @@ var render = function() {
                                               { staticClass: "text-center" },
                                               [
                                                 _vm._v(
-                                                  "\n                        " +
+                                                  "\n                          " +
                                                     _vm._s(
                                                       giveblooddonate.blooddonate
                                                     ) +
-                                                    "\n                      "
+                                                    "\n                        "
                                                 )
                                               ]
                                             ),
@@ -51848,7 +51855,11 @@ var render = function() {
                                               { staticClass: "text-center" },
                                               [
                                                 _vm._v(
-                                                  _vm._s(giveblood.bloodsupply)
+                                                  "\n                          " +
+                                                    _vm._s(
+                                                      giveblood.bloodsupply
+                                                    ) +
+                                                    "\n                        "
                                                 )
                                               ]
                                             )
@@ -51892,7 +51903,7 @@ var staticRenderFns = [
         _c(
           "th",
           { staticClass: "text-center col-sm-2", attrs: { scope: "col " } },
-          [_vm._v("นามสกุล")]
+          [_vm._v("\n                        นามสกุล\n                      ")]
         ),
         _vm._v(" "),
         _c(
@@ -51900,7 +51911,7 @@ var staticRenderFns = [
           { staticClass: "text-center col-sm-1", attrs: { scope: "col" } },
           [
             _vm._v(
-              "\n                      กรุ๊ปเลือดที่บริจาค\n                    "
+              "\n                        กรุ๊ปเลือดที่บริจาค\n                      "
             )
           ]
         ),
@@ -51908,7 +51919,7 @@ var staticRenderFns = [
         _c(
           "th",
           { staticClass: "text-center col-sm-2", attrs: { scope: "col" } },
-          [_vm._v("กรุ๊ป RH")]
+          [_vm._v("\n                        กรุ๊ป RH\n                      ")]
         ),
         _vm._v(" "),
         _c(
@@ -51916,7 +51927,7 @@ var staticRenderFns = [
           { staticClass: "text-center col-sm-3", attrs: { scope: "col" } },
           [
             _vm._v(
-              "\n                      ปริมาณโลหิตที่บริจาค (cc.)\n                    "
+              "\n                        ปริมาณโลหิตที่บริจาค (cc.)\n                      "
             )
           ]
         ),
@@ -51926,7 +51937,7 @@ var staticRenderFns = [
           { staticClass: "text-center col-sm-3", attrs: { scope: "col" } },
           [
             _vm._v(
-              "\n                      ปริมาณโลหิตที่ยังต้องการ\n                    "
+              "\n                        ปริมาณโลหิตที่ยังต้องการ\n                      "
             )
           ]
         )

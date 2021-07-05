@@ -93,7 +93,7 @@
                   <div class="form-group">
                     <label>Email</label>
                     <input
-                      type="email"
+                      type="text"
                       class="form-control"
                       placeholder="Email"
                       v-model="hospital.email"
@@ -432,7 +432,7 @@
                   <div class="form-group">
                     <label>Email</label>
                     <input
-                      type="email"
+                      type="text"
                       class="form-control"
                       placeholder="Email"
                       v-model="user.email"
@@ -1049,7 +1049,7 @@ export default {
         this.hospital.errors['hospitalname'] = "โปรดใส่ชื่อโรงพยาบาล";
         this.hospital.errors.length++;
       }
-      else if(/[^\wก-๙.]/.test(this.hospital.hospitalname))
+      else if(/[^\wก-๙. ]/.test(this.hospital.hospitalname))
       {
         this.hospital.errors['hospitalname'] = "โปรดกรอกตัวอักษรหรือตัวเลข";
         this.hospital.errors.length++;
